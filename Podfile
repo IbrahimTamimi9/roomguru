@@ -62,7 +62,7 @@ end
 post_install do |installer|
 
     puts 'Setting appropriate code signing identities'
-    installer.project.targets.each { |target|
+    installer.pods_project.targets.each { |target|
         {
             'iPhone Developer' => ['Debug', 'Development', 'Test'],
             'iPhone Distribution' => ['Release', 'Staging', 'Production'],
