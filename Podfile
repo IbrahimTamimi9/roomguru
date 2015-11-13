@@ -14,48 +14,41 @@ use_frameworks!
 
 xcodeproj 'Roomguru', 'Development' => :debug, 'Production' => :release, 'Staging' => :release, 'Test' => :debug
 
-pod 'AFNetworking', '~> 2.5.2'
+pod 'AFNetworking', '~> 2.6.3'
 
-pod 'Alamofire', '~> 1.2.0'
+pod 'Alamofire', '~> 3.1.2’
 
 pod 'Async',
     :git => "https://github.com/duemunk/Async.git",
-    :tag => "1.2.1"
+    :tag => "1.4"
 
-pod 'SwiftyJSON', '~> 2.2.0'
+pod 'SwiftyJSON', '~> 2.3.1'
 
-pod 'Cartography', '~> 0.5.0'
+pod 'Cartography', '~> 0.6.0'
 
 pod 'CryptoSwift',
     :git => "https://github.com/krzyzanowskim/CryptoSwift.git",
-    :tag => "0.0.11"
+    :tag => "0.1.1"
 
-pod 'AKPickerView-Swift', '~> 0.2.1'
+pod 'AKPickerView-Swift', '~> 1.0.0'
 
-pod 'SwiftyUserDefaults', '~> 1.1.0'
+pod 'SwiftyUserDefaults', '~> 2.0.0'
 
-#pod 'PKHUD', '~> 2.0.1' - Latest Pod is not compiling in Xcode 6.3
 pod 'PKHUD',
     :git => "https://github.com/pkluz/PKHUD.git",
-    :commit => "86f3f342a6d83b124a8de4ed31f0ffda1ad3aeaa",
-    :branch => "master"
+    :tag => "2.2.2"
 
-pod 'DateKit',
-    :git => "https://github.com/SnowdogApps/DateKit.git",
-    :commit => "4c953cf5a70a14f88d154bdfd710019f20a10b49",
-    :branch => "master"
-
-pod 'FontAwesomeIconFactory', '~> 2.0'
+pod 'FontAwesomeIconFactory', '~> 2.1.1'
 
 target 'Tests' do link_with 'Unit Tests', 'Functional Tests'
 
-    pod 'KIF', '~> 3.0',
+    pod 'KIF', '~> 3.3',
         :configurations => ['Test']
 
-    pod 'Quick', '~> 0.3.1',
+    pod 'Quick', '~> 0.8.0',
         :configurations => ['Test']
 
-    pod 'Nimble', '~> 0.4.2',
+    pod 'Nimble', '~> 3.0.0',
         :configurations => ['Test']
 end
 
