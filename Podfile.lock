@@ -25,6 +25,7 @@ PODS:
   - Async (1.4.0)
   - Cartography (0.6.0)
   - CryptoSwift (0.1.1)
+  - FontAwesome.swift (0.6.2)
   - FontAwesomeIconFactory (2.1.1)
   - Google/Core (1.2.1):
     - GoogleInterchangeUtilities (~> 1.0)
@@ -67,6 +68,7 @@ DEPENDENCIES:
   - Async (from `https://github.com/duemunk/Async.git`, tag `1.4`)
   - Cartography (~> 0.6)
   - CryptoSwift (~> 0.1)
+  - FontAwesome.swift (~> 0.4)
   - FontAwesomeIconFactory (~> 2.1)
   - Google/SignIn
   - KIF (~> 3.3)
@@ -93,6 +95,7 @@ SPEC CHECKSUMS:
   Async: 4221a3bed9b180d95dd01fb07256443124514375
   Cartography: 70af183a248547694a8cfaa6b989cb7e04589985
   CryptoSwift: c11640d3d66107efc8333e4131a5173f072b1d61
+  FontAwesome.swift: d40ac0a660f079c77945bab632ca20bf46ddc1ac
   FontAwesomeIconFactory: bb9ce26d3dd13044854a82d380023c8e7d3ebf1a
   Google: fd33b5fa40fa3aaee5176de49c873a74e3d11dce
   GoogleAppUtilities: c01c6a5671e9da8b9d690fdaec5959d6c2aac699

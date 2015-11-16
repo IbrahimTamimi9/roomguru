@@ -182,7 +182,6 @@
 		5E573A071B1BBAF200AEC231 /* GPPTokenStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E573A051B1BBAF200AEC231 /* GPPTokenStore.swift */; };
 		5E63A1E31B25DA160059D569 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E63A1E21B25DA160059D569 /* Constants.swift */; };
 		5E63A1E51B25DB910059D569 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E63A1E21B25DA160059D569 /* Constants.swift */; };
-		5E6759CB1AC5BDA1008AFF61 /* FontAwesome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E6759CA1AC5BDA1008AFF61 /* FontAwesome.swift */; };
 		5E6759CD1AC5BDEF008AFF61 /* FontAwesome.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5E6759CC1AC5BDEF008AFF61 /* FontAwesome.otf */; };
 		5E67FE581AE90431003AB827 /* CalendarPersistenceStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E769F051ACEDC180061289D /* CalendarPersistenceStore.swift */; };
 		5E67FE591AE9044C003AB827 /* Calendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF527C1C1AB1D53700A43D35 /* Calendar.swift */; };
@@ -207,7 +206,6 @@
 		5E67FE6E1AE904D7003AB827 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E7A9E551AB060AC0042E16F /* MobileCoreServices.framework */; };
 		5E67FE6F1AE904D9003AB827 /* QuickLook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E7A9E571AB060BB0042E16F /* QuickLook.framework */; };
 		5E67FE701AE904DB003AB827 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E7A9E591AB060C60042E16F /* QuartzCore.framework */; };
-		5E67FE711AE904DD003AB827 /* FontAwesome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E6759CA1AC5BDA1008AFF61 /* FontAwesome.swift */; };
 		5E67FE731AE91220003AB827 /* UICollectionViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E67FE721AE91220003AB827 /* UICollectionViewExtensions.swift */; };
 		5E6B40AC1AC93A9C006C47EE /* DescriptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E6B40AB1AC93A9C006C47EE /* DescriptionCell.swift */; };
 		5E6B40AE1AC947B1006C47EE /* NSAttributedStringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E6B40AD1AC947B1006C47EE /* NSAttributedStringExtensions.swift */; };
@@ -455,7 +453,6 @@
 		5E569DD11AF01C42009F8EC0 /* EventsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventsViewController.swift; path = "Roomguru/Source Files/ViewControllers/EventsViewController.swift"; sourceTree = SOURCE_ROOT; };
 		5E573A051B1BBAF200AEC231 /* GPPTokenStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GPPTokenStore.swift; path = "Roomguru/Source Files/Managers/GPPTokenStore.swift"; sourceTree = SOURCE_ROOT; };
 		5E63A1E21B25DA160059D569 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = "Roomguru/Source Files/Constants.swift"; sourceTree = SOURCE_ROOT; };
-		5E6759CA1AC5BDA1008AFF61 /* FontAwesome.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FontAwesome.swift; path = Frameworks/FontAwesome.swift; sourceTree = "<group>"; };
 		5E6759CC1AC5BDEF008AFF61 /* FontAwesome.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = FontAwesome.otf; path = Roomguru/Resources/FontAwesome.otf; sourceTree = SOURCE_ROOT; };
 		5E67FE721AE91220003AB827 /* UICollectionViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UICollectionViewExtensions.swift; path = "Roomguru/Source Files/Extensions/UICollectionViewExtensions.swift"; sourceTree = SOURCE_ROOT; };
 		5E67FE741AE91F8C003AB827 /* UserDiskManagerSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDiskManagerSpec.swift; sourceTree = "<group>"; };
@@ -708,7 +705,6 @@
 		303C9EE60D55FE95B1E4648B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				5E6759CA1AC5BDA1008AFF61 /* FontAwesome.swift */,
 				5E7A9E591AB060C60042E16F /* QuartzCore.framework */,
 				5E7A9E571AB060BB0042E16F /* QuickLook.framework */,
 				5E7A9E551AB060AC0042E16F /* MobileCoreServices.framework */,
@@ -1570,7 +1566,6 @@
 				5E8AE3051ACC174000A3C146 /* CalendarPickerView.swift in Sources */,
 				BF26E7391ABAC94100B12244 /* EventsListView.swift in Sources */,
 				BF2755D51AC1AD2500A41786 /* FreeEventCell.swift in Sources */,
-				5E6759CB1AC5BDA1008AFF61 /* FontAwesome.swift in Sources */,
 				5E8858481AF11B1300EF08F1 /* NSDateExtensions.swift in Sources */,
 				5EDEACF51ADFFFA200C4351B /* SettingsCell.swift in Sources */,
 				5E746FED1AF064130049131F /* UINavigationControllerExtensions.swift in Sources */,
@@ -1862,7 +1857,6 @@
 				5E9289B31B1322ED0079CE36 /* NSDateExtensions.swift in Sources */,
 				5E67FE5B1AE9046D003AB827 /* UserPersistenceStore.swift in Sources */,
 				21875ED41B188359003E1E59 /* StringExtensions.swift in Sources */,
-				5E67FE711AE904DD003AB827 /* FontAwesome.swift in Sources */,
 				5E5739E51B18A71F00AEC231 /* RoomHorizontalPicker.swift in Sources */,
 				5E5739EA1B18A73A00AEC231 /* SettingsView.swift in Sources */,
 				5E5739F41B18A75200AEC231 /* DescriptionCell.swift in Sources */,

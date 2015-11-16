@@ -16,9 +16,9 @@ xcodeproj 'Roomguru', 'Development' => :debug, 'Production' => :release, 'Stagin
 
 pod 'AFNetworking', '~> 2.6'
 
-pod 'Alamofire', '~> 3.1’
+pod 'Alamofire', '~> 3.1'
 
-pod 'Google/SignIn', '~> 2.4.0'
+pod 'Google/SignIn' # Fails when version is specified
 
 # "tag" given because there is no latest version in pods
 pod 'Async',
@@ -36,6 +36,8 @@ pod 'AKPickerView-Swift', '~> 1.0'
 pod 'SwiftyUserDefaults', '~> 2.0'
 
 pod 'PKHUD', '~> 2.2'
+
+pod 'FontAwesome.swift', '~> 0.4'
 
 pod 'FontAwesomeIconFactory', '~> 2.1'
 
