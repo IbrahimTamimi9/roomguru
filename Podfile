@@ -18,6 +18,8 @@ pod 'AFNetworking', '~> 2.6'
 
 pod 'Alamofire', '~> 3.1’
 
+pod 'Google/SignIn', '~> 2.4.0'
+
 # "tag" given because there is no latest version in pods
 pod 'Async',
     :git => "https://github.com/duemunk/Async.git",
