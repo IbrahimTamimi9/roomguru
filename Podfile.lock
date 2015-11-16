@@ -30,47 +30,35 @@ PODS:
     - KIF/Core (= 3.3.0)
   - KIF/Core (3.3.0)
   - Nimble (3.0.0)
-  - PKHUD (2.2.2)
+  - PKHUD (2.2.4)
   - Quick (0.8.0)
   - SwiftyJSON (2.3.1)
   - SwiftyUserDefaults (2.0.0)
 
 DEPENDENCIES:
-  - AFNetworking (~> 2.6.3)
-  - AKPickerView-Swift (~> 1.0.0)
-  - Alamofire (~> 3.1.2)
+  - AFNetworking (~> 2.6)
+  - AKPickerView-Swift (~> 1.0)
+  - Alamofire (~> 3.1)
   - Async (from `https://github.com/duemunk/Async.git`, tag `1.4`)
-  - Cartography (~> 0.6.0)
-  - CryptoSwift (from `https://github.com/krzyzanowskim/CryptoSwift.git`, tag `0.1.1`)
-  - FontAwesomeIconFactory (~> 2.1.1)
+  - Cartography (~> 0.6)
+  - CryptoSwift (~> 0.1)
+  - FontAwesomeIconFactory (~> 2.1)
   - KIF (~> 3.3)
-  - Nimble (~> 3.0.0)
-  - PKHUD (from `https://github.com/pkluz/PKHUD.git`, tag `2.2.2`)
-  - Quick (~> 0.8.0)
-  - SwiftyJSON (~> 2.3.1)
-  - SwiftyUserDefaults (~> 2.0.0)
+  - Nimble (~> 3.0)
+  - PKHUD (~> 2.2)
+  - Quick (~> 0.8)
+  - SwiftyJSON (~> 2.3)
+  - SwiftyUserDefaults (~> 2.0)
 
 EXTERNAL SOURCES:
   Async:
     :git: https://github.com/duemunk/Async.git
     :tag: '1.4'
-  CryptoSwift:
-    :git: https://github.com/krzyzanowskim/CryptoSwift.git
-    :tag: 0.1.1
-  PKHUD:
-    :git: https://github.com/pkluz/PKHUD.git
-    :tag: 2.2.2
 
 CHECKOUT OPTIONS:
   Async:
     :git: https://github.com/duemunk/Async.git
     :tag: '1.4'
-  CryptoSwift:
-    :git: https://github.com/krzyzanowskim/CryptoSwift.git
-    :tag: 0.1.1
-  PKHUD:
-    :git: https://github.com/pkluz/PKHUD.git
-    :tag: 2.2.2
 
 SPEC CHECKSUMS:
   AFNetworking: cb8d14a848e831097108418f5d49217339d4eb60
@@ -82,7 +70,7 @@ SPEC CHECKSUMS:
   FontAwesomeIconFactory: bb9ce26d3dd13044854a82d380023c8e7d3ebf1a
   KIF: 0a82046d06f3648799cac522d2d0f7934214caac
   Nimble: 4c353d43735b38b545cbb4cb91504588eb5de926
-  PKHUD: e8aec3b16715a65a186124d28eaeb39ad6d164fb
+  PKHUD: 4ec64535c98da203a3eb7303a58e13ac0bff1f8f
   Quick: 563d0f6ec5f72e394645adb377708639b7dd38ab
   SwiftyJSON: 592b53bee5ef3dd9b3bebc6b9cb7ee35426ae8c3
   SwiftyUserDefaults: 1266e9734c68bcfbac8294ee84173dc8ba6db312

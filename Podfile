@@ -14,41 +14,38 @@ use_frameworks!
 
 xcodeproj 'Roomguru', 'Development' => :debug, 'Production' => :release, 'Staging' => :release, 'Test' => :debug
 
-pod 'AFNetworking', '~> 2.6.3'
+pod 'AFNetworking', '~> 2.6'
 
-pod 'Alamofire', '~> 3.1.2’
+pod 'Alamofire', '~> 3.1’
 
+# "tag" given because there is no latest version in pods
 pod 'Async',
     :git => "https://github.com/duemunk/Async.git",
     :tag => "1.4"
 
-pod 'SwiftyJSON', '~> 2.3.1'
+pod 'SwiftyJSON', '~> 2.3'
 
-pod 'Cartography', '~> 0.6.0'
+pod 'Cartography', '~> 0.6'
 
-pod 'CryptoSwift',
-    :git => "https://github.com/krzyzanowskim/CryptoSwift.git",
-    :tag => "0.1.1"
+pod 'CryptoSwift', '~> 0.1'
 
-pod 'AKPickerView-Swift', '~> 1.0.0'
+pod 'AKPickerView-Swift', '~> 1.0'
 
-pod 'SwiftyUserDefaults', '~> 2.0.0'
+pod 'SwiftyUserDefaults', '~> 2.0'
 
-pod 'PKHUD',
-    :git => "https://github.com/pkluz/PKHUD.git",
-    :tag => "2.2.2"
+pod 'PKHUD', '~> 2.2'
 
-pod 'FontAwesomeIconFactory', '~> 2.1.1'
+pod 'FontAwesomeIconFactory', '~> 2.1'
 
 target 'Tests' do link_with 'Unit Tests', 'Functional Tests'
 
     pod 'KIF', '~> 3.3',
         :configurations => ['Test']
 
-    pod 'Quick', '~> 0.8.0',
+    pod 'Quick', '~> 0.8',
         :configurations => ['Test']
 
-    pod 'Nimble', '~> 3.0.0',
+    pod 'Nimble', '~> 3.0',
         :configurations => ['Test']
 end
 
