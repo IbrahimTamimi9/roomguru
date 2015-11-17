@@ -111,10 +111,10 @@ class PresentAlertViewAnimationController: AlertViewAnimationController {
         let fromViewCenter = fromView.center
         
         let containerView = transitionContext.containerView()
-        containerView.addSubview(toViewController.view)
+        containerView!.addSubview(toViewController.view)
         
         let snapPoint = CGPointMake(fromViewCenter.x, fromViewCenter.y - 100)
-        dynamicAnimator = UIDynamicAnimator(referenceView: containerView)
+        dynamicAnimator = UIDynamicAnimator(referenceView: containerView!)
         dynamicAnimator?.addBehavior(UISnapBehavior(item: toView, snapToPoint: snapPoint))
 
         maskingView.alpha = 0.0
@@ -140,9 +140,9 @@ class DismissAlertViewAnimationController: AlertViewAnimationController {
         
         let duration = transitionDuration(transitionContext)
         let containerView = transitionContext.containerView()
-        containerView.addSubview(fromViewController.view)
+        containerView!.addSubview(fromViewController.view)
         
-        dynamicAnimator = UIDynamicAnimator(referenceView: transitionContext.containerView())
+        dynamicAnimator = UIDynamicAnimator(referenceView: transitionContext.containerView()!)
         
         let gravityBehavior = UIGravityBehavior(items: [fromView])
         gravityBehavior.magnitude = 15.0

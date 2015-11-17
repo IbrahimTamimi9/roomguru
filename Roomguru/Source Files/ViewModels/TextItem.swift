@@ -38,7 +38,7 @@ extension TextItem {
     }
     
     func textFieldDidChangeText(textField: UITextField) {
-        text = textField.text
+        text = textField.text!
         onValueChanged?(string: text)
     }
 }
@@ -56,7 +56,7 @@ extension TextItem: UITextFieldDelegate {
     }
     
     func textFieldDidEndEditing(textField: UITextField) {
-        text = textField.text
+        text = textField.text!
         onValueChanged?(string: text)
     }
 }

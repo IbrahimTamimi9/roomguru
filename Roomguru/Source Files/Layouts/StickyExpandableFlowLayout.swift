@@ -32,7 +32,7 @@ class StickyExpandableFlowLayout: UICollectionViewFlowLayout {
         
         if let collectionView = collectionView {
             
-            let headerElements = superAttributes.filter {
+            let headerElements = superAttributes!.filter {
                 if let elemedKind = $0.representedElementKind {
                     return elemedKind == UICollectionElementKindSectionHeader
                 }

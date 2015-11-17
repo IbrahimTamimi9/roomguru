@@ -19,8 +19,8 @@ class TabBarTransitionAnimator: NSObject, UIViewControllerAnimatedTransitioning 
         let toView: UIView = transitionContext.viewForKey(UITransitionContextToViewKey)!
         let toViewController: UIViewController = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey)!
         
-        transitionContext.containerView().addSubview(fromView)
-        transitionContext.containerView().addSubview(toView)
+        transitionContext.containerView()!.addSubview(fromView)
+        transitionContext.containerView()!.addSubview(toView)
         
         let fromViewControllerIndex = self.tabBarController.viewControllers!.indexOf(fromViewController)!
         let toViewControllerIndex = self.tabBarController.viewControllers!.indexOf(toViewController)!

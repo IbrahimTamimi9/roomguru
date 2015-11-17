@@ -104,7 +104,7 @@ extension BookingConfirmationViewController {
 extension BookingConfirmationViewController: UITextFieldDelegate {
     
     func textFieldDidEndEditing(textField: UITextField) {
-        viewModel.entry.event.setCustomSummary(textField.text)
+        viewModel.entry.event.setCustomSummary(textField.text!)
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
@@ -116,7 +116,7 @@ extension BookingConfirmationViewController: UITextFieldDelegate {
 extension BookingConfirmationViewController {
     
     func textFieldDidChangeText(textField: UITextField) {
-        updateViewForValidationResult(viewModel.validate(textField.text))
+        updateViewForValidationResult(viewModel.validate(textField.text!))
     }
 }
 
