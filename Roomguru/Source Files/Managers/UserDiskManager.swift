@@ -18,10 +18,8 @@ class UserDiskManager {
     }
     
     func deleteProfileImageWithIdentifier(identifier: String) {
-        
-        if let destinationURL = NSURL(fileURLWithPath:pathForIdentifier(identifier)) {
-            NSFileManager.defaultManager().removeItemAtURL(destinationURL, error: nil)
-        }
+        let destinationURL = NSURL(fileURLWithPath: pathForIdentifier(identifier))
+        try! NSFileManager.defaultManager().removeItemAtURL(destinationURL)
     }
     
     func loadProfileImageWithIdentifier(identifier: String) -> NSData? {
@@ -31,14 +29,15 @@ class UserDiskManager {
     
     func saveProfileImage(temporaryLocation: NSURL, forIdentifier identifier: String) {
         
-        if let destinationURL = NSURL(fileURLWithPath: pathForIdentifier(identifier)) {
-            if NSFileManager.defaultManager().moveItemAtURL(temporaryLocation, toURL: destinationURL, error: nil) {
-                return
-            }
+        let destinationURL = NSURL(fileURLWithPath: pathForIdentifier(identifier))
+        do {
+            try NSFileManager.defaultManager().moveItemAtURL(temporaryLocation, toURL: destinationURL)
+        } catch {
+            return
         }
         
         // remove
-        NSFileManager.defaultManager().removeItemAtURL(temporaryLocation, error: nil)
+        try! NSFileManager.defaultManager().removeItemAtURL(temporaryLocation)
     }
     
     func existFileWithIdentifier(identifier: String) -> Bool {
@@ -53,7 +52,7 @@ private extension UserDiskManager {
         let path = directoryPath()
         
         if (!NSFileManager.defaultManager().fileExistsAtPath(path)) {
-            NSFileManager.defaultManager().createDirectoryAtPath(path, withIntermediateDirectories: false, attributes: nil, error: &error)
+            try! NSFileManager.defaultManager().createDirectoryAtPath(path, withIntermediateDirectories: false, attributes: nil)
         }
     }
     
