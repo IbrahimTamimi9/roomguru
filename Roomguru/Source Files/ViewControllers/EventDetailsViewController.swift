@@ -121,9 +121,9 @@ extension EventDetailsViewController: UITableViewDataSource {
             
             switch indexPath.row {
             case 0:
-                configureButtonWithTitle(NSLocalizedString("Join Hangout meeting!", comment: ""), "didTapHangoutButton:", .ngOrangeColor())
+                configureButtonWithTitle(NSLocalizedString("Join Hangout meeting!", comment: ""), action: "didTapHangoutButton:", color: .ngOrangeColor())
             default:
-                configureButtonWithTitle(NSLocalizedString("Revoke event", comment: ""), "didTapRevokeEventButton:", .ngRedColor())
+                configureButtonWithTitle(NSLocalizedString("Revoke event", comment: ""), action: "didTapRevokeEventButton:", color: .ngRedColor())
             }
 
             return cell

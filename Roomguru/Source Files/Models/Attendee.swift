@@ -67,8 +67,8 @@ class Attendee: ModelObject, NSSecureCoding {
             }
         }
 
-        assignIfExists(&isResource, json["resource"])
-        assignIfExists(&isOrganizer, json["organizer"])
-        assignIfExists(&isRoom, json["self"])
+        assignIfExists(&isResource, value: json["resource"])
+        assignIfExists(&isOrganizer, value: json["organizer"])
+        assignIfExists(&isRoom, value: json["self"])
     }
 }

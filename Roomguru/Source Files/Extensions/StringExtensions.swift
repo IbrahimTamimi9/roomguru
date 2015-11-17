@@ -15,7 +15,7 @@ enum EmailComparisionPart {
 extension String {
     
     var length: Int {
-        return count(self)
+        return characters.count
     }
     
     var uppercaseFirstLetter: String {

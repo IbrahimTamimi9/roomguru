@@ -58,7 +58,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         NSNotificationCenter.defaultCenter().removeObserver(self)
     }
     
-    func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject?) -> Bool {
+    func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject) -> Bool {
         
         showGoogleSignInButtonInLoginViewController(false)
         return authenticator.handleURL(url, sourceApplication: sourceApplication, annotation: annotation)
@@ -83,13 +83,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 let didUserSelectCalendars = !CalendarPersistenceStore.sharedStore.calendars.isEmpty
                 if didUserSelectCalendars {
                     tabBarController.refreshFirstTab()
-                    fade(.Out, launchViewController?.view) {
+                    fade(.Out, view: launchViewController?.view) {
                         launchViewController?.view.removeFromSuperview()
                         launchViewController = nil
                     }
                 } else {
                     tabBarController.presentCalendarPickerViewController(false) {
-                        fade(.Out, launchViewController?.view) {
+                        fade(.Out, view: launchViewController?.view) {
                             launchViewController?.view.removeFromSuperview()
                             launchViewController = nil
                         }
@@ -97,7 +97,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 }
             } else {
                 tabBarController.presentLoginViewController(false, error: error) {
-                    fade(.Out, launchViewController?.view) {
+                    fade(.Out, view: launchViewController?.view) {
                         launchViewController?.view.removeFromSuperview()
                         launchViewController = nil
                     }

@@ -46,16 +46,17 @@ class EventsPageViewController: UIPageViewController {
 
 extension EventsPageViewController: UIPageViewControllerDelegate {
     
-    func pageViewController(pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [AnyObject], transitionCompleted completed: Bool) {
+    func pageViewController(pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
         
         if !completed {
             return
         }
         
-        if let eventsViewController = pageViewController.viewControllers.first as? EventsListViewController {
+        if let eventsViewController = pageViewController.viewControllers!.first as? EventsListViewController {
             eventsDelegate?.eventsPageViewController(self, didScrollToDate: eventsViewController.coordinator.date)
         }
     }
+    
 }
 
 extension EventsPageViewController: UIPageViewControllerDataSource {

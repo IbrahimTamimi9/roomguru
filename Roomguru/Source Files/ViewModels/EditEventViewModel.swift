@@ -343,7 +343,7 @@ extension EditEventViewModel {
             }
         }
         
-        if !item.highlighted && !contains(dateItems, item) {
+        if !item.highlighted && !dateItems.contains(item) {
             
             item.highlighted = true
             

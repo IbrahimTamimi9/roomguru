@@ -30,7 +30,7 @@ class CalendarEntry: NSObject, NSSecureCoding {
             self.calendarID = calendarID
         }
         
-        if let event = aDecoder.decodeObjectOfClass(Event.self, forKey: "event") as? Event {
+        if let event = aDecoder.decodeObjectOfClass(Event.self, forKey: "event") {
             self.event = event
         }
         

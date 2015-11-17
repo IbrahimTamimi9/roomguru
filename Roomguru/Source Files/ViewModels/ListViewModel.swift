@@ -125,7 +125,7 @@ private extension ListViewModel {
 
 private extension Array {
     
-    func itemsMatching(item: NSObject, bySortingKey key: String) -> [T] {
+    func itemsMatching(item: NSObject, bySortingKey key: String) -> [Element] {
         return self.filter { _item in
             if let object = _item as? NSObject {
                 if let newItem = object.valueForKeyPath(key) as? NSObject {

@@ -61,6 +61,6 @@ extension UIAlertController {
             message = NSLocalizedString("Booked room", comment: "") + " " + name + ending
         }
         
-        return self.init(title: title, message: message)
+        return UIAlertController(title: title, message: message)
     }
 }

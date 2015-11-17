@@ -14,11 +14,11 @@ class BookingConfirmationView: UIView {
 
     let minutesToBookLabel = UILabel()
     
-    private(set) var confirmButton = UIButton.buttonWithType(.System) as! UIButton
-    private(set) var cancelButton = UIButton.buttonWithType(.System) as! UIButton
+    private(set) var confirmButton = UIButton(type: .System)
+    private(set) var cancelButton = UIButton(type: .System)
     
-    private(set) var lessMinutesButton = UIButton.buttonWithType(.System) as! UIButton
-    private(set) var moreMinutesButton = UIButton.buttonWithType(.System) as! UIButton
+    private(set) var lessMinutesButton = UIButton(type: .System)
+    private(set) var moreMinutesButton = UIButton(type: .System)
     
     let summaryTextField = InsetTextField()
     

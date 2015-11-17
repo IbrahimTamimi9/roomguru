@@ -63,6 +63,6 @@ private extension UserDiskManager {
     }
     
     func pathForIdentifier(identifier: String) -> String {
-        return directoryPath().stringByAppendingPathComponent(identifier)
+        return directoryPath().stringByAppendingFormat("/%@", identifier)
     }
 }

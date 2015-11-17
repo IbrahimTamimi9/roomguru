@@ -14,7 +14,7 @@ class BookingManager: NSObject {
     lazy var networkManager = NetworkManager.sharedInstance
     var eventsProvider: EventsProvider?
     
-    func firstBookableCalendarEntry(#calendarIDs: [String], completion: (entry: CalendarEntry?, error: NSError?) -> Void) {
+    func firstBookableCalendarEntry(calendarIDs calendarIDs: [String], completion: (entry: CalendarEntry?, error: NSError?) -> Void) {
         
         bookableCalendarEntries(calendarIDs: calendarIDs) { (entries, error) in
             

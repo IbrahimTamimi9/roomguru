@@ -62,7 +62,7 @@ class EventsListViewController: UIViewController {
                 self?.aView?.tableView.alpha = 1.0
             case .Success:
                 self?.scrollToNowAnimated(false)
-                fade(.In, self?.aView?.tableView, duration: 0.5) { }
+                fade(.In, view: self?.aView?.tableView, duration: 0.5) { }
             }
             
             completion?()
@@ -140,7 +140,7 @@ extension EventsListViewController: UITableViewDataSource {
     }
     
     func dequeueCellForEvent(event: Event, inTableView tableView: UITableView) -> EventCell {
-        if let freeEvent = event as? FreeEvent {
+        if event is FreeEvent {
             return tableView.dequeueReusableCell(FreeEventCell.self)
         } else {
             return tableView.dequeueReusableCell(EventCell.self)

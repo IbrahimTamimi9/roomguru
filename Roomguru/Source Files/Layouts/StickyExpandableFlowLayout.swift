@@ -26,9 +26,9 @@ class StickyExpandableFlowLayout: UICollectionViewFlowLayout {
         return true
     }
     
-    override func layoutAttributesForElementsInRect(rect: CGRect) -> [AnyObject]? {
+    override func layoutAttributesForElementsInRect(rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
         
-        let superAttributes = super.layoutAttributesForElementsInRect(rect) as! [UICollectionViewLayoutAttributes]
+        let superAttributes = super.layoutAttributesForElementsInRect(rect)
         
         if let collectionView = collectionView {
             

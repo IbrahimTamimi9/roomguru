@@ -11,7 +11,7 @@ import Cartography
 
 class WeekCarouselView: UIView {
     
-    let todayButton = UIButton.buttonWithType(.System) as! UIButton
+    let todayButton = UIButton(type: .System)
     let textLabel = UILabel()
     
     private(set) var collectionView: UICollectionView?

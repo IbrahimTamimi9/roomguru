@@ -75,7 +75,7 @@ extension NSDate {
         return NSDate(timeIntervalSince1970: previous)
     }
     
-    class func timeIntervalBetweenDates(#start: NSDate, end: NSDate) -> NSTimeInterval {
+    class func timeIntervalBetweenDates(start start: NSDate, end: NSDate) -> NSTimeInterval {
         return ceil(end.timeIntervalSinceDate(start))
     }
 }

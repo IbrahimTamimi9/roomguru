@@ -71,7 +71,7 @@ private extension DayCarouselCell {
         }
     }
     
-    func customizeTextLabelWithColors(#backgroundColor: UIColor, textColor: UIColor, bold: Bool = false) {
+    func customizeTextLabelWithColors(backgroundColor backgroundColor: UIColor, textColor: UIColor, bold: Bool = false) {
         
         textLabel.font = bold ? .boldSystemFontOfSize(17) : .systemFontOfSize(17)
         textLabel.textColor = textColor

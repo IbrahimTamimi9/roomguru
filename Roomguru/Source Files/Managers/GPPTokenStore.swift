@@ -34,7 +34,7 @@ class GPPTokenStore {
         return auth.tokenType + " " + accessToken
     }
     
-    func refreshTokenIfNeeded(#id: String, completion: ((didRefresh: Bool, error: NSError?) -> Void)) {
+    func refreshTokenIfNeeded(id id: String, completion: ((didRefresh: Bool, error: NSError?) -> Void)) {
         
         let isTokenValid = true
         if isTokenValid {

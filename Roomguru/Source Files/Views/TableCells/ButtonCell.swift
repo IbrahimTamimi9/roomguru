@@ -15,7 +15,7 @@ class ButtonCell: UITableViewCell, Reusable {
         return "TableButtonCellReuseIdentifier"
     }
     
-    let button = UIButton.buttonWithType(.System) as! UIButton
+    let button = UIButton(type: .System)
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)

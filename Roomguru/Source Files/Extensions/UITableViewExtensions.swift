@@ -9,7 +9,7 @@
 extension UITableView {
     
     func deselectRowIfSelectedAnimated(animated: Bool) {
-        if let indexPath = self.indexPathForSelectedRow() {
+        if let indexPath = self.indexPathForSelectedRow {
             deselectRowAtIndexPath(indexPath, animated: animated)
         }
     }

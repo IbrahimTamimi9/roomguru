@@ -31,10 +31,8 @@ extension UIView {
         }
         
         for subView in self.subviews {
-            if let subView = subView as? UIView {
-                if let responder = subView.findFirstResponder() {
-                    return responder
-                }
+            if let responder = subView.findFirstResponder() {
+                return responder
             }
         }
         return nil

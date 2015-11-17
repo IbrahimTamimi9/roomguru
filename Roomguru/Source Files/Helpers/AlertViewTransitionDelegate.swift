@@ -90,7 +90,7 @@ class AlertViewAnimationController: NSObject, UIViewControllerAnimatedTransition
         snappedToPoint = nil
     }
     
-    func transitionDuration(transitionContext: UIViewControllerContextTransitioning) -> NSTimeInterval {
+    func transitionDuration(transitionContext: UIViewControllerContextTransitioning?) -> NSTimeInterval {
         return 0.8
     }
     

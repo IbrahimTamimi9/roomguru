@@ -12,7 +12,7 @@ import Cartography
 class CalendarNameCustomizerView: UIView {
     
     let textField = BorderTextField()
-    let button: UIButton = UIButton.buttonWithType(.System) as! UIButton
+    let button: UIButton = UIButton(type: .System)
     
     override init(frame: CGRect) {
         super.init(frame: frame)

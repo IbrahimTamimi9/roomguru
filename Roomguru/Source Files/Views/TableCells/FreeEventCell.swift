@@ -16,7 +16,7 @@ enum FreeEventCellState {
 
 class FreeEventCell: EventCell {
     
-    let bookButton = UIButton.buttonWithType(.System) as! UIButton
+    let bookButton = UIButton(type: .System)
     let timeLabel = UILabel()
     
     private var cellState: FreeEventCellState = .Normal

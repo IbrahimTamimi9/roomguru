@@ -69,7 +69,7 @@ extension PickerViewController: UITableViewDataSource {
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         if let item: PickerItem = viewModel[indexPath.row],
             identifier = delegate?.reuseIdenfitierForItem(item),
-            cell = tableView.dequeueReusableCellWithIdentifier(identifier) as? UITableViewCell {
+            cell = tableView.dequeueReusableCellWithIdentifier(identifier) {
                 
                 delegate?.configureCell(cell, forItem: item)
                 return cell
