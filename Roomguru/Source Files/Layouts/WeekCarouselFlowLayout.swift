@@ -18,7 +18,7 @@ class WeekCarouselFlowLayout: UICollectionViewFlowLayout {
         scrollDirection = .Horizontal
     }
     
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
     

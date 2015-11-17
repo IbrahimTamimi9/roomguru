@@ -31,7 +31,7 @@ class EventDetailsViewController: UIViewController {
         super.init(nibName: nil, bundle: nil);
     }
 
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         self.viewModel = EventDetailsViewModel(event: nil)
         super.init(coder: aDecoder)
     }

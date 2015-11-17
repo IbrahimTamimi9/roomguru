@@ -25,7 +25,7 @@ class EventsPageViewController: UIPageViewController {
         super.init(transitionStyle: .Scroll, navigationOrientation: .Horizontal, options: nil)
     }
     
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
     

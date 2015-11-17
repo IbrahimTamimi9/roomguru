@@ -18,7 +18,7 @@ class StickyExpandableFlowLayout: UICollectionViewFlowLayout {
         headerReferenceSize = CGSizeMake(0, 160.0)
     }
     
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
     

@@ -28,7 +28,7 @@ class CalendarNameCustomizerViewController: UIViewController {
         super.init(nibName: nil, bundle: nil)
     }
     
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         self.name = nil
         super.init(coder: aDecoder)
     }

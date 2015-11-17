@@ -22,7 +22,7 @@ class ButtonCell: UITableViewCell, Reusable {
         commonInit()
     }
     
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         commonInit()
     }

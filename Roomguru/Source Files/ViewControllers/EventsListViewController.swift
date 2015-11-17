@@ -25,7 +25,7 @@ class EventsListViewController: UIViewController {
         super.init(nibName:nil,bundle:nil)
     }
     
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         self.coordinator = EventsListCoordinator(date: NSDate(), calendarIDs: [])
         super.init(coder: aDecoder)
     }

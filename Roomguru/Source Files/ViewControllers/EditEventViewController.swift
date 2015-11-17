@@ -26,7 +26,7 @@ class EditEventViewController: UIViewController {
         self.title = self.viewModel.title
     }
 
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
     
