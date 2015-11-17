@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import FontAwesome_swift
 
 typealias AttendeeInfo = (name: String?, email: String?, status: Status?)
 

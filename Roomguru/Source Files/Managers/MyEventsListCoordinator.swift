@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import FontAwesome_swift
 
 class MyEventsListCoordinator: EventsListCoordinator {
     

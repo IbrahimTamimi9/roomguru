@@ -8,6 +8,7 @@
 
 import UIKit
 import Cartography
+import FontAwesome_swift
 
 class RightDetailTextCell: UITableViewCell, Reusable {
     

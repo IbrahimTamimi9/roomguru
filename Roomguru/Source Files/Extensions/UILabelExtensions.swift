@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FontAwesome_swift
 
 // MARK: Factory methods
 
