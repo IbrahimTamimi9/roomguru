@@ -12,17 +12,17 @@ import SwiftyJSON
 
 class GPPTokenStoreNetworkCoordinator {
     
-    func refreshAccessToken(#parameters: [String: AnyObject], completion: ((tokenInfo: (accessToken: String, expirationDate: NSDate)?, error: NSError?)-> Void)) {
+    func refreshAccessToken(parameters parameters: [String: AnyObject], completion: ((tokenInfo: (accessToken: String, expirationDate: NSDate)?, error: NSError?)-> Void)) {
         
         Alamofire
             .request(.POST, Constants.GooglePlus.RefreshTokenURL, parameters: parameters)
-            .responseJSON { (_, _, data, error) in
+            .responseJSON { response in
                 
-                if let error = error {
+                if let error = response.result.error {
                     completion(tokenInfo: nil, error: error)
                     return
                     
-                } else if let data: AnyObject = data {
+                } else if let data: AnyObject = response.result.value {
                     
                     let json = JSON(data)
                     
@@ -30,7 +30,7 @@ class GPPTokenStoreNetworkCoordinator {
                         
                         let timeInterval = NSTimeInterval(expiresIn)
                         let tokenInfo = (accessToken: accessToken, expirationDate: NSDate().dateByAddingTimeInterval(timeInterval))
-                        completion(tokenInfo: tokenInfo, error: error)
+                        completion(tokenInfo: tokenInfo, error: response.result.error)
                         return
                     }
                 }

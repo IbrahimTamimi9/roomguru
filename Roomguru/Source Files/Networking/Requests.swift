@@ -26,14 +26,14 @@ class QueryRequest {
     
     func resume(success: ResponseBlock, failure: ErrorBlock) {
         request = createRequest()
-        request.responseJSON { (_, response, json, error) in
+        request.responseJSON { response in
             
-            if let responseError = self.validateResponse(response, withError: error) {
+            if let responseError = self.validateResponse(response.response, withError: response.result.error) {
                 failure(error: responseError)
                 return
             }
             
-            if let responseJSON: AnyObject = json {
+            if let responseJSON: AnyObject = response.result.value {
                 var swiftyJSON: JSON? = nil
                 
                 Async.background {
@@ -41,7 +41,7 @@ class QueryRequest {
                 }.main {
                     success(response: swiftyJSON)
                 }
-            } else if response?.statusCode == 204 {
+            } else if response.response?.statusCode == 204 {
                 success(response: nil)
             } else {
                 let message = NSLocalizedString("Failed retrieving data", comment: "")
@@ -91,14 +91,14 @@ extension PageableRequest {
         
         request = createRequest()
         
-        request.responseJSON { (_, response, json, error) in
+        request.responseJSON { response in
             
-            if let responseError = self.validateResponse(response, withError: error) {
+            if let responseError = self.validateResponse(response.response, withError: response.result.error) {
                 failure(error: responseError)
                 return
             }
             
-            if let responseJSON: AnyObject = json {
+            if let responseJSON: AnyObject = response.result.value {
                 var swiftyJSON: JSON? = nil
                 
                 Async.background {
