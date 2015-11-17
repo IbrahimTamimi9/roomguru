@@ -34,7 +34,7 @@ class WeekCarouselView: UIView {
         for (index, element) in weekdaysBar.daysLabels.enumerate() {
             
             let i = (index + formatter.calendar.firstWeekday - 1) % formatter.shortWeekdaySymbols.count
-            element.text = formatter.shortWeekdaySymbols[i] as? String
+            element.text = formatter.shortWeekdaySymbols[i]
         }
     }
 }

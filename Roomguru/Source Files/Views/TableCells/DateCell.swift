@@ -76,7 +76,7 @@ private extension DateCell {
     }
     
     func setDateLabelText(text: String, withAttributes attributes: [NSObject: AnyObject]) {
-        dateLabel.attributedText = NSAttributedString(string: text, attributes: attributes)
+        dateLabel.attributedText = NSAttributedString(string: text, attributes: attributes as? [String: AnyObject])
     }
     
     func toggleLabelColor() {

@@ -72,8 +72,10 @@ class TabBarController: UITabBarController {
     
     func refreshFirstTab() {
         
-        let controller = viewControllers?.map { ($0 as! NavigationController).viewControllers.first }.filter { $0 is MyEventsViewController }.map { $0 as! MyEventsViewController }.first
-        if let controller = controller {
+        let rootControllers = viewControllers?.map({ item in (item as! UINavigationController).viewControllers.first })
+        let myEventsViewControllers = rootControllers?.filter({ $0 is MyEventsViewController})
+            
+        if let controller = myEventsViewControllers?.first as? MyEventsViewController {
 
             controller.updateSelectedCalendar()
             controller.updateControllerState()
