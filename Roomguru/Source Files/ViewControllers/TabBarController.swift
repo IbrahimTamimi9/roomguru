@@ -114,17 +114,17 @@ private extension TabBarController {
         let fontFactory = NIKFontAwesomeIconFactory.tabBarItemIconFactory()
         
         func setTitleAndIconForControllerAtIndex(index: Int, title: String, icon: NIKFontAwesomeIcon) {
-            let tabBarItem = self.tabBar.items![index] as! UITabBarItem
+            let tabBarItem = self.tabBar.items![index] 
             tabBarItem.title = title
             tabBarItem.image = fontFactory.createImageForIcon(icon)
             
             let navigation = self.viewControllers![index] as! UINavigationController
-            let viewController = navigation.viewControllers.first as! UIViewController
-            viewController.title = title
+            let viewController = navigation.viewControllers.first
+            viewController!.title = title
         }
         
-        setTitleAndIconForControllerAtIndex(0, NSLocalizedString("My Events", comment: ""), .CalendarO)
-        setTitleAndIconForControllerAtIndex(1, NSLocalizedString("Events", comment: ""), .Calendar)
-        setTitleAndIconForControllerAtIndex(2, NSLocalizedString("Settings", comment: ""), .User)
+        setTitleAndIconForControllerAtIndex(0, title: NSLocalizedString("My Events", comment: ""), icon: .CalendarO)
+        setTitleAndIconForControllerAtIndex(1, title: NSLocalizedString("Events", comment: ""), icon: .Calendar)
+        setTitleAndIconForControllerAtIndex(2, title: NSLocalizedString("Settings", comment: ""), icon: .User)
     }
 }

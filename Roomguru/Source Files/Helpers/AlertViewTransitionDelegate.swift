@@ -39,8 +39,8 @@ class AlertViewTransitionDelegate: NSObject {
     
     func didPanGesture(recognizer: UIPanGestureRecognizer) {
         
-        var view = recognizer.view!
-        var dynamicAnimator = presentAnimationController.dynamicAnimator
+        let view = recognizer.view!
+        let dynamicAnimator = presentAnimationController.dynamicAnimator
         
         switch recognizer.state {
         case .Began:

@@ -27,7 +27,7 @@ class NetworkManager: NSObject {
     }
     
     // Enable token store AFTER receiving auth from Google
-    func enableTokenStore(_ enable: Bool = true, auth: GTMOAuth2Authentication? = nil) {
+    func enableTokenStore(enable: Bool = true, auth: GTMOAuth2Authentication? = nil) {
         tokenStore = (enable && auth != nil) ? GPPTokenStore(auth: auth!) : nil
         updateAuthorizationHeader()
     }

@@ -149,7 +149,7 @@ private extension EventsViewController {
         navigationItem.titleView = pickerView
     }
     
-    func registerNotifications(_ register: Bool = true) {
+    func registerNotifications(register: Bool = true) {
         
         if register {
             NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("userDidChangePersistentCalendars"), name: CalendarPersistentStoreDidChangePersistentCalendars, object: nil)

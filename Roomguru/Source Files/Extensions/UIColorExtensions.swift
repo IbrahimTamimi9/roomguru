@@ -35,8 +35,8 @@ extension UIColor {
     }
     
     class func hex(hex: String) -> UIColor {
-                
-        let colorHex = hex.hasPrefix("#") ? hex.substringFromIndex(advance(hex.startIndex, 1)) : hex
+        
+        let colorHex = hex.hasPrefix("#") ? hex.substringFromIndex(hex.startIndex.advancedBy(1)) : hex
         let scanner = NSScanner(string: colorHex)
         
         var rgbValue: UInt64 = 0

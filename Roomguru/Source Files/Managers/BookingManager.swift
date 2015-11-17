@@ -62,7 +62,7 @@ class BookingManager: NSObject {
         }
     }
     
-    func bookableCalendarEntries(#calendarIDs: [String], completion: (entries: [CalendarEntry]?, error: NSError?) -> Void) {
+    func bookableCalendarEntries(calendarIDs calendarIDs: [String], completion: (entries: [CalendarEntry]?, error: NSError?) -> Void) {
         
         if eventsProvider == nil {
             eventsProvider = EventsProvider(calendarIDs: calendarIDs, timeRange: NSDate().dayTimeRange)

@@ -29,7 +29,7 @@ class SettingsViewModel<T: SettingItem>: ListViewModel<SettingItem> {
     
     let settingsStore = SettingsStore()
     
-    init(_ items: [T]) {
+    required init(_ items: [T]) {
         super.init(items)
     }
     
