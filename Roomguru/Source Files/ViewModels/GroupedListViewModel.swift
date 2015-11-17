@@ -32,7 +32,7 @@ extension GroupedListViewModel: ExtendedIndexPathOperatable {
         var indexPaths: [NSIndexPath] = []
 
         itemize { (path, item) -> () in
-            if contains(items, item) {
+            if items.contains(item) {
                 indexPaths.append(NSIndexPath(forRow: path.row, inSection: path.section))
             }
         }

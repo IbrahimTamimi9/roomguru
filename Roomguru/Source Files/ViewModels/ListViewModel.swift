@@ -103,7 +103,7 @@ private extension ListViewModel {
         
         for value in values {
             if let value = value {
-                if !contains(uniques, value) {
+                if !uniques.contains(value) {
                     uniques.append(value)
                 }
             }

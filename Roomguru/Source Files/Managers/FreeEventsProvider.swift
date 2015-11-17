@@ -101,7 +101,7 @@ private extension FreeEventsProvider {
         }
         
         // at the end add entries which wasn't added by algorithm (eg. are beyond specified timeRange)
-        entries += sortedEntriesToFill.filter { !contains(entries, $0) }
+        entries += sortedEntriesToFill.filter { !entries.contains($0) }
         
         return entries
     }

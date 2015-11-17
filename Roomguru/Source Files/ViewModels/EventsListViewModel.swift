@@ -83,7 +83,7 @@ class EventsListViewModel<T: CalendarEntry>: ListViewModel<CalendarEntry> {
         
         itemize { (path: Path, item: CalendarEntry) in
             let indexPath = NSIndexPath(forRow: path.row, inSection: path.section)
-            if let index = find(self.selectedFreeEventPaths, indexPath) {
+            if let _ = self.selectedFreeEventPaths.indexOf(indexPath) {
                 selectedFreeEvents.append(item.event)
             }
         }
@@ -97,7 +97,7 @@ class EventsListViewModel<T: CalendarEntry>: ListViewModel<CalendarEntry> {
     }
     
     func containsIndexPath(indexPath: NSIndexPath) -> Bool {
-        return find(selectedFreeEventPaths, indexPath) != nil
+        return selectedFreeEventPaths.indexOf(indexPath) != nil
     }
 }
 

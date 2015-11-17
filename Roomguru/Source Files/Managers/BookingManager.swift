@@ -42,7 +42,7 @@ class BookingManager: NSObject {
             var freeEventEndDate: NSDate!
             
             // look for end of free event:
-            for (index, freeCalendarEntry) in enumerate(freeCalendarEntriesWithSameCalendarID) {
+            for (index, freeCalendarEntry) in freeCalendarEntriesWithSameCalendarID.enumerate() {
                 
                 if index == freeCalendarEntriesWithSameCalendarID.count - 1 {
                     freeEventEndDate = freeCalendarEntry.event.end

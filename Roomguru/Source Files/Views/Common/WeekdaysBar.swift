@@ -27,7 +27,7 @@ class WeekdaysBar: UIView {
         
         let width: CGFloat = CGRectGetWidth(bounds) / 7
         
-        for (index, element) in enumerate(daysLabels) {
+        for (index, element) in daysLabels.enumerate() {
             element.frame = CGRectMake(width * CGFloat(index), 0, width, CGRectGetHeight(frame))
         }
     }

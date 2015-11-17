@@ -50,6 +50,6 @@ class CalendarEntry: NSObject, NSSecureCoding {
 extension CalendarEntry {
     
     class func sortedByDate(items: [CalendarEntry]) -> [CalendarEntry] {
-        return items.sorted { $0.event.start.compare($1.event.start).ascending }
+        return items.sort { $0.event.start.compare($1.event.start) == .OrderedAscending }
     }
 }

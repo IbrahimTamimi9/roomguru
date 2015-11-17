@@ -22,9 +22,8 @@ class TabBarTransitionAnimator: NSObject, UIViewControllerAnimatedTransitioning 
         transitionContext.containerView().addSubview(fromView)
         transitionContext.containerView().addSubview(toView)
         
-        let fromViewControllerIndex = find(self.tabBarController.viewControllers
-            as! [UIViewController], fromViewController)
-        let toViewControllerIndex = find(self.tabBarController.viewControllers! as! [UIViewController], toViewController)
+        let fromViewControllerIndex = self.tabBarController.viewControllers!.indexOf(fromViewController)!
+        let toViewControllerIndex = self.tabBarController.viewControllers!.indexOf(toViewController)!
         
         let direction: CGFloat = (fromViewControllerIndex < toViewControllerIndex) ? 1 : -1
         

@@ -50,7 +50,7 @@ class List<T> : Listable {
     }
     
     func itemize(closure: (index: Int, item: T) -> ()) {
-        for (index, item) in enumerate(items) {
+        for (index, item) in items.enumerate() {
             closure(index: index, item: item)
         }
     }

@@ -40,7 +40,7 @@ class WeekCarouselViewModel {
     }
     
     func indexFromDate(date: NSDate) -> Int? {
-        for (index, element) in enumerate(days) {
+        for (index, element) in days.enumerate() {
             if element.isSameDayAs(date) {
                 return index
             }
