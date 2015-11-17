@@ -1444,7 +1444,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if [ \"${CONFIGURATION}\" = \"Development\" ]; then\nTAGS=\"NGRTodo:|NGRFixme:|NGRHack:|NGRTemp:\"\necho \"searching ${SRCROOT} for ${TAGS}\"\nfind \"${SRCROOT}\" \\( -name \"*.swift\" \\) -print0 | xargs -0 egrep --with-filename --line-number --only-matching \"($TAGS).*\\$\" | perl -p -e \"s/($TAGS)/ warning: \\$1/\"\nfi";
+			shellScript = "if [ \"${CONFIGURATION}\" = \"Development\" ]; then\nTAGS=\"NGRTodo:|NGRFixme:|NGRHack:|NGRTemp:|NGRRefactorNeeded:\"\necho \"searching ${SRCROOT} for ${TAGS}\"\nfind \"${SRCROOT}\" \\( -name \"*.swift\" \\) -print0 | xargs -0 egrep --with-filename --line-number --only-matching \"($TAGS).*\\$\" | perl -p -e \"s/($TAGS)/ warning: \\$1/\"\nfi";
 		};
 		B2751B7E0D423C87A390F7D6 /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
