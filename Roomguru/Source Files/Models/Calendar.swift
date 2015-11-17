@@ -9,7 +9,7 @@
 import UIKit
 import SwiftyJSON
 
-class Calendar: ModelObject, NSSecureCoding, Equatable {
+class Calendar: ModelObject, NSSecureCoding {
     
     private let Summary = "summary"
     private let Identifier = "identifier"

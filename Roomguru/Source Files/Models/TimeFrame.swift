@@ -51,14 +51,14 @@ class TimeFrame: ModelObject {
 
 // MARK: Debug
 
-extension TimeFrame: Printable {
+extension TimeFrame {
     
     override var description: String {
         return "\nstart: \(self.startDate), end: \(self.endDate), duration: \(self.duration), availability: \(self.availability)"
     }
 }
 
-extension TimeFrameAvailability: Printable {
+extension TimeFrameAvailability: CustomStringConvertible {
     
     var description: String {
         
