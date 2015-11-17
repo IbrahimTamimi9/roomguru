@@ -163,7 +163,7 @@ class BookingQuery: Query {
     }
     
     private func timeZoneForDateKey(key: String) -> String {
-        if var dateDict = self[key] as? [String: AnyObject], timeZone = dateDict[TimeZoneKey] as? String {
+        if let dateDict = self[key] as? [String: AnyObject], timeZone = dateDict[TimeZoneKey] as? String {
             return timeZone
         }
         return NSTimeZone.localTimeZone().name

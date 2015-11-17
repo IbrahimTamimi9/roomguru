@@ -64,7 +64,7 @@ extension EventsPageViewController: UIPageViewControllerDataSource {
     func pageViewController(pageViewController: UIPageViewController, viewControllerBeforeViewController viewController: UIViewController) -> UIViewController? {
         
         if let eventsViewController = viewController as? EventsListViewController {
-            var date = eventsViewController.coordinator.date--
+            let date = eventsViewController.coordinator.date--
             return EventsListViewController(coordinator: eventsDelegate.eventsListCoordinatorForDate(date))
         }
         return nil
@@ -73,7 +73,7 @@ extension EventsPageViewController: UIPageViewControllerDataSource {
     func pageViewController(pageViewController: UIPageViewController, viewControllerAfterViewController viewController: UIViewController) -> UIViewController? {
         
         if let eventsViewController = viewController as? EventsListViewController {
-            var date = eventsViewController.coordinator.date++
+            let date = eventsViewController.coordinator.date++
             return EventsListViewController(coordinator: eventsDelegate.eventsListCoordinatorForDate(date))
         }
         return nil

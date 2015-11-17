@@ -165,7 +165,7 @@ class DismissAlertViewAnimationController: AlertViewAnimationController {
     }
     
     private func randomAngularVelocity() -> CGFloat {
-        var coeff = (Int(arc4random() % 100) - 50) < 0 ? -1.0 : 1.0
+        let coeff = (Int(arc4random() % 100) - 50) < 0 ? -1.0 : 1.0
         return CGFloat(coeff) * CGFloat((arc4random() % 3) + 1)
     }
 }

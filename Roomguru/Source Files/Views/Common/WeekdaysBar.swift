@@ -38,7 +38,7 @@ private extension WeekdaysBar {
     func commonInit() {
         backgroundColor = UIColor.whiteColor()
         
-        for i in 0..<7 {
+        for _ in 0..<7 {
 
             let label = UILabel()
             label.textAlignment = .Center

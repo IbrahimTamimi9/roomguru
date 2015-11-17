@@ -107,7 +107,7 @@ private extension EventsListViewModel {
         if (indexPath.row == self[0].count - 1) {
             return false
         }
-        if let freeEvent = self[indexPath.row + 1]?.event as? FreeEvent {
+        if let _ = self[indexPath.row + 1]?.event as? FreeEvent {
             let path = NSIndexPath(forRow: indexPath.row + 1, inSection: indexPath.section)
             return containsIndexPath(path)
         }
@@ -118,7 +118,7 @@ private extension EventsListViewModel {
         if (indexPath.row == 0) {
             return false
         }
-        if let freeEvent = self[indexPath.row - 1]?.event as? FreeEvent {
+        if let _ = self[indexPath.row - 1]?.event as? FreeEvent {
             let path = NSIndexPath(forRow: indexPath.row - 1, inSection: indexPath.section)
             return containsIndexPath(path)
         }

@@ -397,7 +397,7 @@ extension EditEventViewModel {
         var errors: [NSError] = []
         
         itemize { (path, item) in
-            if var item = item as? Validatable {
+            if let item = item as? Validatable {
                 if let error = item.validationError {
                     errors.append(error)
                 }

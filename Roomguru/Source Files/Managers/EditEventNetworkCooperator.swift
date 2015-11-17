@@ -33,7 +33,7 @@ class EditEventNetworkCooperator {
             
             self.save() { (event, error) in
             
-                if let error = error {
+                if let _ = error {
                     let message = NSLocalizedString("There was a problem with creating your event. Please try again later.", comment: "")
                     completion(event: nil, error: NSError(message: message))
 
