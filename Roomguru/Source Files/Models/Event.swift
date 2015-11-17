@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import DateKit
 import SwiftyJSON
 
 class Event: ModelObject, NSSecureCoding {

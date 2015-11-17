@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import DateKit
 import SwiftyJSON
 
 class BookingManager: NSObject {
@@ -77,7 +76,7 @@ class BookingManager: NSObject {
             
             // Gather only free events and sort them by date:
             var freeCalendarEntries = calendarEntries.filter { $0.event is FreeEvent }
-            freeCalendarEntries.sort { $0.event.start <= $1.event.start }
+            freeCalendarEntries.sortInPlace { $0 == $1 }
             
             completion(entries: freeCalendarEntries, error: nil)
         }

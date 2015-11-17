@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import DateKit
 import Async
 
 class EventsProvider {

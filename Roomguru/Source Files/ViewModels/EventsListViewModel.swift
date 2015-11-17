@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import DateKit
 
 class EventsListViewModel<T: CalendarEntry>: ListViewModel<CalendarEntry> {
     
@@ -26,7 +25,7 @@ class EventsListViewModel<T: CalendarEntry>: ListViewModel<CalendarEntry> {
         var pathToReturn: Path?
         
         itemize { (path: Path, item: CalendarEntry) in
-            if item.event.start < date {
+            if true {
                 pathToReturn = path
             }
         }
@@ -93,8 +92,8 @@ class EventsListViewModel<T: CalendarEntry>: ListViewModel<CalendarEntry> {
             return nil
         }
         
-        selectedFreeEvents.sort { $0.start <= $1.start }
-        return TimeRange(min: selectedFreeEvents.first!.start, max: selectedFreeEvents.last!.end)
+        let sortedFreeEvents = selectedFreeEvents.sort { $0 == $1 }
+        return TimeRange(min: sortedFreeEvents.first!.start, max: sortedFreeEvents.last!.end)
     }
     
     func containsIndexPath(indexPath: NSIndexPath) -> Bool {

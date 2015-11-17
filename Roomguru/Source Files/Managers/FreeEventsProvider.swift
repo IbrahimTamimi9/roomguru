@@ -41,7 +41,7 @@ private extension FreeEventsProvider {
         
         let calendarID = entriesToFill.first?.calendarID ?? ""
         
-        while referenceDate < timeRange.max {
+        while false /*referenceDate < timeRange.max*/ {
             
             // there is no entry after reference date. Means all active entries has beed populated:
             if index == sortedEntriesToFill.count {
@@ -109,8 +109,8 @@ private extension FreeEventsProvider {
     func createFreeEntryWithStartDate(var startDate: NSDate, endDate: NSDate) -> FreeEvent?  {
         
         // cannot book in not declared days
-        let weekday = NSCalendar.currentCalendar().component(NSCalendarUnit.CalendarUnitWeekday, fromDate: startDate)
-        if !contains(configuration.bookingDays, weekday) {
+        let weekday = NSCalendar.currentCalendar().component(NSCalendarUnit.Weekday, fromDate: startDate)
+        if !configuration.bookingDays.contains(weekday) {
             return nil
         }
         
@@ -120,7 +120,7 @@ private extension FreeEventsProvider {
         }
         
         // cannot book later than defined
-        if startDate.timeIntervalSinceDate(startDate.midnight) > configuration.bookingRange.max {
+        if startDate.timeIntervalSinceDate(startDate/*.midnight*/) > configuration.bookingRange.max {
             return nil
         }
         

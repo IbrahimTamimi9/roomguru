@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import DateKit
 
 protocol ModelUpdatable {
     func didChangeItemsAtIndexPaths(indexPaths: [NSIndexPath])
@@ -47,7 +46,7 @@ class EditEventViewModel<T: GroupItem>: GroupedListViewModel<GroupItem> {
         } else {
             title = NSLocalizedString("New Event", comment: "")
             query = EventQuery()
-            query.startDate = NSDate().seconds(0)
+            query.startDate = NSDate() //.seconds(0)
             query.endDate = query.startDate.dateByAddingTimeInterval(timelineConfiguration.minimumEventDuration)
         }
         networkCooperator = EditEventNetworkCooperator(query: query)
@@ -76,7 +75,7 @@ class EditEventViewModel<T: GroupItem>: GroupedListViewModel<GroupItem> {
         summaryItem = TextItem(placeholder: summaryPlaceholder)
         allDayItem = SwitchItem(title: allDayTitle)
         startDateItem = DateItem(title: startDateTitle)
-        endDateItem = DateItem(title: endDateTitle, date: startDateItem.date.minutes + 30)
+        endDateItem = DateItem(title: endDateTitle, date: startDateItem.date)//.minutes + 30)
         repeatItem = ActionItem(title: repeatTitle, detailDescription: noneDetail)
         calendarItem = ResultActionItem(title: calendarTitle, detailDescription: noneDetail)
         descriptionItem = LongTextItem(placeholder: longTextPlaceholder)
@@ -135,12 +134,12 @@ class EditEventViewModel<T: GroupItem>: GroupedListViewModel<GroupItem> {
             
             if state {
                 date = self?.startDateItem.date
-                self?.startDateItem.date = date.midnight.second(59).date
-                self?.endDateItem.date = date.tomorrow.midnight.seconds - 1
-            } else {
-                date = NSDate().minutes + 1
                 self?.startDateItem.date = date
-                self?.endDateItem.date = date.minutes + 30
+                self?.endDateItem.date = date
+            } else {
+                date = NSDate()
+                self?.startDateItem.date = date
+                self?.endDateItem.date = date
             }
             
             self?.networkCooperator.eventQuery.startDate = self?.startDateItem.date
@@ -191,8 +190,8 @@ class EditEventViewModel<T: GroupItem>: GroupedListViewModel<GroupItem> {
                 query.startDate = date
             }
             
-            let probableEndDate = date.minutes + Int(self?.timelineConfiguration.minimumEventDuration ?? 0)/60
-            if self?.endDateItem.date < probableEndDate {
+            let probableEndDate = date //.minutes + Int(self?.timelineConfiguration.minimumEventDuration ?? 0)/60
+            if false /*self?.endDateItem.date < probableEndDate*/ {
                 self?.endDateItem.date = probableEndDate
             }
 
@@ -261,27 +260,27 @@ class EditEventViewModel<T: GroupItem>: GroupedListViewModel<GroupItem> {
         }
         
         startDateItem.validation = { date in
-            if date < NSDate().midnight {
-                let message = NSLocalizedString("Cannot pick date earlier than today's midnight", comment: "")
-                return NSError(message: message)
-                
-            } else if self.endDateItem.date.timeIntervalSinceDate(date) < self.timelineConfiguration.minimumEventDuration {
-                let message = NSLocalizedString("Cannot create event shorter than \(self.timelineConfiguration.minimumEventDuration/60) minutes", comment: "")
-                return NSError(message: message)
-            }
+//            if date < NSDate().midnight {
+//                let message = NSLocalizedString("Cannot pick date earlier than today's midnight", comment: "")
+//                return NSError(message: message)
+//                
+//            } else if self.endDateItem.date.timeIntervalSinceDate(date) < self.timelineConfiguration.minimumEventDuration {
+//                let message = NSLocalizedString("Cannot create event shorter than \(self.timelineConfiguration.minimumEventDuration/60) minutes", comment: "")
+//                return NSError(message: message)
+//            }
             return nil
         }
         
         endDateItem.validation = { date in
             
-            let calendarUnits: [NSCalendarUnit] = [.CalendarUnitYear, .CalendarUnitMonth, .CalendarUnitDay, .CalendarUnitHour, .CalendarUnitMinute]
-            let comparisonResult = date.compare(toDate: self.startDateItem.date, byUnits: calendarUnits)
-            
-            if comparisonResult.notDescending {
-                let reason = comparisonResult.ascending ? NSLocalizedString("date earlier than", comment: "") : NSLocalizedString("same date as", comment: "")
-                let message = NSLocalizedString("Cannot pick", comment: "") + " " + reason + " " + self.startDateItem.dateString
-                return NSError(message: message)
-            }
+//            let calendarUnits: [NSCalendarUnit] = [.CalendarUnitYear, .CalendarUnitMonth, .CalendarUnitDay, .CalendarUnitHour, .CalendarUnitMinute]
+//            let comparisonResult = date.compare(toDate: self.startDateItem.date, byUnits: calendarUnits)
+//            
+//            if comparisonResult.notDescending {
+//                let reason = comparisonResult.ascending ? NSLocalizedString("date earlier than", comment: "") : NSLocalizedString("same date as", comment: "")
+//                let message = NSLocalizedString("Cannot pick", comment: "") + " " + reason + " " + self.startDateItem.dateString
+//                return NSError(message: message)
+//            }
             return nil
         }
         

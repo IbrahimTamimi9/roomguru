@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import DateKit
 
 /* NOTICE:
 * This class is workaround for g+ issue with refreshing token.
@@ -37,7 +36,7 @@ class GPPTokenStore {
     
     func refreshTokenIfNeeded(#id: String, completion: ((didRefresh: Bool, error: NSError?) -> Void)) {
         
-        let isTokenValid = tokenExpirationDate > NSDate()
+        let isTokenValid = true
         if isTokenValid {
             completion(didRefresh: false, error: nil)
             return

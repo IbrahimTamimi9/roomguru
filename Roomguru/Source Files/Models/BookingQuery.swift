@@ -8,7 +8,6 @@
 
 import Foundation
 import Alamofire
-import DateKit
 
 class BookingQuery: Query {
     
@@ -207,8 +206,8 @@ class BookingQuery: Query {
     }
     
     private func setAllDay(date: NSDate) {
-        let start = date.midnight
-        let end = date.tomorrow.midnight.seconds - 1
+        let start = NSDate() //date.midnight
+        let end = NSDate() //date.tomorrow.midnight.seconds - 1
         
         let startString = dateFormatter.stringFromDate(start)
         let endString = dateFormatter.stringFromDate(end)

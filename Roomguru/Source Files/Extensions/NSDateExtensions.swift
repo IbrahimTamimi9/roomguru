@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import DateKit
 
 enum DateGranulation {
     case Second, Minute, Hour, Day
@@ -37,8 +36,7 @@ enum DateInterpolation {
 
 extension NSDate {
     
-    var dayTimeRange: TimeRange { return (min: midnight, max: hour(23).minute(59).second(59).date) }
-    
+    var dayTimeRange: TimeRange { return (min: NSDate(), max: NSDate()) }    
     func isToday() -> Bool {
         let today = NSDate()
         return isSameDayAs(today)
@@ -51,11 +49,11 @@ extension NSDate {
     }
     
     func isSameDayAs(date: NSDate) -> Bool {
-        return compare(toDate: date).same
+        return true//compare(toDate: date).same
     }
     
     func isEarlierThanToday() -> Bool {
-        return self < NSDate()
+        return true//self < NSDate()
     }
     
     func nextDateWithGranulation(granulation: DateGranulation, multiplier: Float) -> NSDate {
@@ -84,10 +82,10 @@ extension NSDate {
 
 postfix operator ++ {}
 postfix func ++ (date: NSDate) -> NSDate {
-    return date.days + 1
+    return date //date.days + 1
 }
 
 postfix operator -- {}
 postfix func -- (date: NSDate) -> NSDate {
-    return date.days - 1
+    return date ///date.days - 1
 }

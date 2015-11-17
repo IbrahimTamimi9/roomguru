@@ -7,17 +7,16 @@
 //
 
 import Foundation
-import DateKit
 
 extension NSCalendar {
     
     func mondayDateInWeekDate(date: NSDate) -> NSDate {
 
-        let components = self.components(.CalendarUnitWeekday, fromDate: date)
+        let components = self.components(.Weekday, fromDate: date)
 
         if components.weekday == firstWeekday {
             return date
         }
-        return date.days - (components.weekday - firstWeekday)
+        return date
     }
 }

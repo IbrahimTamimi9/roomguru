@@ -16,7 +16,7 @@ protocol EventsPageViewControllerDelegate {
 
 class EventsPageViewController: UIPageViewController {
     
-    var currentlyDisplayingDay: NSDate { return (viewControllers.first as? EventsListViewController)?.coordinator.date ?? NSDate() }
+    var currentlyDisplayingDay: NSDate { return (viewControllers!.first as? EventsListViewController)?.coordinator.date ?? NSDate() }
     
     private var eventsDelegate: EventsPageViewControllerDelegate!
 
@@ -83,8 +83,8 @@ private extension EventsPageViewController {
     
     func scollDirectionBasedOnDate(date: NSDate) -> UIPageViewControllerNavigationDirection {
         
-        if let eventsViewController = viewControllers.first as? EventsListViewController {
-            return eventsViewController.coordinator.date < date ? .Forward : .Reverse
+        if let eventsViewController = viewControllers!.first as? EventsListViewController {
+            return .Forward
         }
         return .Forward
     }

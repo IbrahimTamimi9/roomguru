@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import DateKit
 
 class WeekCarouselViewModel {
     
@@ -54,13 +53,12 @@ class WeekCarouselViewModel {
         days.removeAll(keepCapacity: false)
         
         let monday = calendar.mondayDateInWeekDate(date)
-        var startDate = monday.days - 28
-        let endDate = monday.days + 28
+        var startDate = monday
+        let endDate = monday
         
-        while startDate < endDate {
+        while false {
             
             days.append(startDate)
-            startDate = startDate.days + 1
         }
     }
     

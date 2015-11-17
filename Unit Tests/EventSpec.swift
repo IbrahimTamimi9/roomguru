@@ -9,7 +9,6 @@
 import Nimble
 import Quick
 import SwiftyJSON
-import DateKit
 
 class EventSpec: QuickSpec {
     
