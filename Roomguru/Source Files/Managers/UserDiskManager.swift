@@ -48,7 +48,6 @@ class UserDiskManager {
 private extension UserDiskManager {
     
     func createDirectoryIfNeeded() {
-        var error: NSError?
         let path = directoryPath()
         
         if (!NSFileManager.defaultManager().fileExistsAtPath(path)) {
