@@ -28,7 +28,7 @@ class LoginView: LaunchView {
     override func defineConstraints() {
         super.defineConstraints()
         
-        layout(signInButton, activityIndicator) { button, indicator in
+        constrain(signInButton, activityIndicator) { button, indicator in
             button.center == indicator.center
         }
     }

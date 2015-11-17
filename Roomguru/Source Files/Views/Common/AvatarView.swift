@@ -48,7 +48,7 @@ private extension AvatarView {
     
     func defineConstraints() {
         
-        layout(imageView) { imageView in
+        constrain(imageView) { imageView in
             imageView.edges == inset(imageView.superview!.edges, 1); return
         }
     }

@@ -47,7 +47,7 @@ class UIBaseTableView: UIView {
     
     func defineConstraints() {
         
-        layout(tableView, loadingSpinner) { table, spinner in
+        constrain(tableView, loadingSpinner) { table, spinner in
             table.edges == table.superview!.edges
             spinner.center == table.center
         }

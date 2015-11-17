@@ -67,7 +67,7 @@ private extension DateCell {
     
     func defineConstraints() {
         
-        layout(dateLabel) { date in
+        constrain(dateLabel) { date in
             
             date.right == date.superview!.right - 15
             date.left == date.superview!.left

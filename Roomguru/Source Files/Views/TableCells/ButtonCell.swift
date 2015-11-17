@@ -43,7 +43,7 @@ private extension ButtonCell {
     
     func defineConstraints() {
         
-        layout(button) { button in
+        constrain(button) { button in
             
             let margin: CGFloat = 10
             

@@ -40,7 +40,7 @@ private extension SwitchCell {
     
     func defineConstraints() {
         
-        layout(switchControl) { aSwitch in 
+        constrain(switchControl) { aSwitch in
             aSwitch.centerY == aSwitch.superview!.centerY
             aSwitch.right == aSwitch.superview!.right - 20
         }

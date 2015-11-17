@@ -69,7 +69,7 @@ private extension WeekCarouselView {
     
     func defineConstraints() {
         
-        layout(bottomLine, weekdaysBar, textLabel) { line, bar, label in
+        constrain(bottomLine, weekdaysBar, textLabel) { line, bar, label in
             
             bar.left == bar.superview!.left
             bar.top == bar.superview!.top
@@ -87,7 +87,7 @@ private extension WeekCarouselView {
             label.height == 26
         }
         
-        layout(collectionView!, weekdaysBar, textLabel) { collection, bar, label in
+        constrain(collectionView!, weekdaysBar, textLabel) { collection, bar, label in
             
             collection.left == collection.superview!.left
             collection.top == bar.bottom
@@ -95,7 +95,7 @@ private extension WeekCarouselView {
             collection.bottom == label.top
         }
         
-        layout(todayButton, textLabel) { button, label in
+        constrain(todayButton, textLabel) { button, label in
          
             button.left == button.superview!.left
             button.bottom == button.superview!.bottom

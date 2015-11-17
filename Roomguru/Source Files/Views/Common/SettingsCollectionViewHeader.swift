@@ -53,7 +53,7 @@ private extension SettingsCollectionViewHeader {
     
     func defineConstraints() {
         
-        layout(visualEffectView, avatarView, backgroundImageView) { blurView, avatar, imageView in
+        constrain(visualEffectView, avatarView, backgroundImageView) { blurView, avatar, imageView in
             
             imageView.top == imageView.superview!.top - 20
             imageView.left == imageView.superview!.left - 20

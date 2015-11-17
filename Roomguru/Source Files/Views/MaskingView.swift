@@ -43,7 +43,7 @@ class MaskingView: UIView {
     
     private func defineConstraints() {
         
-        layout(contentView) { content in
+        constrain(contentView) { content in
             let padding = self.frame.size.width * 0.1
             content.left == content.superview!.left + padding
             content.right == content.superview!.right - padding
@@ -52,7 +52,7 @@ class MaskingView: UIView {
             content.centerX == content.superview!.centerX
         }
         
-        layout(maskingView) { masking in
+        constrain(maskingView) { masking in
             masking.top == masking.superview!.top - 20
             masking.left == masking.superview!.left
             masking.right == masking.superview!.right

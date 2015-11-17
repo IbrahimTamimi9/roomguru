@@ -59,7 +59,7 @@ private extension TextViewCell {
         let width = CGRectGetWidth(self.frame)
         self.frame = CGRectMake(0, 0, width, 160.0)
         
-        layout(textView) { text in
+        constrain(textView) { text in
             text.edges == text.superview!.edges
             text.height == 160.0
         }

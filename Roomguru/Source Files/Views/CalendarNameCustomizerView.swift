@@ -43,7 +43,8 @@ private extension CalendarNameCustomizerView {
     }
     
     func defineConstraints() {
-        layout(textField, button) { textField, button in
+        
+        constrain(textField, button) { textField, button in
             
             let margin: CGFloat = 20
             

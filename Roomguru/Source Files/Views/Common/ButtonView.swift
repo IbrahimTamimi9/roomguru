@@ -37,7 +37,7 @@ private extension ButtonView {
     
     func defineConstraints() {
         
-        layout(button) { _button in
+        constrain(button) { _button in
             _button.edges == _button.superview!.edges; return
         }
     }

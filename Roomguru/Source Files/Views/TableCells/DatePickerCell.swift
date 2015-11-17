@@ -45,7 +45,7 @@ private extension DatePickerCell {
         let width = CGRectGetWidth(frame)
         frame = CGRectMake(0, 0, width, 160.0)
         
-        layout(datePicker) { picker in
+        constrain(datePicker) { picker in
             picker.edges == picker.superview!.edges
             picker.height == 160
         }

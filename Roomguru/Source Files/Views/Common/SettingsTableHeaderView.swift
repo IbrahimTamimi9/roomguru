@@ -48,7 +48,7 @@ private extension SettingsTableHeaderView {
     
     func defineConstraints() {
         
-        layout(visualEffectView, avatarView) { blurView, avatar in
+        constrain(visualEffectView, avatarView) { blurView, avatar in
             
             blurView.edges == blurView.superview!.edges
             

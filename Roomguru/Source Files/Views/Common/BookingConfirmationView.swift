@@ -80,7 +80,7 @@ private extension BookingConfirmationView {
     
     func defineConstraints() {
         
-        layout(cancelButton, confirmButton) { cancel, confirm in
+        constrain(cancelButton, confirmButton) { cancel, confirm in
             cancel.left == cancel.superview!.left + 10
             cancel.bottom == cancel.superview!.bottom - 10
             
@@ -94,7 +94,7 @@ private extension BookingConfirmationView {
             confirm.height == cancel.height
         }
         
-        layout(minutesToBookLabel, minutesShortLabel) { book, short in
+        constrain(minutesToBookLabel, minutesShortLabel) { book, short in
             book.center == book.superview!.center
             book.width == 70
             book.height == 50
@@ -104,21 +104,21 @@ private extension BookingConfirmationView {
             short.top == book.bottom
         }
         
-        layout(lessMinutesButton, minutesToBookLabel) { button, book in
+        constrain(lessMinutesButton, minutesToBookLabel) { button, book in
             button.width == 44
             button.height == 44
             button.centerY == button.superview!.centerY
             button.right == book.left
         }
         
-        layout(moreMinutesButton, minutesToBookLabel) { button, book in
+        constrain(moreMinutesButton, minutesToBookLabel) { button, book in
             button.width == 44
             button.height == 44
             button.centerY == button.superview!.centerY
             button.left == book.right
         }
         
-        layout(summaryTextField) { textField in
+        constrain(summaryTextField) { textField in
             textField.top == textField.superview!.top + 54
             textField.left == textField.superview!.left + 10
             textField.right == textField.superview!.right - 10

@@ -46,7 +46,7 @@ class FreeEventCell: EventCell {
     override func defineConstraints() {
         super.defineConstraints()
         
-        layout(timeMaxLabel, bookButton, timeLabel) { maxLabel, button, label in
+        constrain(timeMaxLabel, bookButton, timeLabel) { maxLabel, button, label in
             
             button.right == button.superview!.right - 5
             button.centerY == button.superview!.centerY

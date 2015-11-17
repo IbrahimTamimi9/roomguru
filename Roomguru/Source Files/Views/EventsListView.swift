@@ -27,7 +27,7 @@ class EventsListView: UIBaseTableView {
     override func defineConstraints() {
         super.defineConstraints()
         
-        layout(placeholderView) { placeholder in
+        constrain(placeholderView) { placeholder in
             placeholder.edges == placeholder.superview!.edges; return
         }
     }

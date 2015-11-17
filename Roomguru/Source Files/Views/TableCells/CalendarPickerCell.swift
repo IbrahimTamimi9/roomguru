@@ -59,7 +59,7 @@ private extension CalendarPickerCell {
     
     func defineConstraints() {
         
-        layout(checkmarkLabel, headerLabel, footerLabel) { leftLabel, topLabel, bottomLabel in
+        constrain(checkmarkLabel, headerLabel, footerLabel) { leftLabel, topLabel, bottomLabel in
             
             let margin: CGFloat = 10
             
@@ -79,7 +79,7 @@ private extension CalendarPickerCell {
             bottomLabel.width == topLabel.width
         }
         
-        layout(colorView) { color in
+        constrain(colorView) { color in
             color.left == color.superview!.left
             color.top == color.superview!.top
             color.bottom == color.superview!.bottom

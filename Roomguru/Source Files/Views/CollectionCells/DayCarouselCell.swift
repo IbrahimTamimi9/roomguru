@@ -64,7 +64,7 @@ private extension DayCarouselCell {
     
     func defineConstraints() {
         
-        layout(textLabel) { label in
+        constrain(textLabel) { label in
             label.center == label.superview!.center
             label.width == CGRectGetWidth(self.textLabel.frame)
             label.height == CGRectGetHeight(self.textLabel.frame)

@@ -63,7 +63,7 @@ private extension AttendeeCell {
     
     func defineConstraints() {
         
-        layout(avatarView, statusLabel, headerLabel) { avatar, rightLabel, topLabel in
+        constrain(avatarView, statusLabel, headerLabel) { avatar, rightLabel, topLabel in
             
             let margins: (H: CGFloat, V: CGFloat) = (15, 10)
             
@@ -82,7 +82,7 @@ private extension AttendeeCell {
             topLabel.right == rightLabel.left
         }
         
-        layout(headerLabel, footerLabel) { topLabel, bottomLabel in
+        constrain(headerLabel, footerLabel) { topLabel, bottomLabel in
             
             bottomLabel.top == topLabel.bottom
             bottomLabel.left == topLabel.left

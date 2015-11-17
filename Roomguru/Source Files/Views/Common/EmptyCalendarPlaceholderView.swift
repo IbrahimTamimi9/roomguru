@@ -44,7 +44,7 @@ private extension EmptyCalendarPlaceholderView {
     
     func defineConstraints() {
         
-        layout(placeholderIconLabel, infoLabel) { placeholder, info in
+        constrain(placeholderIconLabel, infoLabel) { placeholder, info in
             
             placeholder.centerX == placeholder.superview!.centerX
             placeholder.height == 100

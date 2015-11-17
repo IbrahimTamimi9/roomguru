@@ -47,7 +47,7 @@ class LaunchView: UIView {
     
     func defineConstraints() {
         
-        layout(statusLabel, avatarView, activityIndicator) { label, avatar, indicator in
+        constrain(statusLabel, avatarView, activityIndicator) { label, avatar, indicator in
             
             avatar.center == avatar.superview!.center
             avatar.width == CGRectGetWidth(self.avatarView.bounds)
@@ -62,7 +62,7 @@ class LaunchView: UIView {
             indicator.centerY == label.bottom + 80
         }
         
-        layout(logoLabel, avatarView) { label, avatar in
+        constrain(logoLabel, avatarView) { label, avatar in
             
             label.left == label.superview!.left
             label.right == label.superview!.right

@@ -48,7 +48,7 @@ private extension PickerItemCell {
     
     func defineConstraints() {
         
-        layout(checkmarkLabel) { checkmark in
+        constrain(checkmarkLabel) { checkmark in
             
             let margin: CGFloat = 10
             

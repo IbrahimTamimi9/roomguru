@@ -69,7 +69,7 @@ class EventCell: UITableViewCell, Reusable {
     
     func defineConstraints() {
         
-        layout(timeMinLabel, timeMaxLabel, ongoingBadge) { upperLabel, lowerLabel, badge in
+        constrain(timeMinLabel, timeMaxLabel, ongoingBadge) { upperLabel, lowerLabel, badge in
             
             upperLabel.left == upperLabel.superview!.left + 10
             upperLabel.bottom == upperLabel.superview!.centerY
@@ -86,7 +86,7 @@ class EventCell: UITableViewCell, Reusable {
             badge.top == badge.superview!.top - 4
         }
         
-        layout(colorView) { color in
+        constrain(colorView) { color in
             color.left == color.superview!.left
             color.top == color.superview!.top
             color.bottom == color.superview!.bottom

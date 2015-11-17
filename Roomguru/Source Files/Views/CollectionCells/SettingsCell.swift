@@ -49,7 +49,7 @@ private extension SettingsCell {
     
     func defineConstraints() {
         
-        layout(textLabel, line, switchControl) { label, line, aSwitch in
+        constrain(textLabel, line, switchControl) { label, line, aSwitch in
             
             line.height == 1
             line.width == line.superview!.width

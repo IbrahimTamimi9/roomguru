@@ -59,13 +59,13 @@ private extension RightDetailTextCell {
     
     func defineConstraints() {
         
-        layout(detailLabel) { detail in
+        constrain(detailLabel) { detail in
             detail.right == detail.superview!.right
             detail.width == CGRectGetWidth(self.frame) * 0.6
             detail.centerY == detail.superview!.centerY
         }
         
-        layout(leftAccessoryLabel) { accessory in
+        constrain(leftAccessoryLabel) { accessory in
             accessory.left == accessory.superview!.left + 10
             accessory.centerY == accessory.superview!.centerY
             accessory.width == 30

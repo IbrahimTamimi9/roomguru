@@ -68,7 +68,7 @@ private extension TextFieldCell {
     
     func defineConstraints() {
         
-        layout(textField) { field in
+        constrain(textField) { field in
             
             let margin: CGFloat = 10
             
