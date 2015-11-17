@@ -15,7 +15,6 @@ class FreeEventsProvider {
     func populateEntriesWithFreeEvents(entriesToFill: [CalendarEntry], inTimeRange timeRange: TimeRange, usingCalenadIDs calendarIDs: [String]) -> [CalendarEntry] {
 
         var entries: [CalendarEntry] = []
-        var entriesSortedByCalendarIDs: [[CalendarEntry]] = []
 
         for calendarID in calendarIDs {
             let entriesFromOneCalendar = entriesToFill.filter { $0.calendarID == calendarID }
@@ -41,7 +40,7 @@ private extension FreeEventsProvider {
         
         let calendarID = entriesToFill.first?.calendarID ?? ""
         
-        while false /*referenceDate < timeRange.max*/ {
+        while false {
             
             // there is no entry after reference date. Means all active entries has beed populated:
             if index == sortedEntriesToFill.count {
@@ -115,7 +114,7 @@ private extension FreeEventsProvider {
         }
         
         // cannot book earlier than defined
-        if startDate.timeIntervalSinceDate(startDate.midnight) < configuration.bookingRange.min {
+        if startDate.timeIntervalSinceDate(startDate/*.midnight*/) < configuration.bookingRange.min {
             return nil
         }
         
