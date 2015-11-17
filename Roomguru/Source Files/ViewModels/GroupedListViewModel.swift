@@ -16,17 +16,15 @@ protocol ExtendedIndexPathOperatable: IndexPathOperatable {
 
 class GroupedListViewModel<T: GroupItem>: ListViewModel<T> {
     
+    // NGRFixme: Use super.init(sections:)
     init(items: [[T]]) {
-        let sections = items.map { Section($0) }
-        super.init(sections)
-    }
-    
-    required init(_ items: [T], sortingKey: String) {
-        super.init(items, sortingKey: sortingKey)
+//        let sections = items.map { Section($0) }
+        super.init()
     }
 }
 
 extension GroupedListViewModel: ExtendedIndexPathOperatable {
+    typealias T = GroupItem
     
     func indexPathsForItems(items: [GroupItem]) -> [NSIndexPath]? {
         var indexPaths: [NSIndexPath] = []

@@ -29,6 +29,9 @@ class ListViewModel<T: NSObject> {
     private var sections: Table = Table([Section<T>([])])
     private var sortingKey: String?
     
+    // NGRFixme: Remove the stub when not needed
+    init() {}
+    
     required init(_ items: [T]) {
         sections = Table([Section<T>(items)])
     }
@@ -38,7 +41,7 @@ class ListViewModel<T: NSObject> {
         sections = sectionsFromItems(items, bySortingKey: sortingKey) ?? Table([Section<T>(items)])
     }
     
-    required init(_ sections: [Section<T>]) {
+    required init(sections: [Section<T>]) {
         self.sections = Table(sections)
     }
     

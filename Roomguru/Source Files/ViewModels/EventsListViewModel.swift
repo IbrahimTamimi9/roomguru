@@ -12,7 +12,7 @@ class EventsListViewModel<T: CalendarEntry>: ListViewModel<CalendarEntry> {
     
     private var selectedFreeEventPaths: [NSIndexPath] = []
     
-    init(_ items: [T]) {
+    required init(_ items: [T]) {
         super.init(items)
     }
     
