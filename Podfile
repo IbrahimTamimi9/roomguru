@@ -41,6 +41,8 @@ pod 'FontAwesome.swift', '~> 0.4'
 
 pod 'FontAwesomeIconFactory', '~> 2.1'
 
+pod 'Timepiece', '~> 0.4'
+
 target 'Tests' do link_with 'Unit Tests', 'Functional Tests'
 
     pod 'KIF', '~> 3.3',

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Timepiece
 
 extension NSCalendar {
     
@@ -14,9 +15,8 @@ extension NSCalendar {
 
         let components = self.components(.Weekday, fromDate: date)
 
-        if components.weekday == firstWeekday {
-            return date
-        }
-        return date
+        let mondayIndex = 2
+        
+        return date - (components.weekday - mondayIndex).day
     }
 }

@@ -206,8 +206,8 @@ class BookingQuery: Query {
     }
     
     private func setAllDay(date: NSDate) {
-        let start = NSDate() //date.midnight
-        let end = NSDate() //date.tomorrow.midnight.seconds - 1
+        let start = date.beginningOfDay
+        let end = date.endOfDay
         
         let startString = dateFormatter.stringFromDate(start)
         let endString = dateFormatter.stringFromDate(end)

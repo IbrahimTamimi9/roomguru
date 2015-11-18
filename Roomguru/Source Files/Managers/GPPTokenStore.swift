@@ -36,7 +36,7 @@ class GPPTokenStore {
     
     func refreshTokenIfNeeded(id id: String, completion: ((didRefresh: Bool, error: NSError?) -> Void)) {
         
-        let isTokenValid = true
+        let isTokenValid = tokenExpirationDate > NSDate()
         if isTokenValid {
             completion(didRefresh: false, error: nil)
             return

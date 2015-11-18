@@ -8,6 +8,7 @@
 
 import Foundation
 import SwiftyJSON
+import Timepiece
 
 class EditEventNetworkCooperator {
     
@@ -72,7 +73,7 @@ private extension EditEventNetworkCooperator {
     
     func checkEventsAvailability(completion: (available: Bool, error: NSError?) -> Void) {
         
-        let querySearchTimeRange =  TimeRange(min: NSDate(), max: NSDate())//TimeRange(min: NSDate().midnight, max: eventQuery.endDate.days + 1)
+        let querySearchTimeRange =  TimeRange(min: NSDate().beginningOfDay, max: eventQuery.endDate + 1.day)
         let query = FreeBusyQuery(calendarsIDs: [eventQuery.calendarID], searchTimeRange: querySearchTimeRange)
         
         networkManager.request(query, success: { response in
@@ -97,8 +98,8 @@ private extension EditEventNetworkCooperator {
                 var error: NSError?
                 let freeTimeRanges = self.fillRevertedBusyTimeFramesWithFreeTimeRanges(busyTimeFrames, startWithDate: timeMin, endWithDate: timeMax)
                 
-                let available = freeTimeRanges.filter { _, _ in 
-                    let doesAnyOfAvailableFreeTimeRangeContainCurrentlyEditingEventNewTimeRange = true
+                let available = freeTimeRanges.filter {
+                    let doesAnyOfAvailableFreeTimeRangeContainCurrentlyEditingEventNewTimeRange = self.eventQuery.startDate >= $0.min && self.eventQuery.endDate <= $0.max
                     return doesAnyOfAvailableFreeTimeRangeContainCurrentlyEditingEventNewTimeRange
                 }.count > 0
                 
@@ -127,16 +128,16 @@ private extension EditEventNetworkCooperator {
         var array: [TimeFrame] = []
         for busyTimeFrame in busyTimeFrames! {
             
-            if true {
+            if currentEditingEventInitialStartDate >= busyTimeFrame.startDate && currentEditingEventInitialEndDate <= busyTimeFrame.endDate {
                 
-                let isInBusyTimeFrameAnyOtherEventBeforeCurrentlyEditingEvent = true
+                let isInBusyTimeFrameAnyOtherEventBeforeCurrentlyEditingEvent = currentEditingEventInitialStartDate > busyTimeFrame.startDate
                 // if yes then add busy time range
                 if isInBusyTimeFrameAnyOtherEventBeforeCurrentlyEditingEvent {
                     let busyTimeFrameBeforeCyrrentlyEditingEvent = TimeFrame(startDate: busyTimeFrame.startDate, endDate: currentEditingEventInitialStartDate)
                     array.append(busyTimeFrameBeforeCyrrentlyEditingEvent)
                 }
                 
-                let isInBusyTimeFrameAnyOtherEventAfterCurrentlyEditingEvent = true
+                let isInBusyTimeFrameAnyOtherEventAfterCurrentlyEditingEvent = currentEditingEventInitialEndDate < busyTimeFrame.endDate
                 // if yes then add busy time range
                 if isInBusyTimeFrameAnyOtherEventAfterCurrentlyEditingEvent {
                     let busyTimeFrameAfterCurrentlyEditingEvent = TimeFrame(startDate: currentEditingEventInitialEndDate, endDate: busyTimeFrame.endDate)

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Timepiece
 
 enum DateGranulation {
     case Second, Minute, Hour, Day
@@ -36,7 +37,8 @@ enum DateInterpolation {
 
 extension NSDate {
     
-    var dayTimeRange: TimeRange { return (min: NSDate(), max: NSDate()) }    
+    var dayTimeRange: TimeRange { return (min: beginningOfDay, max: endOfDay) }
+    
     func isToday() -> Bool {
         let today = NSDate()
         return isSameDayAs(today)
@@ -49,11 +51,11 @@ extension NSDate {
     }
     
     func isSameDayAs(date: NSDate) -> Bool {
-        return true//compare(toDate: date).same
+        return compare(date) == .OrderedSame
     }
     
     func isEarlierThanToday() -> Bool {
-        return true//self < NSDate()
+        return self < NSDate()
     }
     
     func nextDateWithGranulation(granulation: DateGranulation, multiplier: Float) -> NSDate {
@@ -75,6 +77,14 @@ extension NSDate {
         return NSDate(timeIntervalSince1970: previous)
     }
     
+    func between(start start: NSDate, end: NSDate) -> Bool {
+        if (self >= start && self <= end) {
+            return true
+        }
+        
+        return false
+    }
+    
     class func timeIntervalBetweenDates(start start: NSDate, end: NSDate) -> NSTimeInterval {
         return ceil(end.timeIntervalSinceDate(start))
     }
@@ -82,10 +92,10 @@ extension NSDate {
 
 postfix operator ++ {}
 postfix func ++ (date: NSDate) -> NSDate {
-    return date //date.days + 1
+    return date + 1.day
 }
 
 postfix operator -- {}
 postfix func -- (date: NSDate) -> NSDate {
-    return date ///date.days - 1
+    return date - 1.day
 }

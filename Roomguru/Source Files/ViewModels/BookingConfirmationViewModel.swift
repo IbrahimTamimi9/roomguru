@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Timepiece
 
 class BookingConfirmationViewModel {
     
@@ -35,7 +36,8 @@ class BookingConfirmationViewModel {
     var canAddMinutes: Bool { return expectedEventEndDate != entry.event.end }
     var canSubstractMinutes: Bool {
         
-        return true
+        let willNewEndDatePassEventDurationRequirement = NSDate.timeIntervalBetweenDates(start: entry.event.start, end: expectedEventEndDate - 15.minutes) >= minimumEventDuration
+        return expectedEventEndDate >= minimumEndDate && willNewEndDatePassEventDurationRequirement
     }
     
     private var expectedEventEndDate: NSDate!
@@ -49,7 +51,7 @@ class BookingConfirmationViewModel {
         if isTimeIntervalFromStartDateToNextRoundedDateAllowed {
             return nextDateRoundedTo15Minutes
         }
-        return NSDate()
+        return nextDateRoundedTo15Minutes + 15.minutes
     }
 
     init(entry: CalendarEntry) {

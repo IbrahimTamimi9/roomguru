@@ -85,7 +85,7 @@ private extension EventsPageViewController {
     func scollDirectionBasedOnDate(date: NSDate) -> UIPageViewControllerNavigationDirection {
         
         if let eventsViewController = viewControllers!.first as? EventsListViewController {
-            return .Forward
+            return eventsViewController.coordinator.date < date ? .Forward : .Reverse
         }
         return .Forward
     }

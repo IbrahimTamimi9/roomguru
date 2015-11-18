@@ -76,7 +76,7 @@ class BookingManager: NSObject {
             
             // Gather only free events and sort them by date:
             var freeCalendarEntries = calendarEntries.filter { $0.event is FreeEvent }
-            freeCalendarEntries.sortInPlace { $0 == $1 }
+            freeCalendarEntries.sortInPlace { $0.event.start <= $1.event.start }
             
             completion(entries: freeCalendarEntries, error: nil)
         }

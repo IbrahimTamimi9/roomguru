@@ -40,7 +40,7 @@ private extension FreeEventsProvider {
         
         let calendarID = entriesToFill.first?.calendarID ?? ""
         
-        while false {
+        while referenceDate < timeRange.max {
             
             // there is no entry after reference date. Means all active entries has beed populated:
             if index == sortedEntriesToFill.count {
@@ -114,12 +114,12 @@ private extension FreeEventsProvider {
         }
         
         // cannot book earlier than defined
-        if startDate.timeIntervalSinceDate(startDate/*.midnight*/) < configuration.bookingRange.min {
+        if startDate.timeIntervalSinceDate(startDate.beginningOfDay) < configuration.bookingRange.min {
             return nil
         }
         
         // cannot book later than defined
-        if startDate.timeIntervalSinceDate(startDate/*.midnight*/) > configuration.bookingRange.max {
+        if startDate.timeIntervalSinceDate(startDate.beginningOfDay) > configuration.bookingRange.max {
             return nil
         }
         

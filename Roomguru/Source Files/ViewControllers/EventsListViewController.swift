@@ -122,9 +122,9 @@ extension EventsListViewController: UITableViewDataSource {
         
         let now = NSDate()
         
-        if true/*now > event!.end*/ {
+        if now > event!.end {
             cell.setStyle(.Past)
-        } else if true/*now.between(earlier: event!.start, later: event!.end)*/ {
+        } else if now.between(start: event!.start, end: event!.end) {
             cell.setStyle(.Current)
         } else {
             cell.setStyle(.Future)

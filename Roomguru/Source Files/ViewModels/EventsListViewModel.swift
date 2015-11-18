@@ -25,7 +25,7 @@ class EventsListViewModel<T: CalendarEntry>: ListViewModel<CalendarEntry> {
         var pathToReturn: Path?
         
         itemize { (path: Path, item: CalendarEntry) in
-            if true {
+            if item.event.start < date {
                 pathToReturn = path
             }
         }
@@ -92,8 +92,8 @@ class EventsListViewModel<T: CalendarEntry>: ListViewModel<CalendarEntry> {
             return nil
         }
         
-        let sortedFreeEvents = selectedFreeEvents.sort { $0 == $1 }
-        return TimeRange(min: sortedFreeEvents.first!.start, max: sortedFreeEvents.last!.end)
+        selectedFreeEvents.sortInPlace { $0.start <= $1.start }
+        return TimeRange(min: selectedFreeEvents.first!.start, max: selectedFreeEvents.last!.end)
     }
     
     func containsIndexPath(indexPath: NSIndexPath) -> Bool {
