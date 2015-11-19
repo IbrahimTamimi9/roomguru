@@ -138,7 +138,7 @@ private extension EventsViewController {
         /* NOTE: Calling explicitly pickerView.reloadData() doesn't reload it's content. So when amount of calendars decreases.
         numberOfItemsInPickerView() delegate doesn't fire and pickerView has wrong number of items what leads crash.
         */
-        let pickerView = RoomHorizontalPicker(frame: navigationController!.titleViewFrame)
+        let pickerView = AKPickerView(frame: navigationController!.titleViewFrame)
         pickerView.delegate = self
         pickerView.dataSource = self
         
@@ -147,6 +147,16 @@ private extension EventsViewController {
         }
         
         navigationItem.titleView = pickerView
+    }
+
+    private func setupPickerView(pickerView: AKPickerView) {
+        pickerView.font = .systemFontOfSize(20)
+        pickerView.highlightedFont = .systemFontOfSize(20)
+        pickerView.interitemSpacing = 20.0
+        pickerView.textColor = UIColor.ngOrangeColor().colorWithAlphaComponent(0.6)
+        pickerView.pickerViewStyle = .Flat
+        pickerView.highlightedTextColor = .ngOrangeColor()
+        pickerView.maskDisabled = false
     }
     
     func registerNotifications(register: Bool = true) {
