@@ -1,5 +1,5 @@
 //
-//  GPPTokenStoreNetworkCoordinator.swift
+//  GIDTokenStoreNetworkCoordinator.swift
 //  Roomguru
 //
 //  Created by Patryk Kaczmarek on 03/06/15.
@@ -10,7 +10,7 @@ import Foundation
 import Alamofire
 import SwiftyJSON
 
-class GPPTokenStoreNetworkCoordinator {
+class GIDTokenStoreNetworkCoordinator {
     
     func refreshAccessToken(parameters parameters: [String: AnyObject], completion: ((tokenInfo: (accessToken: String, expirationDate: NSDate)?, error: NSError?)-> Void)) {
         
