@@ -120,7 +120,6 @@ extension WeekCarouselViewController {
     func scrollViewDidScroll(scrollView: UIScrollView) {
         
         let x = scrollView.contentOffset.x
-        let offset = ceil(x/CGRectGetWidth(scrollView.frame))
 
         if x < CGRectGetWidth(scrollView.bounds) {
             shiftWeekToDay(viewModel.days.first, animated: false)

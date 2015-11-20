@@ -70,7 +70,6 @@ private extension EventsProvider {
             
             // is user an attendee:
             let isAttendee = !$0.event.attendees.filter {
-                $0.email == userEmail
                 
                 if let email = $0.email, userEmail = userEmail {
                     return email.isEqualToEmail(userEmail, comparisionPart: .Local)

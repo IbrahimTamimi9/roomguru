@@ -12,7 +12,7 @@ import Alamofire
 class RevokeQuery: Query {
     
     convenience init(eventID: String, userEmail: String) {
-        var URLExtension = "/calendars/" + userEmail + "/events/" + eventID
+        let URLExtension = "/calendars/" + userEmail + "/events/" + eventID
         self.init(.DELETE, URLExtension: URLExtension)
     }
 

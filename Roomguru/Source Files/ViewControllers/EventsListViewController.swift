@@ -80,7 +80,7 @@ extension EventsListViewController: UITableViewDelegate {
         
         let event = coordinator.viewModel?.eventAtIndex(indexPath)
         
-        if let freeEvent = event as? FreeEvent {
+        if let event = event where event is FreeEvent {
 
             coordinator.viewModel?.selectOrDeselectFreeEventAtIndexPath(indexPath)
             var indexPaths = coordinator.viewModel?.indexPathsToReload() ?? []

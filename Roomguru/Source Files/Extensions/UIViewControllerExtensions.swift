@@ -38,7 +38,7 @@ extension UIViewController {
         
         if let controllers = self.navigationController?.viewControllers {
             if controllers.count > 1 {
-                let controller = controllers[controllers.count - 2] as! UIViewController
+                let controller = controllers[controllers.count - 2] 
                 controller.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)
             }
         }

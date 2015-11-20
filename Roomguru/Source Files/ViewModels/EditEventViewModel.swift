@@ -174,10 +174,7 @@ class EditEventViewModel<T: GroupItem>: GroupedListViewModel<GroupItem> {
             
             self?.startDateItem.active = !state
             self?.endDateItem.active = !state
-            
-            let startDateItemUnwrapped : DateItem?
-            let endDateItemUnwrapped : DateItem?
-            
+                        
             if let startDateItemUnwrapped = self?.startDateItem, let endDateItemUnwrapped = self?.endDateItem {
                 if let indexPaths = self?.indexPathsForItems([startDateItemUnwrapped, endDateItemUnwrapped] as [GroupItem]) {
                     self?.delegate?.didChangeItemsAtIndexPaths(indexPaths)

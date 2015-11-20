@@ -19,7 +19,6 @@ class BookingConfirmationViewModel {
         let formatter = NSDateFormatter()
         formatter.timeStyle = .ShortStyle
         
-        let name = CalendarPersistenceStore.sharedStore.nameMatchingID(entry.calendarID)
         let startTime = formatter.stringFromDate(entry.event.start.roundTo(.Minute))
         return startTime + " - " + entry.event.endTime
     }
