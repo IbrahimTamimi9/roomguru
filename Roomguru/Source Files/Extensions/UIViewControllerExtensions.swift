@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 Netguru Sp. z o.o. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 extension UIViewController {
     
@@ -14,6 +14,17 @@ extension UIViewController {
         return presentingViewController?.presentedViewController == self
                 || (navigationController != nil && navigationController?.presentingViewController?.presentedViewController == navigationController)
                 || tabBarController?.presentingViewController is UITabBarController
+    }
+    
+    var topMostViewController: UIViewController {
+        
+        var topController: UIViewController = self
+        
+        // Find top most view controller by iterating through presented view controllers
+        while let controller = topController.presentedViewController {
+            topController = controller
+        }
+        return topController;
     }
     
     func loadViewWithClass<T: UIView>(viewType: T.Type) -> T {

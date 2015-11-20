@@ -17,14 +17,14 @@ final class GIDAuthenticator: NSObject {
         return GIDSignIn.sharedInstance().currentUser != nil
     }
     
-    private let presentingViewController: UIViewController?
+    private let baseViewController: UIViewController?
     private let completion: AuthenticatorCompletionBlock
     private(set) var isAuthenticating = false
     private var expirationDate: NSDate?
     
-    init(presentingViewController: UIViewController?, completion: AuthenticatorCompletionBlock) {
+    init(baseViewController: UIViewController?, completion: AuthenticatorCompletionBlock) {
         
-        self.presentingViewController = presentingViewController
+        self.baseViewController = baseViewController
         self.completion = completion
 
         super.init()
@@ -89,7 +89,7 @@ extension GIDAuthenticator: GIDSignInDelegate {
 extension GIDAuthenticator: GIDSignInUIDelegate {
    
     func signIn(signIn: GIDSignIn!, presentViewController viewController: UIViewController!) {
-        presentingViewController?.presentViewController(viewController, animated: true, completion: nil)
+        baseViewController?.topMostViewController.presentViewController(viewController, animated: true, completion: nil)
     }
     
     func signIn(signIn: GIDSignIn!, dismissViewController viewController: UIViewController!) {

@@ -70,7 +70,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         var launchViewController: UIViewController? = NavigationController(rootViewController: LaunchViewController())
         window!.addSubview(launchViewController!.view)
         
-        authenticator = GIDAuthenticator(presentingViewController: tabBarController.presentedViewController) { (authenticated, googleUser, error) in
+        authenticator = GIDAuthenticator(baseViewController: tabBarController) { (authenticated, googleUser, error) in
 
             if let googleUser = googleUser {
                 UserPersistenceStore.sharedStore.registerGoogleUser(googleUser)
