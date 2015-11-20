@@ -51,7 +51,7 @@ extension NSDate {
     }
     
     func isSameDayAs(date: NSDate) -> Bool {
-        return compare(date) == .OrderedSame
+        return beginningOfDay.compare(date.beginningOfDay) == .OrderedSame
     }
     
     func isEarlierThanToday() -> Bool {
