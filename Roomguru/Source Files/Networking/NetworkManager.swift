@@ -93,12 +93,14 @@ private extension NetworkManager {
     
     func refreshTokenWithFailure(failure: ErrorBlock, success: VoidBlock) {
         
-        GIDSignIn.sharedInstance().currentUser.authentication.refreshTokensWithHandler { (auth, error) in
-            if let error = error {
-                failure(error: error)
-                
-            } else {
-                success()
+        if let currentUser = GIDSignIn.sharedInstance().currentUser {
+            currentUser.authentication.refreshTokensWithHandler { (auth, error) in
+                if let error = error {
+                    failure(error: error)
+                    
+                } else {
+                    success()
+                }
             }
         }
     }
