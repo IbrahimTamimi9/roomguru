@@ -59,22 +59,37 @@ extension NSDate {
     }
     
     func nextDateWithGranulation(granulation: DateGranulation, multiplier: Float) -> NSDate {
-        let roundTo = NSTimeInterval(Float(granulation.durationRepresentation) * multiplier)
-        let timestamp = timeIntervalSince1970
-        let next = (timestamp - fmod(timestamp, roundTo)) + roundTo
+        var nextDate = NSDate()
         
-        return NSDate(timeIntervalSince1970: next)
+        switch granulation {
+        case .Second:
+            nextDate = self + Int(multiplier).second
+        case .Minute:
+            nextDate = self + Int(multiplier).minute
+        case .Hour:
+            nextDate = self + Int(multiplier).hour
+        case .Day:
+            nextDate = self + Int(multiplier).day
+        }
+        
+        return nextDate
     }
     
     func previousDateWithGranulation(granulation: DateGranulation, multiplier: Float) -> NSDate {
-        let roundTo = NSTimeInterval(Float(granulation.durationRepresentation) * multiplier)
-        let timestamp = timeIntervalSince1970
-        var previous = (timestamp - fmod(timestamp, roundTo))
-        if floor(timestamp) - previous == 0 {
-            previous -= roundTo
+        var previousDate = NSDate()
+        
+        switch granulation {
+        case .Second:
+            previousDate = self - Int(multiplier).second
+        case .Minute:
+            previousDate = self - Int(multiplier).minute
+        case .Hour:
+            previousDate = self - Int(multiplier).hour
+        case .Day:
+            previousDate = self - Int(multiplier).day
         }
         
-        return NSDate(timeIntervalSince1970: previous)
+        return previousDate
     }
     
     func between(start start: NSDate, end: NSDate) -> Bool {
