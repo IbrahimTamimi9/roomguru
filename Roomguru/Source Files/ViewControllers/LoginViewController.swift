@@ -23,13 +23,13 @@ class LoginViewController: UIViewController  {
         
         self.title = NSLocalizedString("Login", comment: "")
         aView?.avatarView.imageView.image = UserPersistenceStore.sharedStore.userImage()
-        aView?.signInButton.addTarget(self, action: Selector("didTapSignInButton:"))
+        aView?.signInButton.addTarget(self, action: Selector("didTapSignInButton:"), forControlEvents: .TouchUpInside)
     }
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         
-        let shouldShowSignInButton = !GPPAuthenticator.isUserAuthenticated || UserPersistenceStore.sharedStore.user == nil
+        let shouldShowSignInButton = !GIDAuthenticator.isUserAuthenticated || UserPersistenceStore.sharedStore.user == nil
         aView?.showSignInButton(shouldShowSignInButton)
         aView?.avatarView.imageView.image = UserPersistenceStore.sharedStore.userImage()
     }

@@ -22,13 +22,10 @@ class UserImageDownloader: NSObject, NSURLSessionDownloadDelegate {
     
     // MARK: Public
     
-    func downloadFileFromUrl(urlString: String, withCompletion completion: (locationURL: NSURL?) -> Void) {
+    func downloadFileFromURL(url: NSURL, withCompletion completion: (locationURL: NSURL?) -> Void) {
         
         self.completion = completion
-        
-        if let url = NSURL(string: urlString) {
-            session!.downloadTaskWithURL(url).resume()
-        }
+        session!.downloadTaskWithURL(url).resume()
     }
     
     // MARK: NSURLSessionDelegate

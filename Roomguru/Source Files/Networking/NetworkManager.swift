@@ -10,13 +10,13 @@ import UIKit
 import Alamofire
 import Async
 
-class NetworkManager: NSObject {
+final class NetworkManager: NSObject {
     
     var serverURL = ""
     var clientID = ""
     private var key: String { return "?key=" + clientID }
     
-    private var tokenStore: GPPTokenStore?
+    private var tokenStore: GIDTokenStore?
     
     class var sharedInstance: NetworkManager {
         struct Static {
@@ -27,9 +27,8 @@ class NetworkManager: NSObject {
     }
     
     // Enable token store AFTER receiving auth from Google
-    func enableTokenStore(enable: Bool = true, auth: GTMOAuth2Authentication? = nil) {
-        tokenStore = (enable && auth != nil) ? GPPTokenStore(auth: auth!) : nil
-        updateAuthorizationHeader()
+    func enableTokenStore(enable: Bool = true, auth: GIDAuthentication? = nil) {
+        tokenStore = (enable && auth != nil) ? GIDTokenStore(auth: auth!) : nil
     }
     
     func request(query: Query, success: ResponseBlock, failure: ErrorBlock) {
@@ -94,27 +93,13 @@ private extension NetworkManager {
     
     func refreshTokenWithFailure(failure: ErrorBlock, success: VoidBlock) {
         
-        tokenStore?.refreshTokenIfNeeded(id: clientID) { (didRefresh, error) in
-            
-            if didRefresh {
-                self.updateAuthorizationHeader()
-            }
-            
+        GIDSignIn.sharedInstance().currentUser.authentication.refreshTokensWithHandler { (auth, error) in
             if let error = error {
                 failure(error: error)
                 
             } else {
                 success()
             }
-        }
-    }
-    
-    func updateAuthorizationHeader() {
-        
-        if let tokenStore = tokenStore {
-            Alamofire.Manager.sharedInstance.session.configuration.HTTPAdditionalHeaders = ["Authorization": tokenStore.authorizationHeader()]
-        } else {
-            Alamofire.Manager.sharedInstance.session.configuration.HTTPAdditionalHeaders = nil
         }
     }
 }

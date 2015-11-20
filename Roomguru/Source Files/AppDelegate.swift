@@ -13,7 +13,7 @@ import PKHUD
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    private(set) var authenticator: GPPAuthenticator!
+    private(set) var authenticator: GIDAuthenticator!
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
@@ -70,17 +70,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         var launchViewController: UIViewController? = NavigationController(rootViewController: LaunchViewController())
         window!.addSubview(launchViewController!.view)
         
-        
-        authenticator = GPPAuthenticator() { (authenticated, auth, error) in
+        authenticator = GIDAuthenticator(presentingViewController: tabBarController.presentedViewController) { (authenticated, googleUser, error) in
 
-            if let auth = auth {
-                UserPersistenceStore.sharedStore.registerUserWithEmail(auth.userEmail)
-                NetworkManager.sharedInstance.enableTokenStore(auth: auth)
+            if let googleUser = googleUser {
+                UserPersistenceStore.sharedStore.registerGoogleUser(googleUser)
+                NetworkManager.sharedInstance.enableTokenStore(auth: googleUser.authentication)
             }
             
             if authenticated {
                 
-                let didUserSelectCalendars = !CalendarPersistenceStore.sharedStore.calendars.isEmpty
+                let didUserSelectCalendars = CalendarPersistenceStore.sharedStore.calendars.isEmpty
                 if didUserSelectCalendars {
                     tabBarController.refreshFirstTab()
                     fade(.Out, view: launchViewController?.view) {

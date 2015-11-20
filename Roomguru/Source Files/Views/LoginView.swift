@@ -11,12 +11,12 @@ import Cartography
 
 class LoginView: LaunchView {
     
-    let signInButton = GPPSignInButton() as GPPSignInButton
+    let signInButton = GIDSignInButton()
     
     override func commonInit() {
 
-        signInButton.style = kGPPSignInButtonStyleWide
-        signInButton.colorScheme = kGPPSignInButtonColorSchemeLight
+        signInButton.style = .Wide
+        signInButton.colorScheme = .Light
         addSubview(signInButton)
         
         super.commonInit()

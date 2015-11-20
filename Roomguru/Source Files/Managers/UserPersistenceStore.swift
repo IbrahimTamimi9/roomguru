@@ -17,7 +17,7 @@ private protocol Persistence {
     func load() -> User?
 }
 
-class UserPersistenceStore {
+final class UserPersistenceStore {
     
     class var sharedStore: UserPersistenceStore {
         struct Static {
@@ -36,18 +36,18 @@ class UserPersistenceStore {
         self.user = load()
     }
     
-    func registerUserWithEmail(email: String) {
+    func registerGoogleUser(googleUser: GIDGoogleUser) {
 
         //do nothing if already exists
-        if user?.email == email {
-            downloadProfileImageIfNeccessary()
+        if let user = user where user.email == googleUser.profile.email {
+            downloadProfileImageIfNeccessaryForGoogleUser(googleUser)
             return
         }
         
         clear()
-        user = User(email: email)
+        user = User(email: googleUser.profile.email)
         save()
-        downloadProfileImageIfNeccessary()
+        downloadProfileImageIfNeccessaryForGoogleUser(googleUser)
     }
     
     func userImage() -> UIImage? {
@@ -62,14 +62,14 @@ class UserPersistenceStore {
 
 private extension UserPersistenceStore {
     
-    func downloadProfileImageIfNeccessary() {
+    func downloadProfileImageIfNeccessaryForGoogleUser(user: GIDGoogleUser) {
         
         if !shouldDownloadImage() {
             return
         }
         
-        GPPProfileProvider.downloadImageURLWithCompletion { success, url in
-            if success {
+        GIDProfileProvider.downloadImageURLForProfile(user.profile, dimension: ProfileImageDimension.Large) { url in
+            if let url = url {
                 self.downloadImageFromURL(url)
             }
         }
@@ -82,16 +82,12 @@ private extension UserPersistenceStore {
         return true
     }
     
-    func downloadImageFromURL(var url: String) {
+    func downloadImageFromURL(url: NSURL) {
         
-        if let range = url.rangeOfString("sz=") {
+        self.downloader.downloadFileFromURL(url) { (locationURL) -> Void in
             
-            url = url.substringWithRange(Range<String.Index>(start: url.startIndex , end: range.startIndex)) + "sz=" + String(size)
-            self.downloader.downloadFileFromUrl(url) { (locationURL) -> Void in
-                
-                if let locationURL = locationURL, id = self.hash() {
-                    self.diskManager.saveProfileImage(locationURL, forIdentifier: id)
-                }
+            if let locationURL = locationURL, id = self.hash() {
+                self.diskManager.saveProfileImage(locationURL, forIdentifier: id)
             }
         }
     }
