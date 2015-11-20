@@ -347,6 +347,7 @@
 		BF7FB4541BFF38D400309B4B /* GIDProfileProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7FB4511BFF38D400309B4B /* GIDProfileProvider.swift */; };
 		BF7FB4551BFF38D400309B4B /* GIDTokenStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7FB4521BFF38D400309B4B /* GIDTokenStore.swift */; };
 		BF7FB4561BFF38D400309B4B /* GIDTokenStoreNetworkCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7FB4531BFF38D400309B4B /* GIDTokenStoreNetworkCoordinator.swift */; };
+		BF7FB4581BFF402100309B4B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BF7FB4571BFF402100309B4B /* GoogleService-Info.plist */; };
 		BF8077361AC93F7500B75096 /* BookingConfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8077351AC93F7500B75096 /* BookingConfirmationViewController.swift */; };
 		BF8459991ACBDE38004965EC /* RevokeQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8459981ACBDE38004965EC /* RevokeQuery.swift */; };
 		BF84599B1ACBE328004965EC /* CalendarEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF84599A1ACBE328004965EC /* CalendarEntry.swift */; };
@@ -584,6 +585,7 @@
 		BF7FB4511BFF38D400309B4B /* GIDProfileProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GIDProfileProvider.swift; path = "Roomguru/Source Files/Managers/GIDProfileProvider.swift"; sourceTree = SOURCE_ROOT; };
 		BF7FB4521BFF38D400309B4B /* GIDTokenStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GIDTokenStore.swift; path = "Roomguru/Source Files/Managers/GIDTokenStore.swift"; sourceTree = SOURCE_ROOT; };
 		BF7FB4531BFF38D400309B4B /* GIDTokenStoreNetworkCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GIDTokenStoreNetworkCoordinator.swift; path = "Roomguru/Source Files/Managers/GIDTokenStoreNetworkCoordinator.swift"; sourceTree = SOURCE_ROOT; };
+		BF7FB4571BFF402100309B4B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		BF8077351AC93F7500B75096 /* BookingConfirmationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BookingConfirmationViewController.swift; path = "Roomguru/Source Files/ViewControllers/BookingConfirmationViewController.swift"; sourceTree = SOURCE_ROOT; };
 		BF8459981ACBDE38004965EC /* RevokeQuery.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RevokeQuery.swift; path = "Roomguru/Source Files/Models/RevokeQuery.swift"; sourceTree = SOURCE_ROOT; };
 		BF84599A1ACBE328004965EC /* CalendarEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CalendarEntry.swift; path = "Roomguru/Source Files/Models/CalendarEntry.swift"; sourceTree = SOURCE_ROOT; };
@@ -887,6 +889,7 @@
 			isa = PBXGroup;
 			children = (
 				5E147CB41AA8B2D300EDD97C /* Roomguru-Bridging-Header.h */,
+				BF7FB4571BFF402100309B4B /* GoogleService-Info.plist */,
 				5E147CB51AA8B2D300EDD97C /* Roomguru-Info.plist */,
 			);
 			name = Project;
@@ -1340,6 +1343,7 @@
 			files = (
 				5E8A7EF21AA9CB770018F432 /* LaunchScreen.xib in Resources */,
 				5E8A7EEF1AA9CB6D0018F432 /* Images.xcassets in Resources */,
+				BF7FB4581BFF402100309B4B /* GoogleService-Info.plist in Resources */,
 				5E6759CD1AC5BDEF008AFF61 /* FontAwesome.otf in Resources */,
 				5E7A9E521AB060820042E16F /* HockeySDKResources.bundle in Resources */,
 			);
