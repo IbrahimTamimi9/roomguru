@@ -37,7 +37,8 @@ class UserDiskManager {
         }
         
         // remove
-        try! NSFileManager.defaultManager().removeItemAtURL(temporaryLocation)
+        // Fixme: Probably not the best implementation, any ideas?
+        let _ = try? NSFileManager.defaultManager().removeItemAtURL(temporaryLocation)
     }
     
     func existFileWithIdentifier(identifier: String) -> Bool {
