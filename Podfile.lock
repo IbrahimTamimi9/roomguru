@@ -52,6 +52,9 @@ PODS:
   - GoogleSymbolUtilities (1.0.3)
   - GoogleUtilities (1.1.0):
     - GoogleSymbolUtilities (~> 1.0.0)
+  - HockeySDK (3.8.5):
+    - HockeySDK/AllFeaturesLib (= 3.8.5)
+  - HockeySDK/AllFeaturesLib (3.8.5)
   - KIF (3.3.0):
     - KIF/Core (= 3.3.0)
   - KIF/Core (3.3.0)
@@ -72,6 +75,7 @@ DEPENDENCIES:
   - FontAwesome.swift (~> 0.4)
   - FontAwesomeIconFactory (~> 2.1)
   - Google/SignIn
+  - HockeySDK (~> 3.8)
   - KIF (~> 3.3)
   - Nimble (~> 3.0)
   - PKHUD (~> 2.2)
@@ -107,6 +111,7 @@ SPEC CHECKSUMS:
   GoogleSignIn: 79929b51e6299c69f1197bbd9c7a1367d523ecd8
   GoogleSymbolUtilities: 82ad9f93d3615244b3f4ce440f5ab2515e8b4f56
   GoogleUtilities: 8ed9134debe11719097881711464752900668f10
+  HockeySDK: dd11a2b9da3372fd025643bee5bc10c8c613d169
   KIF: 0a82046d06f3648799cac522d2d0f7934214caac
   Nimble: 4c353d43735b38b545cbb4cb91504588eb5de926
   PKHUD: 4ec64535c98da203a3eb7303a58e13ac0bff1f8f
