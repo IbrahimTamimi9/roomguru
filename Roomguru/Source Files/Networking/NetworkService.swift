@@ -13,3 +13,10 @@ protocol NetworkService {
     var scheme: String { get }
     var serviceType: NSURLRequestNetworkServiceType { get }
 }
+
+extension NetworkService {
+    /// Network service is has network service type as default
+    var serviceType: NSURLRequestNetworkServiceType {
+        return .NetworkServiceTypeDefault
+    }
+}
