@@ -1014,6 +1014,7 @@
 		BF527C0F1AB1A70C00A43D35 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				BF7FB4591C00938300309B4B /* SecureNetworkService.swift */,
 				BF527C161AB1CF8C00A43D35 /* NetworkManager.swift */,
 				BF7FB45B1C00962500309B4B /* NetworkService.swift */,
 				BF7FB45D1C00AE9000309B4B /* Parameters.swift */,
@@ -1393,6 +1394,7 @@
 				5EFE00F51ADE79210083FB8E /* UIViewExtensions.swift in Sources */,
 				BF527C1F1AB1D53700A43D35 /* Calendar.swift in Sources */,
 				5E6B40AE1AC947B1006C47EE /* NSAttributedStringExtensions.swift in Sources */,
+				BF7FB45A1C00938300309B4B /* SecureNetworkService.swift in Sources */,
 				5EBCB76B1ACAA67F001F6D18 /* HeaderLabel.swift in Sources */,
 				74EE92FC1B148FE100200957 /* TabBarTransitionAnimator.swift in Sources */,
 				2164E7E11B1DEDDE00B27A91 /* TextItem.swift in Sources */,
