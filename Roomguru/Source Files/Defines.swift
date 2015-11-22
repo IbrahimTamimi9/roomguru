@@ -27,10 +27,6 @@ typealias VoidControllerBlock = Void -> UIViewController
 typealias DateValidationBlock = (date: NSDate) -> NSError?
 typealias StringValidationBlock = (string: String) -> NSError?
 
-// MARK: - Data types
-
-typealias QueryParameters = [String: AnyObject]
-
 // MARK: Notifications
 
 let CalendarPersistentStoreDidChangePersistentCalendars = "CalendarPersistentStoreDidChangePersistentCalendars"
