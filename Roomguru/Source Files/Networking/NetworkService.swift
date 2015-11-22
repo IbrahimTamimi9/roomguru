@@ -15,7 +15,7 @@ protocol NetworkService {
 }
 
 extension NetworkService {
-    /// Network service is has network service type as default
+    /// Network service has network service type as default
     var serviceType: NSURLRequestNetworkServiceType {
         return .NetworkServiceTypeDefault
     }
