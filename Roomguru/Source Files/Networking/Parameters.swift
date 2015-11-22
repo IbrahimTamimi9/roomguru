@@ -9,12 +9,6 @@
 import Foundation
 import SwiftyJSON
 
-// MARK: ParamatersEncoding declaration
-enum ParametersEncoding {
-    case URL
-    case Body
-}
-
 /**
 *  URLQueryItemStringConvertible convert URLParameter to String
 */
@@ -30,6 +24,12 @@ protocol URLQueryItemStringConvertible {
 *  HTTP Request parameters. Wrapper for [String: AnyObject] to simplify URL Encoding.
 */
 struct Parameters {
+    
+    // MARK: ParamatersEncoding declaration
+    enum ParametersEncoding {
+        case URL
+        case Body
+    }
     
     /// encoding specifies the encoding type, URL or Body encoding
     let encoding = ParametersEncoding.URL
