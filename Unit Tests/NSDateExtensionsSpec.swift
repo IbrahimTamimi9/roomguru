@@ -13,105 +13,91 @@ class NSDateExtensionsSpec : QuickSpec {
     
     override func spec() {
         
-        var now : NSDate!
+        var sut : NSDate!
         
         describe("NSDateExtensions"){
-        
+            
             beforeEach {
-                now = NSDate()
+                sut = NSDate()
             }
             
-            it("is not same day as 19.11.2015") {
-                let dateComponents = NSDateComponents()
-                dateComponents.day = 19
-                dateComponents.month = 11
-                dateComponents.year = 2015
-                let fixtureDate = NSCalendar.currentCalendar().dateFromComponents(dateComponents)!
+            afterEach {
+                sut = nil
+            }
+            
+            context("checking if date meets conditions") {
                 
-                expect(now.isSameDayAs(fixtureDate)).notTo(beTruthy())
-            }
-            
-            it("is today") {
-                expect(now.isToday()).to(beTruthy())
-            }
-            
-            it("is earlier than today") {
-                expect(NSDate(timeIntervalSince1970: 1410).isEarlierThanToday()).to(beTruthy())
-            }
-            
-            it("today is between year 2000 and 2020") {
-                let startDateComponents = NSDateComponents()
-                startDateComponents.year = 2000
-                let startDate = NSCalendar.currentCalendar().dateFromComponents(startDateComponents)!
+                it("is not same day as 19.11.2015") {
+                    let fixtureDate = self.createDateWithParameters(year: 2015, month: 11, day: 19)
+                    
+                    expect(sut.isSameDayAs(fixtureDate)).notTo(beTruthy())
+                }
                 
-                let endDateComponents = NSDateComponents()
-                endDateComponents.year = 2020
-                let endDate = NSCalendar.currentCalendar().dateFromComponents(endDateComponents)!
+                it("is today") {
+                    expect(sut.isToday()).to(beTruthy())
+                }
                 
-                expect(now.between(start: startDate, end: endDate)).to(beTruthy())
-            }
-            
-            it("should return 10000 as interval between two dates") {
-                let startDate = NSDate(timeIntervalSince1970: 1448013644)
-                let endDate = NSDate(timeIntervalSince1970: startDate.timeIntervalSince1970+10000)
+                it("is earlier than today") {
+                    expect(NSDate(timeIntervalSince1970: 1410).isEarlierThanToday()).to(beTruthy())
+                }
                 
-                expect(NSDate.timeIntervalBetweenDates(start: startDate, end: endDate)).to(equal(10000))
+                it("today is between year 2000 and 2020") {
+                    let startDate = self.createDateWithParameters(year: 2000)
+                    let endDate = self.createDateWithParameters(year: 2020)
+                    
+                    expect(sut.between(start: startDate, end: endDate)).to(beTruthy())
+                }
             }
             
-            it("rounds to hours") {
-                let notRoundedDateComponents = NSDateComponents()
-                notRoundedDateComponents.minute = 12
-                notRoundedDateComponents.hour = 10
-                notRoundedDateComponents.day = 1
-                notRoundedDateComponents.month = 1
-                notRoundedDateComponents.year = 2000
-                let notRoundedDate = NSCalendar.currentCalendar().dateFromComponents(notRoundedDateComponents)!
+            context("making operations on dates") {
                 
-                let exactDateComponents = NSDateComponents()
-                exactDateComponents.second = 0
-                exactDateComponents.minute = 0
-                exactDateComponents.hour = 10
-                exactDateComponents.day = 1
-                exactDateComponents.month = 1
-                exactDateComponents.year = 2000
-                let exactDate = NSCalendar.currentCalendar().dateFromComponents(exactDateComponents)!
+                let fixtureDate = self.createDateWithParameters(year: 2015, month: 11, day: 20)
                 
-                expect(notRoundedDate.roundTo(.Hour, interpolation: .Round)).to(equal(exactDate))
-            }
-            
-            let someDateComponents = NSDateComponents()
-            someDateComponents.day = 20
-            someDateComponents.month = 11
-            someDateComponents.year = 2015
-            let someDate = NSCalendar.currentCalendar().dateFromComponents(someDateComponents)!
-            
-            let dayAfterDateComponents = NSDateComponents()
-            dayAfterDateComponents.day = 21
-            dayAfterDateComponents.month = 11
-            dayAfterDateComponents.year = 2015
-            let dayAfter = NSCalendar.currentCalendar().dateFromComponents(dayAfterDateComponents)!
-            
-            let dayBeforeDateComponents = NSDateComponents()
-            dayBeforeDateComponents.day = 19
-            dayBeforeDateComponents.month = 11
-            dayBeforeDateComponents.year = 2015
-            let dayBefore = NSCalendar.currentCalendar().dateFromComponents(dayBeforeDateComponents)!
-            
-            it("returns previous day") {
-                expect(someDate.previousDateWithGranulation(.Day, multiplier: 1)).to(equal(dayBefore))
-            }
-            
-            it("returns next day") {
-                expect(someDate.nextDateWithGranulation(.Day, multiplier: 1)).to(equal(dayAfter))
-            }
-            
-            it("should add one day to date") {
-                expect(someDate++).to(equal(dayAfter))
-            }
-            
-            it("should subtract one day from date") {
-                expect(someDate--).to(equal(dayBefore))
+                let dayAfterFixtureDate = self.createDateWithParameters(year: 2015, month: 11, day: 21)
+                
+                let dayBeforeFixtureDate = self.createDateWithParameters(year: 2015, month: 11, day: 19)
+                
+                it("should return 10000 as interval between two dates") {
+                    let startDate = NSDate(timeIntervalSince1970: 1448013644)
+                    let endDate = NSDate(timeIntervalSince1970: startDate.timeIntervalSince1970+10000)
+                    
+                    expect(NSDate.timeIntervalBetweenDates(start: startDate, end: endDate)).to(equal(10000))
+                }
+                
+                it("rounds to hours") {
+                    let notRoundedDate = self.createDateWithParameters(year: 2000, hour: 10, minute: 12)
+                    let exactDate = self.createDateWithParameters(year: 2000, hour: 10)
+                    
+                    expect(notRoundedDate.roundTo(.Hour, interpolation: .Round)).to(equal(exactDate))
+                }
+                
+                it("returns previous day") {
+                    expect(fixtureDate.previousDateWithGranulation(.Day, multiplier: 1)).to(equal(dayBeforeFixtureDate))
+                }
+                
+                it("returns next day") {
+                    expect(fixtureDate.nextDateWithGranulation(.Day, multiplier: 1)).to(equal(dayAfterFixtureDate))
+                }
+                
+                it("should subtract one day from date") {
+                    expect(fixtureDate--).to(equal(dayBeforeFixtureDate))
+                }
+                
+                it("should add one day to date") {
+                    expect(fixtureDate++).to(equal(dayAfterFixtureDate))
+                }
             }
         }
+    }
+    
+    func createDateWithParameters(year year: Int, month: Int? = nil, day: Int? = nil, hour: Int? = nil, minute: Int? = nil, second: Int? = nil) -> NSDate! {
+        let dateComponents = NSDateComponents()
+        dateComponents.year = year
+        dateComponents.month = month ?? 1
+        dateComponents.day = day ?? 1
+        dateComponents.hour = hour ?? 0
+        dateComponents.minute = minute ?? 0
+        dateComponents.second = second ?? 0
+        return NSCalendar.currentCalendar().dateFromComponents(dateComponents)
     }
 }
