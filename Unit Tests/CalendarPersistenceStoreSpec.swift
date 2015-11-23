@@ -8,8 +8,9 @@
 
 import Nimble
 import Quick
-
 import SwiftyJSON
+
+@testable import Roomguru
 
 class CalendarPersistenceStoreSpec: QuickSpec {
     override func spec() {
