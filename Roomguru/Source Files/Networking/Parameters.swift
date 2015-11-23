@@ -50,6 +50,7 @@ struct Parameters {
 // MARK: - Create query items from given Parameters
 extension Parameters {
     var queryItems: [NSURLQueryItem] {
+        guard encoding == .URL else { return [] }
         return underlyingDictionary.filter { $1 is URLQueryItemStringConvertible  }.map {
             NSURLQueryItem(name: $0, value: $1.stringValue)
         }
