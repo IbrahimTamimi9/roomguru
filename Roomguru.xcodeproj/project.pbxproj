@@ -30,6 +30,7 @@
 		5CC34A0D1C03591B002D41F1 /* SettingsStoreSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF4C7C41AEE3B5E0050201A /* SettingsStoreSpec.swift */; };
 		5CC34A0E1C035A2F002D41F1 /* CalendarPersistenceStoreSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE73F291AE8E17400FD518A /* CalendarPersistenceStoreSpec.swift */; };
 		5CC34A141C035E29002D41F1 /* FreeEventsProviderSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E8F93B41B21C21300C4A4B5 /* FreeEventsProviderSpec.swift */; };
+		5CC34A191C035F31002D41F1 /* QueryableSharedExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741699BC1AFFDED300F42474 /* QueryableSharedExample.swift */; };
 		5E003E631ACB290700AE55C1 /* NSURLExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E003E621ACB290700AE55C1 /* NSURLExtensions.swift */; };
 		5E04B9EB1AF0729700405BFB /* WeekdaysBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E04B9EA1AF0729700405BFB /* WeekdaysBar.swift */; };
 		5E0720041AB6D8FF009C270E /* SwitchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0720031AB6D8FF009C270E /* SwitchCell.swift */; };
@@ -1500,6 +1501,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5CC34A191C035F31002D41F1 /* QueryableSharedExample.swift in Sources */,
 				5CC34A141C035E29002D41F1 /* FreeEventsProviderSpec.swift in Sources */,
 				5CC34A0E1C035A2F002D41F1 /* CalendarPersistenceStoreSpec.swift in Sources */,
 				5CC34A0D1C03591B002D41F1 /* SettingsStoreSpec.swift in Sources */,

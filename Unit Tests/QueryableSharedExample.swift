@@ -11,6 +11,7 @@ import Quick
 
 import Alamofire
 
+@testable import Roomguru
 
 class MockQuery {
     
