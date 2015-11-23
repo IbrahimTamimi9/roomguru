@@ -62,12 +62,12 @@ extension Requestable {
                 
                 Async.background {
                     swiftyJSON = JSON(data: responseData, options: .AllowFragments, error: &serializationError)
-                    }.main {
-                        if let serializationError = serializationError {
-                            failure(error: serializationError)
-                        } else {
-                            success(response: swiftyJSON)
-                        }
+                }.main {
+                    if let serializationError = serializationError {
+                        failure(error: serializationError)
+                    } else {
+                        success(response: swiftyJSON)
+                    }
                 }
             } else if let httpResponse = response as? NSHTTPURLResponse where httpResponse.statusCode == 204 {
                 success(response: nil)
