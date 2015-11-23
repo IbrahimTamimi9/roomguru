@@ -7,8 +7,6 @@
 //
 
 import Foundation
-import Async
-import SwiftyJSON
 
 /**
  *  Request

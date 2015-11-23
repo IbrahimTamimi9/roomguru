@@ -7,6 +7,8 @@
 //
 
 import Foundation
+import Async
+import SwiftyJSON
 
 /**
  *  Requestable
