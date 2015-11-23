@@ -195,6 +195,7 @@
 		BF527C1F1AB1D53700A43D35 /* Calendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF527C1C1AB1D53700A43D35 /* Calendar.swift */; };
 		BF527C201AB1D53700A43D35 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF527C1D1AB1D53700A43D35 /* Event.swift */; };
 		BF527C211AB1D53700A43D35 /* ModelObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF527C1E1AB1D53700A43D35 /* ModelObject.swift */; };
+		BF6C4CC11C0347E70000AEF6 /* Requestable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6C4CC01C0347E70000AEF6 /* Requestable.swift */; };
 		BF7A9A2F1AE8D4ED00ACF014 /* PickerItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7A9A2E1AE8D4ED00ACF014 /* PickerItemCell.swift */; };
 		BF7FB4541BFF38D400309B4B /* GIDProfileProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7FB4511BFF38D400309B4B /* GIDProfileProvider.swift */; };
 		BF7FB4551BFF38D400309B4B /* GIDTokenStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7FB4521BFF38D400309B4B /* GIDTokenStore.swift */; };
@@ -429,6 +430,7 @@
 		BF527C1C1AB1D53700A43D35 /* Calendar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Calendar.swift; path = "Roomguru/Source Files/Models/Calendar.swift"; sourceTree = SOURCE_ROOT; };
 		BF527C1D1AB1D53700A43D35 /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Event.swift; path = "Roomguru/Source Files/Models/Event.swift"; sourceTree = SOURCE_ROOT; };
 		BF527C1E1AB1D53700A43D35 /* ModelObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ModelObject.swift; path = "Roomguru/Source Files/Models/ModelObject.swift"; sourceTree = SOURCE_ROOT; };
+		BF6C4CC01C0347E70000AEF6 /* Requestable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Requestable.swift; path = "Roomguru/Source Files/Networking/Requestable.swift"; sourceTree = SOURCE_ROOT; };
 		BF7521151AE92E8500B8BDE8 /* ListSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListSpec.swift; sourceTree = "<group>"; };
 		BF7A9A2E1AE8D4ED00ACF014 /* PickerItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PickerItemCell.swift; path = "Roomguru/Source Files/Views/TableCells/PickerItemCell.swift"; sourceTree = SOURCE_ROOT; };
 		BF7E2FA61AF7C2EA00A51A0F /* GroupedListViewModelSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupedListViewModelSpec.swift; sourceTree = "<group>"; };
@@ -1036,12 +1038,13 @@
 		BF527C0F1AB1A70C00A43D35 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
-				BF7FB4591C00938300309B4B /* SecureNetworkService.swift */,
 				BF527C161AB1CF8C00A43D35 /* NetworkManager.swift */,
 				BF7FB45B1C00962500309B4B /* NetworkService.swift */,
 				BF7FB45D1C00AE9000309B4B /* Parameters.swift */,
 				BF251ACC1AC083F30020DFC4 /* Query.swift */,
 				BFECD1101AC0AF5100F60086 /* Request.swift */,
+				BF6C4CC01C0347E70000AEF6 /* Requestable.swift */,
+				BF7FB4591C00938300309B4B /* SecureNetworkService.swift */,
 			);
 			name = Networking;
 			sourceTree = "<group>";
@@ -1455,6 +1458,7 @@
 				7B91D6EB1AC01E0E0080DD91 /* BookingManager.swift in Sources */,
 				BF49CC5B1B00F2F500ACAEC1 /* MaskingViewController.swift in Sources */,
 				5EA452D81B020A1D006CA0FA /* MyEventsListCoordinator.swift in Sources */,
+				BF6C4CC11C0347E70000AEF6 /* Requestable.swift in Sources */,
 				BF251AD31AC093A00020DFC4 /* Pageable.swift in Sources */,
 				5E8A30FE1AC59DEB00E31DD3 /* EventDetailsView.swift in Sources */,
 				5ED78E111AF581FD004A1845 /* EmptyCalendarPlaceholderView.swift in Sources */,
@@ -1508,7 +1512,7 @@
 				5ED4C7701ACC3DC80084E52F /* Defines.swift in Sources */,
 				5EF095591ACD91AD001E5C69 /* CalendarPickerViewModel.swift in Sources */,
 				5E88B8031ADCEFA0000B6CAF /* GroupedBaseTableView.swift in Sources */,
-				BFECD1111AC0AF5100F60086 /* Requests.swift in Sources */,
+				BFECD1111AC0AF5100F60086 /* Request.swift in Sources */,
 				BF26E73D1ABAF77400B12244 /* Listable.swift in Sources */,
 				5EDEACF31ADFDD7600C4351B /* SettingsCollectionViewHeader.swift in Sources */,
 				BFD6AC111AD82D0D007B3ECF /* BasicTitleView.swift in Sources */,
