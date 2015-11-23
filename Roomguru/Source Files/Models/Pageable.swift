@@ -9,23 +9,15 @@
 import Foundation
 import Alamofire
 
-protocol Pageable: Queryable {
+protocol Pageable: Query {
     var pageToken: String? { get set }
 }
 
-class PageableQuery: Query, Pageable {
-    
-    // MARK: Initializers
-    
-    required init(_ HTTPMethod: Alamofire.Method, URLExtension: String, parameters: QueryParameters? = nil, encoding: Alamofire.ParameterEncoding = .URL) {
-        super.init(HTTPMethod, URLExtension: URLExtension, parameters: parameters, encoding: encoding)
-    }
-    
-    // MARK: Query parameters
+extension Pageable {
     
     var pageToken: String? {
-        get { return self[PageTokenKey] as! String? }
-        set { self[PageTokenKey] = newValue }
+        get { return parameters[PageTokenKey] }
+        set { parameters[PageTokenKey] = newValue }
     }
     
     // MARK: Private
