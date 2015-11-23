@@ -20,7 +20,6 @@ protocol URLQueryItemStringConvertible {
 
 /**
 *  Parameters
-*
 *  HTTP Request parameters. Wrapper for [String: AnyObject] to simplify URL Encoding.
 */
 struct Parameters {
@@ -49,16 +48,39 @@ struct Parameters {
 
 // MARK: - Create query items from given Parameters
 extension Parameters {
+    
+    /// Maps Parameters values conforming to URLQueryItemStringConvertible, to NSURLQueryItem.
+    ///
+    /// This computed property will return empty array for parameters encoding different then .URL
+    ///
+    /// If parameter's value is valid JSON object, it will be converted to NSData and then to String with UTF8 encoding,
+    /// So you don't need to implement it on your JSON-valid types.
+    ///
+    /// Otherwise it will fallback to URLQueryItemStringConvertible implementation
     var queryItems: [NSURLQueryItem] {
         guard encoding == .URL else { return [] }
-        return underlyingDictionary.filter { $1 is URLQueryItemStringConvertible  }.map {
-            NSURLQueryItem(name: $0, value: $1.stringValue)
-        }
+        return underlyingDictionary
+            .filter { $1 is URLQueryItemStringConvertible }
+            .map { (key, value) in
+                NSURLQueryItem(name: key, value: {
+                    if NSJSONSerialization.isValidJSONObject(value) {
+                        if let data = try? NSJSONSerialization.dataWithJSONObject(value, options: .PrettyPrinted),
+                            stringValue = NSString(data: data, encoding: NSUTF8StringEncoding) as? String {
+                            return stringValue
+                        }
+                    }
+                    return value.stringValue
+                }())
+            }
+    }
+}
     }
 }
 
 // MARK: - URLParameterStringConvertible common extension
 extension URLQueryItemStringConvertible {
+    /// Default implementation - should be handled by String.init
+    /// Override for conforming type if String.init doesn't satisfies the requirements
     var stringValue: String { return String(self) }
 }
 
