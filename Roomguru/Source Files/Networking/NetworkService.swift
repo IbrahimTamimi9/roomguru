@@ -9,7 +9,7 @@
 import Foundation
 
 protocol NetworkService {
-    var baseURL: NSURL { get }
+    var host: String { get }
     var scheme: String { get }
     var serviceType: NSURLRequestNetworkServiceType { get }
 }
