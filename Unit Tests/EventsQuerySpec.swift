@@ -9,6 +9,8 @@
 import Nimble
 import Quick
 
+@testable import Roomguru
+
 class EventsQuerySpec: QuickSpec {
     
     override func spec() {
@@ -70,6 +72,6 @@ class EventsQuerySpec: QuickSpec {
 private extension EventsQuerySpec {
     
     func containsOnlyTrue(flags: [Bool]) -> Bool{
-        return !contains(flags, false)
+        return !flags.contains(false)
     }
 }

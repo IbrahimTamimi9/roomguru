@@ -9,6 +9,7 @@
 import Nimble
 import Quick
 
+@testable import Roomguru
 
 class RevokeQuerySpec: QuickSpec {
         
