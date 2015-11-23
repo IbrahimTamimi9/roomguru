@@ -32,17 +32,15 @@ struct Parameters {
     }
     
     /// encoding specifies the encoding type, URL or Body encoding
-    let encoding = ParametersEncoding.URL
+    let encoding: ParametersEncoding
     
     private var underlyingDictionary = [String: AnyObject]()
     
     /**
-     Subscript for accessing/setting each parameter for key
-     
-     - parameter key: String key for accessing parameter value
-     
-     - returns: AnyObject that can be kept in [String: AnyObject]
-     */
+    Subscript for accessing/setting each parameter for key
+    - parameter key: String key for accessing parameter value
+    - returns: AnyObject that can be kept in [String: AnyObject]
+    */
     subscript(key: String) -> AnyObject? {
         get { return underlyingDictionary[key] }
         set(value) { underlyingDictionary[key] = value }
