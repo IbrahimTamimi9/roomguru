@@ -9,6 +9,8 @@
 import Nimble
 import Quick
 
+@testable import Roomguru
+
 class FreeEventsProviderSpec: QuickSpec {
     
     override func spec() {
