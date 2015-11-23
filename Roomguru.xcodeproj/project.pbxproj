@@ -216,6 +216,7 @@
 		BFBCE1861AC1920200D96270 /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBCE1851AC1920200D96270 /* EventCell.swift */; };
 		BFBDFAB81AE45C31007A451F /* AvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC49D941ADC75F500B798F5 /* AvatarView.swift */; };
 		BFC79C611AE4455A00EEB8DE /* RightDetailTextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC79C601AE4455A00EEB8DE /* RightDetailTextCell.swift */; };
+		BFD5214D1C037FC90022FF8F /* NSDateFormatterFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD5214C1C037FC90022FF8F /* NSDateFormatterFactory.swift */; };
 		BFD6AC111AD82D0D007B3ECF /* BasicTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD6AC101AD82D0D007B3ECF /* BasicTitleView.swift */; };
 		BFE566081AE133F800B935BF /* GroupItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE566071AE133F800B935BF /* GroupItem.swift */; };
 		BFE566101AE15B2400B935BF /* DateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE5660F1AE15B2400B935BF /* DateCell.swift */; };
@@ -461,6 +462,7 @@
 		BFC79C5E1AE443EF00EEB8DE /* ActionItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ActionItem.swift; path = "Roomguru/Source Files/ViewModels/ActionItem.swift"; sourceTree = SOURCE_ROOT; };
 		BFC79C601AE4455A00EEB8DE /* RightDetailTextCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RightDetailTextCell.swift; path = "Roomguru/Source Files/Views/TableCells/RightDetailTextCell.swift"; sourceTree = SOURCE_ROOT; };
 		BFD2A1E81AEA563A00428AAB /* SectionSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionSpec.swift; sourceTree = "<group>"; };
+		BFD5214C1C037FC90022FF8F /* NSDateFormatterFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NSDateFormatterFactory.swift; path = "Roomguru/Source Files/Helpers/NSDateFormatterFactory.swift"; sourceTree = SOURCE_ROOT; };
 		BFD6AC101AD82D0D007B3ECF /* BasicTitleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BasicTitleView.swift; path = "Roomguru/Source Files/Views/Common/BasicTitleView.swift"; sourceTree = SOURCE_ROOT; };
 		BFE566071AE133F800B935BF /* GroupItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GroupItem.swift; path = "Roomguru/Source Files/ViewModels/GroupItem.swift"; sourceTree = SOURCE_ROOT; };
 		BFE566091AE1342300B935BF /* TextItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TextItem.swift; path = "Roomguru/Source Files/ViewModels/TextItem.swift"; sourceTree = SOURCE_ROOT; };
@@ -659,6 +661,7 @@
 				BF51342F1AEE548F00456839 /* KeyboardPresenceHandler.swift */,
 				BF49CC581B00E24000ACAEC1 /* AlertViewTransitionDelegate.swift */,
 				74EE92FB1B148FE100200957 /* TabBarTransitionAnimator.swift */,
+				BFD5214C1C037FC90022FF8F /* NSDateFormatterFactory.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -1403,6 +1406,7 @@
 				5E769F061ACEDC180061289D /* CalendarPersistenceStore.swift in Sources */,
 				5E15F1431ADC2B8300E1F8BC /* UserImageDownloader.swift in Sources */,
 				BF4C0D211AE299B50040BDBF /* DatePickerCell.swift in Sources */,
+				BFD5214D1C037FC90022FF8F /* NSDateFormatterFactory.swift in Sources */,
 				BF3B25A41ADD610700242859 /* EventQuery.swift in Sources */,
 				5E8AE3051ACC174000A3C146 /* CalendarPickerView.swift in Sources */,
 				BF26E7391ABAC94100B12244 /* EventsListView.swift in Sources */,
