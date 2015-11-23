@@ -53,6 +53,7 @@ extension Requestable {
             
             if let httpResponse = response as? NSHTTPURLResponse, error = self.checkResponseForError(httpResponse) ?? error {
                 failure(error: error)
+                return
             }
             
             if let responseData = data {
@@ -88,7 +89,7 @@ extension Requestable {
 }
 
 // MARK: - Private extension of Requestable
-private extension Requestable {
+extension Requestable {
     
     var session: NSURLSession {
         return NSURLSession.sharedSession()
