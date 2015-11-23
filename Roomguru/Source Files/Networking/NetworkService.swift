@@ -12,6 +12,8 @@ protocol NetworkService {
     var host: String { get }
     var scheme: String { get }
     var serviceType: NSURLRequestNetworkServiceType { get }
+    
+    func authorizeRequest(request: NSMutableURLRequest)
 }
 
 extension NetworkService {
