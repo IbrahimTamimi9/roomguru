@@ -10,14 +10,23 @@ import Foundation
 import Alamofire
 
 
-class EventsQuery: PageableQuery {
+struct EventsQuery: Pageable {
+    
+    /// Query conformance
+    let method: Method
+    let path: String
+    var parameters: Parameters?
+    let service: SecureNetworkService = GoogleCalendarService()
+    
+    private let formatter = NSDateFormatter.googleDateFormatter()
     
     // MARK: Initializers
-    
-    convenience init(calendarID: String, timeRange: TimeRange) {
-        let URLExtension = "/calendars/" + calendarID + "/events"
-        self.init(.GET, URLExtension: URLExtension)
-        _calendarID = calendarID
+    init(calendarID: String, timeRange: TimeRange) {
+        method = .GET
+        path = "/calendars/" + calendarID + "/events"
+        parameters = Parameters(encoding: Parameters.Encoding.JSON)
+        
+        self.calendarID = calendarID
         
         maxResults = 100
         singleEvents = true
@@ -25,74 +34,67 @@ class EventsQuery: PageableQuery {
         timeMin = timeRange.min
         timeMax = timeRange.max
     }
-
-    required init(_ HTTPMethod: Alamofire.Method, URLExtension: String, parameters: QueryParameters? = nil, encoding: Alamofire.ParameterEncoding = .URL) {
-        super.init(HTTPMethod, URLExtension: URLExtension)
-    }
     
-    // MARK: Query parameters
+    // MARK: Parameters
     
-    var calendarID: String { return _calendarID }
+    private var calendarID: String = ""
     
     var maxResults: Int? {
-        get { return self[MaxResultsKey] as! Int? }
-        set { self[MaxResultsKey] = newValue }
+        get { return parameters?[Key.MaxResults.rawValue] as! Int? }
+        set { parameters?[Key.MaxResults.rawValue] = newValue }
     }
     
     var timeMax: NSDate? {
-        get { return formatter.dateFromString(self[TimeMaxKey] as! String) }
+        get { return formatter.dateFromString(parameters?[Key.TimeMax.rawValue] as! String) }
         set {
             if let newTimeMax: NSDate = newValue {
-                self[TimeMaxKey] = formatter.stringFromDate(newTimeMax)
+                parameters?[Key.TimeMax.rawValue] = formatter.stringFromDate(newTimeMax)
             } else {
-                self[TimeMaxKey] = nil
+                parameters?[Key.TimeMax.rawValue] = nil
             }
         }
     }
     
     var timeMin: NSDate? {
-        get { return formatter.dateFromString(self[TimeMinKey] as! String) }
+        get { return formatter.dateFromString(parameters?[Key.TimeMin.rawValue] as! String) }
         set {
             if let newTimeMin: NSDate = newValue {
-                self[TimeMinKey] = formatter.stringFromDate(newTimeMin)
+                parameters?[Key.TimeMin.rawValue] = formatter.stringFromDate(newTimeMin)
             } else {
-                self[TimeMinKey] = nil
+                parameters?[Key.TimeMin.rawValue] = nil
             }
         }
     }
     
     var orderBy: String? {
-        get { return self[OrderByKey] as! String? }
-        set { self[OrderByKey] = newValue }
+        get { return parameters?[Key.OrderBy.rawValue] as! String? }
+        set { parameters?[Key.OrderBy.rawValue] = newValue }
     }
     
     var singleEvents: Bool? {
         get {
-            let singleEve = self[SingleEventsKey] as! String
+            let singleEve = parameters?[Key.SingleEvents.rawValue] as! String
             return (singleEve == "true") as Bool?
         }
         set {
-            self[SingleEventsKey] = (newValue != nil) ? "true" : nil
+            parameters?[Key.SingleEvents.rawValue] = (newValue != nil) ? "true" : nil
         }
     }
     
-    
     // MARK: Private
-    
-    private var _calendarID: String = ""
-    
-    private let MaxResultsKey = "maxResults"
-    private let TimeMaxKey = "timeMax"
-    private let TimeMinKey = "timeMin"
-    private let OrderByKey = "orderBy"
-    private let SingleEventsKey = "singleEvents"
-    
+    private enum Key: String {
+        case MaxResults = "maxResults"
+        case TimeMax = "timeMax"
+        case TimeMin = "timeMin"
+        case OrderBy = "orderBy"
+        case SingleEvents = "singleEvents"
+    }
 }
 
 
 extension EventsQuery {
     
-    class func queriesForCalendarIdentifiers(calendars: [String], withTimeRange timeRange: TimeRange) -> [EventsQuery] {
+    static func queriesForCalendarIdentifiers(calendars: [String], withTimeRange timeRange: TimeRange) -> [Pageable] {
         var queries: [EventsQuery] = []
         
         for calendarID in calendars {
