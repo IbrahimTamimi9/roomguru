@@ -9,38 +9,41 @@
 import Foundation
 import Alamofire
 
-class FreeBusyQuery: Query {
+struct FreeBusyQuery: Query {
+    
+    let method: Method = .POST
+    let path: String
+    var parameters: Parameters? = Parameters(encoding: Parameters.Encoding.JSON)
+    let service: SecureNetworkService = GoogleCalendarService()
+    
+    private let formatter = NSDateFormatter.googleDateFormatter()
     
     var startDate: NSDate? {
-        if let dateString = self[TimeMinKey] as? String {
+        if let dateString = parameters?[TimeMinKey] as? String {
             return formatter.dateFromString(dateString)
         }
         return nil
     }
     var endDate: NSDate? {
-        if let dateString = self[TimeMaxKey] as? String {
+        if let dateString = parameters?[TimeMaxKey] as? String {
             return formatter.dateFromString(dateString)
         }
         return nil
     }
         
-    convenience init(calendarsIDs: [String], searchTimeRange: TimeRange) {
-        self.init(.POST, URLExtension: "/freeBusy")
-        self[ItemsKey] = calendarsIDs.map { ["id": $0] }
-        self[TimeMinKey] = formatter.stringFromDate(searchTimeRange.min)
-        self[TimeMaxKey] = formatter.stringFromDate(searchTimeRange.max)
+    init(calendarsIDs: [String], searchTimeRange: TimeRange) {
+        path = "/freeBusy"
+        parameters?[Key.Items.rawValue] = calendarsIDs.map { ["id": $0] }
+        parameters?[Key.TimeMin.rawValue] = formatter.stringFromDate(searchTimeRange.min)
+        parameters?[Key.TimeMax.rawValue] = formatter.stringFromDate(searchTimeRange.max)
+        parameters?[Key.TimeZone.rawValue] = "Europe/Warsaw"
     }
-    
-    required init(_ HTTPMethod: Alamofire.Method, URLExtension: String, parameters: QueryParameters? = nil, encoding: Alamofire.ParameterEncoding = .JSON) {
-        super.init(HTTPMethod, URLExtension: URLExtension, parameters: parameters, encoding: encoding)
-        self[TimeZoneKey] = "Europe/Warsaw"
-    }
-    
     
     // MARK: Private
-    
-    private let TimeMaxKey = "timeMax"
-    private let TimeMinKey = "timeMin"
-    private let TimeZoneKey = "timeZone"
-    private let ItemsKey = "items"
+    private enum Key: String {
+        case TimeMax = "timeMax"
+        case TimeMin = "timeMin"
+        case TimeZone = "timeZone"
+        case Items = "items"
+    }
 }
