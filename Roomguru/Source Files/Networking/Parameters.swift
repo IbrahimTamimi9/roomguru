@@ -25,17 +25,17 @@ protocol URLQueryItemStringConvertible {
 struct Parameters {
     
     // MARK: ParamatersEncoding declaration
-    enum ParametersEncoding {
+    enum Encoding {
         case URL
         case Body
     }
     
     /// encoding specifies the encoding type, URL or Body encoding
-    let encoding: ParametersEncoding
+    let encoding: Encoding
     
     private var underlyingDictionary = [String: AnyObject]()
     
-    init(encoding: ParametersEncoding) {
+    init(encoding: Encoding) {
         self.encoding = encoding
     }
     
