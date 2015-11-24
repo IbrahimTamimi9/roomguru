@@ -7,14 +7,19 @@
 //
 
 import Foundation
-import Alamofire
+
+enum EventStatus: String {
+    case Confirmed = "confirmed"
+    case Tentative = "tentative"
+    case Cancelled = "cancelled"
+}
 
 struct BookingQuery: Query {
     
     /// Query conformance
     let method: Method
     let path: String
-    var parameters: Parameters?
+    var parameters: Parameters? = Parameters(encoding: Parameters.Encoding.JSON)
     let service: SecureNetworkService = GoogleCalendarService()
     
     private static var URLExtension = "/calendars/primary/events"
@@ -41,7 +46,6 @@ struct BookingQuery: Query {
     }
     
     private mutating func commonSetup() {
-        calendarID = ""
         timeZone = NSTimeZone.localTimeZone().name
         dateFormatter.dateFormat = "yyyy-MM-dd"
         addLoggedUserAsAttendee()
@@ -49,7 +53,7 @@ struct BookingQuery: Query {
     
     // MARK: Parameters
     
-    var calendarID: String {
+    var calendarID = "" {
         willSet { updateCalendarAsAttendee(calendarID, new: newValue) }
     }
     
