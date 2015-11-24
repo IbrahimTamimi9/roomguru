@@ -12,7 +12,6 @@ import Async
 
 final class NetworkManager: NSObject {
     
-    var serverURL = ""
     var clientID = ""
     private var key: String { return "?key=" + clientID }
     

@@ -129,7 +129,6 @@ private extension AppDelegate {
             }
         #endif
         
-        NetworkManager.sharedInstance.serverURL = Constants.GooglePlus.ServerURL
         NetworkManager.sharedInstance.clientID = Constants.GooglePlus.ClientID
         
         PKHUD.sharedHUD.contentView = PKHUDSystemActivityIndicatorView()
