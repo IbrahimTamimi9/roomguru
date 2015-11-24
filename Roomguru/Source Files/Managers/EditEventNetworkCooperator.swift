@@ -12,7 +12,7 @@ import Timepiece
 
 class EditEventNetworkCooperator {
     
-    let eventQuery: EventQuery
+    var eventQuery: EventQuery
     lazy var networkManager = NetworkManager.sharedInstance
 
     private let currentEditingEventInitialStartDate, currentEditingEventInitialEndDate: NSDate
