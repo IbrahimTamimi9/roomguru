@@ -7,15 +7,11 @@
 //
 
 import Foundation
-import Alamofire
 
-class CalendarsQuery: Query {
-    
-    convenience init() {
-        self.init(.GET, URLExtension: "/users/me/calendarList")
-    }
-    
-    required init(_ HTTPMethod: Alamofire.Method, URLExtension: String, parameters: QueryParameters? = nil, encoding: Alamofire.ParameterEncoding = .URL) {
-        super.init(HTTPMethod, URLExtension: URLExtension, parameters: parameters, encoding: encoding)
-    }
+struct CalendarsQuery: Query {
+    /// Query conformance
+    let method: Method = .GET
+    let path = "/users/me/calendarList"
+    var parameters: Parameters? = Parameters(encoding: Parameters.Encoding.URL)
+    let service: SecureNetworkService = GoogleCalendarService()
 }
