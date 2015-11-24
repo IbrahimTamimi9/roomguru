@@ -21,7 +21,6 @@ PODS:
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
   - AKPickerView-Swift (1.0.0)
-  - Alamofire (3.1.2)
   - Async (1.4.0)
   - Cartography (0.6.0)
   - CryptoSwift (0.1.1)
@@ -68,7 +67,6 @@ PODS:
 DEPENDENCIES:
   - AFNetworking (~> 2.6)
   - AKPickerView-Swift (~> 1.0)
-  - Alamofire (~> 3.1)
   - Async (from `https://github.com/duemunk/Async.git`, tag `1.4`)
   - Cartography (~> 0.6)
   - CryptoSwift (~> 0.1)
@@ -97,7 +95,6 @@ CHECKOUT OPTIONS:
 SPEC CHECKSUMS:
   AFNetworking: cb8d14a848e831097108418f5d49217339d4eb60
   AKPickerView-Swift: 933897031753447302cf3167a0a5c738a58b219c
-  Alamofire: 7c16ca65f3c7e681fd925fd7f2dec7747ff96855
   Async: 4221a3bed9b180d95dd01fb07256443124514375
   Cartography: 70af183a248547694a8cfaa6b989cb7e04589985
   CryptoSwift: c11640d3d66107efc8333e4131a5173f072b1d61

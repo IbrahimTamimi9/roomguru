@@ -9,9 +9,6 @@
 import Nimble
 import Quick
 
-import Alamofire
-
-
 class PageableQuerySpec: QuickSpec {
     
     override func spec() {

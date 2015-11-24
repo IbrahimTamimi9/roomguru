@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import Alamofire
 
 protocol Pageable: Query {
     var pageToken: String? { get set }

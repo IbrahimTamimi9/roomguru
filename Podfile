@@ -16,8 +16,6 @@ xcodeproj 'Roomguru', 'Development' => :debug, 'Production' => :release, 'Stagin
 
 pod 'AFNetworking', '~> 2.6'
 
-pod 'Alamofire', '~> 3.1'
-
 pod 'Google/SignIn' # Fails when version is specified
 
 # "tag" given because there is no latest version in pods

@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Alamofire
 import Async
 
 final class NetworkManager: NSObject {

@@ -9,9 +9,6 @@
 import Nimble
 import Quick
 
-import Alamofire
-
-
 class QuerySpec: QuickSpec {
 
     override func spec() {
