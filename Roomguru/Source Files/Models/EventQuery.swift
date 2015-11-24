@@ -7,55 +7,48 @@
 //
 
 import Foundation
-import Alamofire
 
-enum EventStatus: String {
-    case Confirmed = "confirmed"
-    case Tentative = "tentative"
-    case Cancelled = "cancelled"
-}
+typealias EventQuery = BookingQuery
 
-class EventQuery: BookingQuery {
+extension EventQuery {
     
     // MARK: Initializers
-    
-    convenience init() {
-        self.init(.POST)
-    }
-    
-    required init(_ HTTPMethod: Alamofire.Method, URLExtension: String = "/calendars/primary/events", parameters: QueryParameters? = nil, encoding: Alamofire.ParameterEncoding = .JSON) {
-        super.init(HTTPMethod, URLExtension: URLExtension, parameters: nil, encoding: encoding)
+    init() {
+        method = .POST
+        path = "/calendars/primary/events"
+        parameters = Parameters(encoding: Parameters.Encoding.JSON)
         status = .Confirmed
     }
     
-    override func populateQueryWithCalendarEntry(calendarEntry: CalendarEntry) {
-        super.populateQueryWithCalendarEntry(calendarEntry)
+    mutating func populateQueryWithCalendarEntryAndUpdateEventDescription(calendarEntry: CalendarEntry) {
+        populateQueryWithCalendarEntry(calendarEntry)
         eventDescription = calendarEntry.event.eventDescription
     }
     
     // MARK: Parameters
     
     var eventDescription: String? {
-        get { return self[DescriptionKey] as? String }
-        set { self[DescriptionKey] = newValue }
+        get { return parameters?[Key.Description.rawValue] as? String }
+        set { parameters?[Key.Description.rawValue] = newValue }
     }
     
     var recurrence: String? {
         get {
-            if let recurrences = self[RecurrenceKey] as? [String] {
+            if let recurrences = parameters?[Key.Recurrence.rawValue] as? [String] {
                 return recurrences.first
             }
             return nil
         }
         set {
             if let recurrence = newValue {
-                self[RecurrenceKey] = [recurrence]
+                parameters?[Key.Recurrence.rawValue] = [recurrence]
             }
         }
     }
     
     // MARK: Keys
-    
-    private let DescriptionKey = "description"
-    private let RecurrenceKey = "recurrence"
+    private enum Key: String {
+        case Description = "description"
+        case Recurrence = "recurrence"
+    }
 }
