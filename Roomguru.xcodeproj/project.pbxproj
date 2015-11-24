@@ -216,6 +216,7 @@
 		BFBCE1861AC1920200D96270 /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBCE1851AC1920200D96270 /* EventCell.swift */; };
 		BFBDFAB81AE45C31007A451F /* AvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC49D941ADC75F500B798F5 /* AvatarView.swift */; };
 		BFC79C611AE4455A00EEB8DE /* RightDetailTextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC79C601AE4455A00EEB8DE /* RightDetailTextCell.swift */; };
+		BFD5214B1C036C0C0022FF8F /* GoogleCalendarService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD5214A1C036C0C0022FF8F /* GoogleCalendarService.swift */; };
 		BFD5214D1C037FC90022FF8F /* NSDateFormatterFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD5214C1C037FC90022FF8F /* NSDateFormatterFactory.swift */; };
 		BFD6AC111AD82D0D007B3ECF /* BasicTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD6AC101AD82D0D007B3ECF /* BasicTitleView.swift */; };
 		BFE566081AE133F800B935BF /* GroupItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE566071AE133F800B935BF /* GroupItem.swift */; };
@@ -462,6 +463,7 @@
 		BFC79C5E1AE443EF00EEB8DE /* ActionItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ActionItem.swift; path = "Roomguru/Source Files/ViewModels/ActionItem.swift"; sourceTree = SOURCE_ROOT; };
 		BFC79C601AE4455A00EEB8DE /* RightDetailTextCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RightDetailTextCell.swift; path = "Roomguru/Source Files/Views/TableCells/RightDetailTextCell.swift"; sourceTree = SOURCE_ROOT; };
 		BFD2A1E81AEA563A00428AAB /* SectionSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionSpec.swift; sourceTree = "<group>"; };
+		BFD5214A1C036C0C0022FF8F /* GoogleCalendarService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GoogleCalendarService.swift; path = "Roomguru/Source Files/Networking/GoogleCalendarService.swift"; sourceTree = SOURCE_ROOT; };
 		BFD5214C1C037FC90022FF8F /* NSDateFormatterFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NSDateFormatterFactory.swift; path = "Roomguru/Source Files/Helpers/NSDateFormatterFactory.swift"; sourceTree = SOURCE_ROOT; };
 		BFD6AC101AD82D0D007B3ECF /* BasicTitleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BasicTitleView.swift; path = "Roomguru/Source Files/Views/Common/BasicTitleView.swift"; sourceTree = SOURCE_ROOT; };
 		BFE566071AE133F800B935BF /* GroupItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GroupItem.swift; path = "Roomguru/Source Files/ViewModels/GroupItem.swift"; sourceTree = SOURCE_ROOT; };
@@ -1051,6 +1053,7 @@
 				BFECD1101AC0AF5100F60086 /* Request.swift */,
 				BF6C4CC01C0347E70000AEF6 /* Requestable.swift */,
 				BF7FB4591C00938300309B4B /* SecureNetworkService.swift */,
+				BFD5214A1C036C0C0022FF8F /* GoogleCalendarService.swift */,
 			);
 			name = Networking;
 			sourceTree = "<group>";
@@ -1490,6 +1493,7 @@
 				BF01C8E71AEF8048003422AD /* InsetTextField.swift in Sources */,
 				BF0A9E4E1AD540290088ED79 /* User.swift in Sources */,
 				5E8AE3031ACC172500A3C146 /* CalendarPickerViewController.swift in Sources */,
+				BFD5214B1C036C0C0022FF8F /* GoogleCalendarService.swift in Sources */,
 				5E746FE71AF04C0F0049131F /* EventsPageViewController.swift in Sources */,
 				5E569DCF1AEFA375009F8EC0 /* DayCarouselCell.swift in Sources */,
 				2164E7F51B1EF5E700B27A91 /* ResultActionItem.swift in Sources */,
