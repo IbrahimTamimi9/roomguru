@@ -13,7 +13,7 @@ protocol NetworkService {
     var scheme: String { get }
     var serviceType: NSURLRequestNetworkServiceType { get }
     
-    optional func authorizeRequest(request: NSMutableURLRequest)
+    func authorizeRequest(request: NSMutableURLRequest)
 }
 
 extension NetworkService {
