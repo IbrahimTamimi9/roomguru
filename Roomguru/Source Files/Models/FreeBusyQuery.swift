@@ -18,13 +18,13 @@ struct FreeBusyQuery: Query {
     private let formatter = NSDateFormatter.googleDateFormatter()
     
     var startDate: NSDate? {
-        if let dateString = parameters?[TimeMinKey] as? String {
+        if let dateString = parameters?[Key.TimeMin.rawValue] as? String {
             return formatter.dateFromString(dateString)
         }
         return nil
     }
     var endDate: NSDate? {
-        if let dateString = parameters?[TimeMaxKey] as? String {
+        if let dateString = parameters?[Key.TimeMax.rawValue] as? String {
             return formatter.dateFromString(dateString)
         }
         return nil
