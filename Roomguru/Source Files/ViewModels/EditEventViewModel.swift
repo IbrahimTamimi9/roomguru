@@ -39,7 +39,7 @@ class EditEventViewModel<T: GroupItem>: GroupedListViewModel<GroupItem> {
     
     init(calendarEntry: CalendarEntry?) {
         
-        let query: EventQuery
+        var query: EventQuery
         
         if let calendarEntry = calendarEntry {
             title = NSLocalizedString("Edit Event", comment: "")
@@ -183,7 +183,7 @@ class EditEventViewModel<T: GroupItem>: GroupedListViewModel<GroupItem> {
         }
         
         startDateItem.onValueChanged = { [weak self] date in
-            if let query = self?.networkCooperator.eventQuery where !query.allDay {
+            if var query = self?.networkCooperator.eventQuery where !query.allDay {
                 query.startDate = date
             }
             
@@ -200,7 +200,7 @@ class EditEventViewModel<T: GroupItem>: GroupedListViewModel<GroupItem> {
         }
         
         endDateItem.onValueChanged = { [weak self] date in
-            if let query = self?.networkCooperator.eventQuery where !query.allDay {
+            if var query = self?.networkCooperator.eventQuery where !query.allDay {
                 query.endDate = date
             }
         }
