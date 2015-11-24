@@ -10,9 +10,14 @@ import Foundation
 
 class EventsProviderNetworkCooperator {
     
+    let method: Method = .GET
+    let path = "/users/me/calendarList"
+    var parameters: Parameters? = Parameters(encoding: Parameters.Encoding.URL)
+    let service: SecureNetworkService = GoogleCalendarService()
+    
     func entriesWithCalendarIDs(calendarIDs: [String], timeRange: TimeRange, completion: (result: [CalendarEntry]?, error: NSError?) -> Void) {
         
-        let queries: [PageableQuery] = EventsQuery.queriesForCalendarIdentifiers(calendarIDs, withTimeRange: timeRange)
+        let queries: [Pageable] = EventsQuery.queriesForCalendarIdentifiers(calendarIDs, withTimeRange: timeRange) 
         
         NetworkManager.sharedInstance.chainedRequest(queries, construct: { (query, response: [Event]?) -> [CalendarEntry] in
             
@@ -29,7 +34,7 @@ class EventsProviderNetworkCooperator {
 
 private extension EventsProviderNetworkCooperator {
     
-    func constructChainedRequestWithQuery(query: PageableQuery, response: [Event]?) -> [CalendarEntry] {
+    func constructChainedRequestWithQuery(query: Pageable, response: [Event]?) -> [CalendarEntry] {
         
         if let query = query as? EventsQuery, response = response {
             return CalendarEntry.caledarEntries(query.calendarID, events: response)
