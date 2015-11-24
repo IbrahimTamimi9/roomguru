@@ -9,14 +9,14 @@
 import Foundation
 import Alamofire
 
-class RevokeQuery: Query {
+struct RevokeQuery: Query {
     
-    convenience init(eventID: String, userEmail: String) {
-        let URLExtension = "/calendars/" + userEmail + "/events/" + eventID
-        self.init(.DELETE, URLExtension: URLExtension)
-    }
-
-    required init(_ HTTPMethod: Alamofire.Method, URLExtension: String, parameters: QueryParameters? = nil, encoding: Alamofire.ParameterEncoding = .URL) {
-        super.init(HTTPMethod, URLExtension: URLExtension, parameters: parameters, encoding: encoding)
+    let method: Method = .DELETE
+    let path: String
+    var parameters: Parameters? = Parameters(encoding: Parameters.Encoding.URL)
+    let service: SecureNetworkService = GoogleCalendarService()
+    
+    init(eventID: String, userEmail: String) {
+        path = "/calendars/" + userEmail + "/events/" + eventID
     }
 }
