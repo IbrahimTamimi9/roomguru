@@ -16,11 +16,12 @@ protocol Pageable: Query {
 extension Pageable {
     
     var pageToken: String? {
-        get { return parameters[PageTokenKey] }
-        set { parameters[PageTokenKey] = newValue }
+        get { return parameters?[Key.PageToken.rawValue] }
+        set { parameters?[Key.PageToken.rawValue] = newValue }
     }
     
     // MARK: Private
-    
-    private let PageTokenKey = "pageToken"
+    private enum Key: String {
+        case PageToken = "pageToken"
+    }
 }
