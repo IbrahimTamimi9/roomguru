@@ -15,4 +15,8 @@ import Foundation
 struct Request<Queryable: Query>: Requestable {
     let query: Queryable
     var dataTask: NSURLSessionDataTask?
+
+    init(_ query: Queryable) {
+        self.query = query
+    }
 }
