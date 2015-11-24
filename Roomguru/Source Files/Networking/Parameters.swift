@@ -27,7 +27,7 @@ struct Parameters {
     // MARK: ParamatersEncoding declaration
     enum Encoding {
         case URL
-        case Body
+        case JSON
     }
     
     /// encoding specifies the encoding type, URL or Body encoding
@@ -82,10 +82,10 @@ extension Parameters {
 // MARK: - Convert parameters into optional NSData
 extension Parameters {
     
-    /// Checks if encoding is .Body and parameters are valid JSON object, then uses NSJSONSerialization
+    /// Checks if encoding is .JSON and parameters are valid JSON object, then uses NSJSONSerialization
     /// Otherwise returns nil
     var body: NSData? {
-        guard encoding == .Body && NSJSONSerialization.isValidJSONObject(underlyingDictionary) else { return nil }
+        guard encoding == .JSON && NSJSONSerialization.isValidJSONObject(underlyingDictionary) else { return nil }
         return try? NSJSONSerialization.dataWithJSONObject(underlyingDictionary, options: .PrettyPrinted)
     }
 }
