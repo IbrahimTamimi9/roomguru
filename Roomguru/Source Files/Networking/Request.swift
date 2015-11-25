@@ -16,7 +16,7 @@ struct Request<Queryable: Query>: Requestable {
     let query: Queryable
     var dataTask: NSURLSessionDataTask?
 
-    init(_ query: Query) {
+    init(_ query: Queryable) {
         self.query = query
     }
 }
