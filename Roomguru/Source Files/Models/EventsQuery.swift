@@ -35,7 +35,7 @@ struct EventsQuery: Pageable {
     
     // MARK: Parameters
     
-    private var calendarID: String = ""
+    var calendarID: String = ""
     
     var maxResults: Int? {
         get { return parameters?[Key.MaxResults.rawValue] as! Int? }
