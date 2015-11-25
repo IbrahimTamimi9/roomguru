@@ -10,7 +10,7 @@ import Foundation
 
 extension NSDateFormatter {
     class func googleDateFormatter() -> NSDateFormatter {
-        var formatter = NSDateFormatter()
+        let formatter = NSDateFormatter()
         formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
         formatter.timeZone = NSTimeZone.localTimeZone()
         return formatter
