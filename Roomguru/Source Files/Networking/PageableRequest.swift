@@ -12,8 +12,12 @@ import SwiftyJSON
 
 struct PageableRequest<Queryable: Pageable, T: ModelJSONProtocol> : Requestable {
     var query: Queryable
-    var dataTask: NSURLSessionDataTask?
-    var result: [T]
+    var dataTask: NSURLSessionDataTask? = nil
+    var result: [T] = []
+
+    init(_ query: Queryable) {
+        self.query = query
+    }
     
     mutating func resume(success: (response: [T]?) -> Void, failure: ErrorBlock) {
         dataTask = session.dataTaskWithRequest(foundationRequest) { (data, response, error) -> Void in
