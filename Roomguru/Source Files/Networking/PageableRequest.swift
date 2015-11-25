@@ -29,7 +29,7 @@ struct PageableRequest<Queryable: Pageable, T: ModelJSONProtocol> : Requestable 
             
             if let responseData = data {
                 var swiftyJSON: JSON? = nil
-                var serializationError: NSError?
+                var serializationError: NSError? = nil
                 
                 Async.background {
                     swiftyJSON = JSON(data: responseData, options: .AllowFragments, error: &serializationError)
