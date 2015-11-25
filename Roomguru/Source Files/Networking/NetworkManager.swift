@@ -45,7 +45,7 @@ final class NetworkManager: NSObject {
     :param: success a block invoked if every request was succesful
     :param: failure a block invoked if error occur
     */
-    func chainedRequest<T: ModelJSONProtocol, U>(queries: [PageableQuery], construct: (PageableQuery, [T]?) -> [U], success: [U]? -> Void, failure: ErrorBlock) {
+    func chainedRequest<P: Pageable, T: ModelJSONProtocol, U>(requests: [PageableRequest<P, T>], construct: (PageableRequest<P, T>, [T]?) -> [U], success: [U]? -> Void, failure: ErrorBlock) {
         
         refreshTokenWithFailure(failure) {
             
@@ -55,11 +55,11 @@ final class NetworkManager: NSObject {
             let queue: dispatch_queue_t = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
             let group: dispatch_group_t = dispatch_group_create();
             
-            for query in queries {
+            for request in requests {
                 dispatch_group_enter(group)
                 
-                self.requestList(query, success: { (response: [T]?)  in
-                    result += construct(query, response)
+                self.requestList(request, success: { (response: [T]?)  in
+                    result += construct(request, response)
                     dispatch_group_leave(group)
                     
                     }, failure: { error in
@@ -81,10 +81,8 @@ final class NetworkManager: NSObject {
 
 private extension NetworkManager {
     
-    func requestList<T: ModelJSONProtocol>(query: PageableQuery, success: (response: [T]?) -> (), failure: ErrorBlock) {
-        
-        query.setFullPath(self.serverURL, authKey: self.key)
-        PageableRequest<T>(query).resume(success, failure)
+    func requestList<P: Pageable, T: ModelJSONProtocol>(var request: PageableRequest<P, T>, success: (response: [T]?) -> (), failure: ErrorBlock) {
+        request.resume(success, failure: failure)
     }
     
     func refreshTokenWithFailure(failure: ErrorBlock, success: VoidBlock) {
