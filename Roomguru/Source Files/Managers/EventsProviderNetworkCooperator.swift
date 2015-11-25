@@ -8,7 +8,7 @@
 
 import Foundation
 
-class EventsProviderNetworkCooperator {
+struct EventsProviderNetworkCooperator {
     
     let method: Method = .GET
     let path = "/users/me/calendarList"
@@ -17,11 +17,14 @@ class EventsProviderNetworkCooperator {
     
     func entriesWithCalendarIDs(calendarIDs: [String], timeRange: TimeRange, completion: (result: [CalendarEntry]?, error: NSError?) -> Void) {
         
-        let queries: [Pageable] = EventsQuery.queriesForCalendarIdentifiers(calendarIDs, withTimeRange: timeRange) 
+        let queries = EventsQuery.queriesForCalendarIdentifiers(calendarIDs, withTimeRange: timeRange)
+        let requests = queries.map {
+            PageableRequest<EventsQuery, Event>($0)
+        }
         
-        NetworkManager.sharedInstance.chainedRequest(queries, construct: { (query, response: [Event]?) -> [CalendarEntry] in
+        NetworkManager.sharedInstance.chainedRequest(requests, construct: { (request, response: [Event]?) -> [CalendarEntry] in
             
-            return self.constructChainedRequestWithQuery(query, response: response)
+            return self.constructChainedRequestWithQuery(request, response: response)
             
         }, success: { (result: [CalendarEntry]?) in
             completion(result: result, error: nil)
@@ -34,10 +37,10 @@ class EventsProviderNetworkCooperator {
 
 private extension EventsProviderNetworkCooperator {
     
-    func constructChainedRequestWithQuery(query: Pageable, response: [Event]?) -> [CalendarEntry] {
+    func constructChainedRequestWithQuery(request: PageableRequest<EventsQuery, Event>, response: [Event]?) -> [CalendarEntry] {
         
-        if let query = query as? EventsQuery, response = response {
-            return CalendarEntry.caledarEntries(query.calendarID, events: response)
+        if let response = response {
+            return CalendarEntry.caledarEntries(request.query.calendarID, events: response)
         }
         return []
     }
