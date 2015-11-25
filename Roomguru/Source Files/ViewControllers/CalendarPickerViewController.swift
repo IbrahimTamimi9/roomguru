@@ -52,7 +52,9 @@ private extension CalendarPickerViewController {
     
     func loadData() {
         
-        NetworkManager.sharedInstance.request(CalendarsQuery(), success: { [weak self] response in
+        let query = CalendarsQuery()
+        
+        NetworkManager.sharedInstance.request(Request(query), success: { [weak self] response in
             
             let calendars = Calendar.map(response?["items"].array)?.filter { $0.isResource() }
             

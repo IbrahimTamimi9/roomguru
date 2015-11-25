@@ -85,7 +85,7 @@ class BookingManager: NSObject {
     func bookCalendarEntry(calendarEntry: CalendarEntry, completion: (event: Event?, error: NSError?) -> Void) {
 
         let query = BookingQuery(quickCalendarEntry: calendarEntry)
-        networkManager.request(query, success: { response in
+        networkManager.request(Request(query), success: { response in
             
             if let response = response {
                 let event = Event(json: response)
@@ -95,16 +95,16 @@ class BookingManager: NSObject {
                 completion(event: nil, error: error)
             }
             
-            }, failure: { error in
-                completion(event: nil, error: error)
+        }, failure: { error in
+            completion(event: nil, error: error)
         })
     }
     
     func revokeEvent(eventID: String, userEmail: String, completion: (success: Bool, error: NSError?) -> Void) {
         let query = RevokeQuery(eventID: eventID, userEmail: userEmail)
-        networkManager.request(query, success: { response in
+        networkManager.request(Request(query), success: { response in
             completion(success: true, error: nil)
-            }, failure: { error in
+        }, failure: { error in
             completion(success: false, error: error)
         })
     }

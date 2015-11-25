@@ -29,12 +29,10 @@ final class NetworkManager: NSObject {
         tokenStore = (enable && auth != nil) ? GIDTokenStore(auth: auth!) : nil
     }
     
-    func request(query: Query, success: ResponseBlock, failure: ErrorBlock) {
+    func request<Queryable: Query>(var request: Request<Queryable>, success: ResponseBlock, failure: ErrorBlock) {
         
         refreshTokenWithFailure(failure) {
-            
-            query.setFullPath(self.serverURL, authKey: self.key)
-            QueryRequest(query).resume(success, failure: failure)
+            request.resume(success, failure: failure)
         }
     }
     

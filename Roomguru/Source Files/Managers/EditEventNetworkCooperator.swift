@@ -53,7 +53,7 @@ private extension EditEventNetworkCooperator {
     
     func save(completion: (event: Event?, error: NSError?) -> Void) {
         
-        networkManager.request(eventQuery, success: { response in
+        networkManager.request(Request(eventQuery), success: { response in
             
             if var response = response {
                 
@@ -76,7 +76,7 @@ private extension EditEventNetworkCooperator {
         let querySearchTimeRange =  TimeRange(min: NSDate().beginningOfDay, max: eventQuery.endDate + 1.day)
         let query = FreeBusyQuery(calendarsIDs: [eventQuery.calendarID], searchTimeRange: querySearchTimeRange)
         
-        networkManager.request(query, success: { response in
+        networkManager.request(Request(query), success: { response in
             
             if let response = response {
                 
