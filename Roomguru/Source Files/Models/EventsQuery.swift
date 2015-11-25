@@ -93,7 +93,7 @@ struct EventsQuery: Pageable {
 extension EventsQuery {
     
     static func queriesForCalendarIdentifiers(calendars: [String], withTimeRange timeRange: TimeRange) -> [Pageable] {
-        var queries: [EventsQuery] = []
+        var queries: [Pageable] = []
         
         for calendarID in calendars {
             queries.append(EventsQuery(calendarID: calendarID, timeRange: timeRange))
