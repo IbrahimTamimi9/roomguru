@@ -29,6 +29,7 @@
 		3FBDD1B2DABF053615250478 /* Pods_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E863DC0075B8561A39153AA0 /* Pods_Tests.framework */; };
 		5C157EE31C0759C600BF43BE /* EditEventNetworkCooperatorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0A09111B3B77C3001C0E8A /* EditEventNetworkCooperatorSpec.swift */; };
 		5C157EE41C075ACD00BF43BE /* SectionSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD2A1E81AEA563A00428AAB /* SectionSpec.swift */; };
+		5C157EE51C075BF500BF43BE /* GIDTokenStoreSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E71519B1B1F1EDF0032CD3D /* GIDTokenStoreSpec.swift */; };
 		5C5116361C0604F400159114 /* EventSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E5286B21B4E6CFB00A33EBB /* EventSpec.swift */; };
 		5C5116381C0607FA00159114 /* EventsListCoordinatorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E7527DB1B1F40BC007D35A3 /* EventsListCoordinatorSpec.swift */; };
 		5C5116391C0608EC00159114 /* EventsListCoordinatorSharedExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E7527DD1B1F4F6E007D35A3 /* EventsListCoordinatorSharedExample.swift */; };
@@ -333,7 +334,7 @@
 		5E67FE741AE91F8C003AB827 /* UserDiskManagerSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDiskManagerSpec.swift; sourceTree = "<group>"; };
 		5E6B40AB1AC93A9C006C47EE /* DescriptionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DescriptionCell.swift; path = "Roomguru/Source Files/Views/TableCells/DescriptionCell.swift"; sourceTree = SOURCE_ROOT; };
 		5E6B40AD1AC947B1006C47EE /* NSAttributedStringExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NSAttributedStringExtensions.swift; path = "Roomguru/Source Files/Extensions/NSAttributedStringExtensions.swift"; sourceTree = SOURCE_ROOT; };
-		5E71519B1B1F1EDF0032CD3D /* GPPTokenStoreSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GPPTokenStoreSpec.swift; sourceTree = "<group>"; };
+		5E71519B1B1F1EDF0032CD3D /* GIDTokenStoreSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GIDTokenStoreSpec.swift; sourceTree = "<group>"; };
 		5E746FDE1AF03C150049131F /* EventsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventsView.swift; path = "Roomguru/Source Files/Views/EventsView.swift"; sourceTree = SOURCE_ROOT; };
 		5E746FE01AF049170049131F /* WeekCarouselViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WeekCarouselViewController.swift; path = "Roomguru/Source Files/ViewControllers/WeekCarouselViewController.swift"; sourceTree = SOURCE_ROOT; };
 		5E746FE61AF04C0F0049131F /* EventsPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventsPageViewController.swift; path = "Roomguru/Source Files/ViewControllers/EventsPageViewController.swift"; sourceTree = SOURCE_ROOT; };
@@ -947,7 +948,7 @@
 				5EE73F291AE8E17400FD518A /* CalendarPersistenceStoreSpec.swift */,
 				5E67FE741AE91F8C003AB827 /* UserDiskManagerSpec.swift */,
 				5E0618F41AEA357B00006F61 /* UserPersistenceStoreSpec.swift */,
-				5E71519B1B1F1EDF0032CD3D /* GPPTokenStoreSpec.swift */,
+				5E71519B1B1F1EDF0032CD3D /* GIDTokenStoreSpec.swift */,
 				5E7527DB1B1F40BC007D35A3 /* EventsListCoordinatorSpec.swift */,
 				5EF988DA1B1F67A9002C10D0 /* MyEventsListCoordinatorSpec.swift */,
 				5E8F93B41B21C21300C4A4B5 /* FreeEventsProviderSpec.swift */,
@@ -1594,6 +1595,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5C157EE31C0759C600BF43BE /* EditEventNetworkCooperatorSpec.swift in Sources */,
+				5C157EE51C075BF500BF43BE /* GIDTokenStoreSpec.swift in Sources */,
 				5C8831F61C05A6C900ADDB79 /* NSDataTestExtensions.swift in Sources */,
 				5CC34A211C036503002D41F1 /* TimeFrameSpec.swift in Sources */,
 				5C5116381C0607FA00159114 /* EventsListCoordinatorSpec.swift in Sources */,
