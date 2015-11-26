@@ -29,7 +29,7 @@ struct PageableRequest<T: ModelJSONProtocol> : Requestable {
     mutating func resume(success: (response: [T]?) -> Void, failure: ErrorBlock) {
         dataTask = session.dataTaskWithRequest(foundationRequest) { (data, response, error) -> Void in
             
-            if let httpResponse = response as? NSHTTPURLResponse, error = self.checkResponseForError(httpResponse, withError: error) {
+            if let error = self.checkResponseForError(response, withError: error) {
                 failure(error: error)
                 return
             }
