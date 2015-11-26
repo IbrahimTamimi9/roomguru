@@ -15,13 +15,9 @@ import SwiftyJSON
  *  Defines how Requestable type should behave
  */
 protocol Requestable {
-    typealias Queryable: Query
-    var query: Queryable { get }
+    var query: Query { get }
     var foundationRequest: NSURLRequest { get }
     var dataTask: NSURLSessionDataTask? { get set }
-    
-    mutating func resume()
-    mutating func cancel()
 }
 
 // MARK: - Common implementation for Requestable
