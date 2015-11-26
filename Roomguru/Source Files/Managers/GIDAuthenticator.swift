@@ -34,6 +34,7 @@ final class GIDAuthenticator: NSObject {
         assert(configureError == nil, "Error configuring Google services: \(configureError)")
         
         let sharedSignIn = GIDSignIn.sharedInstance();
+        sharedSignIn.scopes = Constants.Google.Scopes
         sharedSignIn.delegate = self
         sharedSignIn.uiDelegate = self
     }
