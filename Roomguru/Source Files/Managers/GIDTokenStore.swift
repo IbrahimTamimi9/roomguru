@@ -28,11 +28,12 @@ final class GIDTokenStore {
         
     func refreshTokenIfNeeded(id id: String, completion: ((didRefresh: Bool, error: NSError?) -> Void)) {
         
-        // NGRTemp: Temporary workaround - it'll be enhanced in the future
-        let isTokenValid = true
+        let isTokenValid = auth.accessTokenExpirationDate.compare(NSDate()) == .OrderedAscending
+        
         if isTokenValid {
             completion(didRefresh: false, error: nil)
-            return
+        } else {
+            self.networkCoordinator.refreshAccessToken(completion)
         }
     }
 }

@@ -91,11 +91,12 @@ private extension NetworkManager {
             currentUser.authentication.refreshTokensWithHandler { (auth, error) in
                 if let error = error {
                     failure(error: error)
-                    
                 } else {
                     success()
                 }
             }
+        } else {
+            success()
         }
     }
 }

@@ -11,20 +11,19 @@ import SwiftyJSON
 
 class GIDTokenStoreNetworkCoordinator {
     
-    func refreshAccessToken(parameters parameters: [String: AnyObject], completion: ((tokenInfo: (accessToken: String, expirationDate: NSDate)?, error: NSError?)-> Void)) {
-        
-        let error = NSError(message: NSLocalizedString("Session expired. Please log in again.", comment: ""))
-        completion(tokenInfo: nil, error: error)
+    func refreshAccessToken(completion: (didRefresh: Bool, error: NSError?)-> Void) {
         
         if let currentUser = GIDSignIn.sharedInstance().currentUser {
             currentUser.authentication.refreshTokensWithHandler { (auth, error) -> Void in
                 if let error = error {
-                    completion(tokenInfo: nil, error: error)
-                } else if let accessToken = auth.accessToken, expirationDate = auth.accessTokenExpirationDate {
-                    let tokenInfo = (accessToken: accessToken, expirationDate: expirationDate)
-                    completion(tokenInfo: tokenInfo, error: nil)
+                    completion(didRefresh: false, error: error)
+                } else if let _ = auth.accessToken, _ = auth.accessTokenExpirationDate {
+                    completion(didRefresh: true, error: nil)
                 }
             }
+        } else {
+            let error = NSError(message: NSLocalizedString("Session expired. Please log in again.", comment: ""))
+            completion(didRefresh: false, error: error)
         }
     }
 }
