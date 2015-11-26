@@ -11,7 +11,7 @@ import Foundation
 struct CalendarsQuery: Query {
     /// Query conformance
     let method: Method = .GET
-    let path = "/users/me/calendarList"
-    var parameters: Parameters? = Parameters(encoding: Parameters.Encoding.URL)
+    let path = "/calendar/v3/users/me/calendarList"
+    var parameters: Parameters? = Parameters(encoding: .URL)
     let service: SecureNetworkService = GoogleCalendarService()
 }
