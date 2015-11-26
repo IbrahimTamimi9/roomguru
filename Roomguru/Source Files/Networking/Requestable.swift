@@ -49,7 +49,9 @@ extension Requestable {
         dataTask = session.dataTaskWithRequest(foundationRequest) { (data, response, error) -> Void in
             
             if let httpResponse = response as? NSHTTPURLResponse, error = self.checkResponseForError(httpResponse) ?? error {
-                failure(error: error)
+                Async.main {
+                    failure(error: error)
+                }
                 return
             }
             
@@ -67,12 +69,16 @@ extension Requestable {
                     }
                 }
             } else if let httpResponse = response as? NSHTTPURLResponse where httpResponse.statusCode == 204 {
-                success(response: nil)
+                Async.main {
+                    success(response: nil)
+                }
             } else {
                 let message = NSLocalizedString("Failed retrieving data", comment: "")
                 let otherError = NSError(message: message)
                 
-                failure(error: otherError)
+                Async.main {
+                    failure(error: otherError)
+                }
             }
         }
         
