@@ -30,6 +30,13 @@ struct BookingQuery: Query {
     
     // MARK: Initializers
     
+    init() {
+        method = .POST
+        path = BookingQuery.URLExtension
+        parameters = Parameters(encoding: Parameters.Encoding.JSON)
+        status = .Confirmed
+    }
+    
     init(calendarEntry: CalendarEntry) {
         method = .PUT
         path = BookingQuery.URLExtension + "/" + calendarEntry.event.identifier!
