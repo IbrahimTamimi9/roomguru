@@ -35,7 +35,7 @@ class QueryableSharedExample: QuickConfiguration {
             
             let sut = configDict["sut"] as! Query
             let mockQuery = configDict["mockQuery"] as! MockQuery
-            var mockQueryParameters = configDict["mockQueryParameters"] as? [String: AnyObject]
+            let mockQueryParameters = configDict["mockQueryParameters"] as? [String: AnyObject]
             
             it("should have proper HTTP method") {
                 expect(sut.HTTPMethod.rawValue).to(equal(mockQuery.HTTPMethod))
@@ -46,7 +46,7 @@ class QueryableSharedExample: QuickConfiguration {
             }
             
             it("should have proper encoding") {
-                var parameterEncodingAsString = self.stringForParameterEncoding(sut.encoding)
+                let parameterEncodingAsString = self.stringForParameterEncoding(sut.encoding)
                 expect(parameterEncodingAsString).to(equal(mockQuery.parameterEncoding))
             }
             
@@ -95,7 +95,7 @@ private extension QueryableSharedExample {
 
 func queryDateFormatter() -> NSDateFormatter {
     let formatter: NSDateFormatter = NSDateFormatter()
-    formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+    formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.ZZZ"
     formatter.timeZone = NSTimeZone.localTimeZone()
     return formatter
 }

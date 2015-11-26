@@ -600,14 +600,14 @@ private extension FreeEventsProviderSpec {
     }
     
     func mockCalendarEntryWithCalendarID(calendarID: String, start: NSDate, duration: NSTimeInterval) -> CalendarEntry {
-        var event = Event()
+        let event = Event()
         event.start = start
         event.end =  NSDate(timeInterval: duration, sinceDate: start)
         return CalendarEntry(calendarID: calendarID, event: event)
     }
     
     func timeRange(fromDate date: NSDate, duration: Int) -> TimeRange {
-        let startDate = NSDate(timeIntervalSinceReferenceDate: 60*60*10)
+        _ = NSDate(timeIntervalSinceReferenceDate: 60*60*10)
         let endDate = NSDate(timeInterval: NSTimeInterval(duration), sinceDate: date)
         return TimeRange(min: date, max: endDate)
     }

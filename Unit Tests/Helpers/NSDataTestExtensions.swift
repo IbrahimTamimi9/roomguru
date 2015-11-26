@@ -11,6 +11,6 @@ import UIKit
 extension NSData {
     
     class func composeTestImagaDataRepresentation() -> NSData {
-        return UIImagePNGRepresentation(UIImage.composeTestImage());
+        return UIImagePNGRepresentation(UIImage.composeTestImage())!;
     }
 }

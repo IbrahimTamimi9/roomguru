@@ -8,6 +8,9 @@
 
 import Nimble
 import Quick
+import FontAwesome_swift
+
+@testable import Roomguru
 
 class MyEventsListCoordinatorSpec: QuickSpec {
     

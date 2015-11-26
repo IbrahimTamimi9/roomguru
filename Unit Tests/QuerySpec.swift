@@ -8,6 +8,9 @@
 
 import Nimble
 import Quick
+import Alamofire
+
+@testable import Roomguru
 
 class QuerySpec: QuickSpec {
 
