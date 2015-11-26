@@ -37,6 +37,9 @@
 		5C8831F61C05A6C900ADDB79 /* NSDataTestExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF5D1671AF8E84600C40B76 /* NSDataTestExtensions.swift */; };
 		5C8831F71C05A6DD00ADDB79 /* UIImageTestExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF5D1691AF8E84600C40B76 /* UIImageTestExtensions.swift */; };
 		5C8831F81C05B72100ADDB79 /* UserPersistenceStoreSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0618F41AEA357B00006F61 /* UserPersistenceStoreSpec.swift */; };
+		5CA4CBF41C07015900BC2ABB /* CalendarSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74092C451B18AB580074A2B1 /* CalendarSpec.swift */; };
+		5CA4CBF51C07017300BC2ABB /* ModelObjectSharedExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2D529D1AF8D99F00EEEF81 /* ModelObjectSharedExample.swift */; };
+		5CA4CBF61C0702A000BC2ABB /* ObjectKeyValueSharedExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC4CC951AF9EA190070007B /* ObjectKeyValueSharedExample.swift */; };
 		5CAD84021C04840F00BDEF6F /* FreeBusyQuerySpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 744C9E781B0200A2000D9E5C /* FreeBusyQuerySpec.swift */; };
 		5CAD84031C0485E400BDEF6F /* BookingQuerySpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746F8B0B1B0340F7005E746A /* BookingQuerySpec.swift */; };
 		5CC34A0D1C03591B002D41F1 /* SettingsStoreSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF4C7C41AEE3B5E0050201A /* SettingsStoreSpec.swift */; };
@@ -1579,6 +1582,7 @@
 				5CC34A211C036503002D41F1 /* TimeFrameSpec.swift in Sources */,
 				5C5116381C0607FA00159114 /* EventsListCoordinatorSpec.swift in Sources */,
 				5CC34A191C035F31002D41F1 /* QueryableSharedExample.swift in Sources */,
+				5CA4CBF41C07015900BC2ABB /* CalendarSpec.swift in Sources */,
 				5CC34A1C1C036130002D41F1 /* CalendarsQuerySpec.swift in Sources */,
 				5C8831F71C05A6DD00ADDB79 /* UIImageTestExtensions.swift in Sources */,
 				5CDBF23E1C04A73600CC8B71 /* QuerySpec.swift in Sources */,
@@ -1586,7 +1590,9 @@
 				5C5116391C0608EC00159114 /* EventsListCoordinatorSharedExample.swift in Sources */,
 				5C51163B1C060B5F00159114 /* EventsProviderSpec.swift in Sources */,
 				5CC34A1E1C03616B002D41F1 /* EventQuerySpec.swift in Sources */,
+				5CA4CBF51C07017300BC2ABB /* ModelObjectSharedExample.swift in Sources */,
 				5C51163A1C060B3800159114 /* MyEventsListCoordinatorSpec.swift in Sources */,
+				5CA4CBF61C0702A000BC2ABB /* ObjectKeyValueSharedExample.swift in Sources */,
 				5CC34A141C035E29002D41F1 /* FreeEventsProviderSpec.swift in Sources */,
 				5C8831F81C05B72100ADDB79 /* UserPersistenceStoreSpec.swift in Sources */,
 				5CDBF23D1C04A69A00CC8B71 /* PageableQuerySpec.swift in Sources */,

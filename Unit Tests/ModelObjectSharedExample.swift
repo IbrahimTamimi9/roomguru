@@ -9,6 +9,8 @@
 import Nimble
 import Quick
 import SwiftyJSON
+ 
+@testable import Roomguru
 
 class TestJSON {
     
@@ -29,7 +31,7 @@ class ModelObjectFactory {
     }
     
     func modelObjectWithJSON(json: JSON) -> ModelObject {
-        return modelObjectClass(json: json)
+        return modelObjectClass.init(json: json)
     }
 }
 
@@ -106,13 +108,13 @@ class ModelObjectSharedExampleConfiguration: QuickConfiguration {
                 
                 let jsons: [JSON] = [testJSON.json]
                 let expectedJSONs: [JSON] = [expectedJSON.json]
-                var objects = factory.map(jsonArray: jsons)!
+                let objects = factory.map(jsonArray: jsons)!
                 
                 it("should map to correct number of objects") {
                     expect(objects.count).to(equal(jsons.count))
                 }
                 
-                for (index, object) in enumerate(objects) {
+                for (index, object) in objects.enumerate() {
                     itBehavesLike("mapping JSON to model object") {
                         [
                             "sut": object,
@@ -132,14 +134,14 @@ private class ModelObjectMappingSharedExampleConfiguration: QuickConfiguration {
             var configDict = sharedExampleContext() as! [String: AnyObject]
             
             let sut = configDict["sut"] as! ModelObject
-            let json = (configDict["json"] as! TestJSON).json
+            let testJSON: JSON = (configDict["json"] as! TestJSON).json
             let map = configDict["map"] as! [String: String]
             
             for (jsonKey, objectKey) in map {
                 itBehavesLike("object key value") {
                     [
                         "key": objectKey,
-                        "value": json[jsonKey].anyObject,
+                        "value": testJSON[jsonKey].rawValue,
                         "sut": sut
                     ]
                 }

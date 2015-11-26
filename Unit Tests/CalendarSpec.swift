@@ -8,17 +8,18 @@
 
 import Nimble
 import Quick
-
 import SwiftyJSON
+
+@testable import Roomguru
 
 class CalendarSpec: QuickSpec {
     
     override func spec() {
         
-        var factory = ModelObjectFactory(modelObjectClass: Calendar.self)
+        let factory = ModelObjectFactory(modelObjectClass: Calendar.self)
         factory.map = { return Calendar.map($0) as [Calendar]? }
         
-        var map = [
+        let map = [
             "accessRole": "accessRole",
             "etag": "etag",
             "id": "identifier",
@@ -29,7 +30,7 @@ class CalendarSpec: QuickSpec {
             ] as [String: String]
             
         itBehavesLike("model object") {
-            var localJSON = JSON([
+            let localJSON = JSON([
                 "accessRole": "fixtureAccessRole",
                 "etag": "fixtureEtag",
                 "id": "fixtureIdentifier",
@@ -48,7 +49,7 @@ class CalendarSpec: QuickSpec {
         
         context("calendar identifier contains resource identifier") {
             
-            var localJSON = JSON([
+            let localJSON = JSON([
                 "accessRole": "fixtureAccessRole",
                 "etag": "fixtureEtag",
                 "id": "fixtureIdentifier.resource.calendar.google.com",
@@ -67,7 +68,7 @@ class CalendarSpec: QuickSpec {
         
         context("calendar identifier does not contain resource identifier") {
             
-            var localJSON = JSON([
+            let localJSON = JSON([
                 "accessRole": "fixtureAccessRole",
                 "etag": "fixtureEtag",
                 "id": "fixtureIdentifier",
@@ -86,7 +87,7 @@ class CalendarSpec: QuickSpec {
         
         context("calendars with the same identifiers") {
             
-            var localJSON = JSON([
+            let localJSON = JSON([
                 "accessRole": "fixtureAccessRole",
                 "etag": "fixtureEtag",
                 "id": "fixtureIdentifier",
@@ -96,7 +97,7 @@ class CalendarSpec: QuickSpec {
                 "backgroundColor": "fixtureColorHex"
                 ])
             
-            var mockLocalJSON = JSON([
+            let mockLocalJSON = JSON([
                 "accessRole": "differentFixtureAccessRole",
                 "etag": "differentFixtureEtag",
                 "id": "fixtureIdentifier",
@@ -116,7 +117,7 @@ class CalendarSpec: QuickSpec {
         
         context("calendars with different identifiers") {
             
-            var localJSON = JSON([
+            let localJSON = JSON([
                 "accessRole": "fixtureAccessRole",
                 "etag": "fixtureEtag",
                 "id": "fixtureIdentifier",
@@ -126,7 +127,7 @@ class CalendarSpec: QuickSpec {
                 "backgroundColor": "fixtureColorHex"
                 ])
             
-            var mockLocalJSON = JSON([
+            let mockLocalJSON = JSON([
                 "accessRole": "fixtureAccessRole",
                 "etag": "fixtureEtag",
                 "id": "differentFixtureIdentifier",
