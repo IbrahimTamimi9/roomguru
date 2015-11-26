@@ -12,11 +12,11 @@ import Foundation
  *  Request
  *  Requestable value type
  */
-struct Request<Queryable: Query>: Requestable {
-    let query: Queryable
+struct Request: Requestable {
+    let query: Query
     var dataTask: NSURLSessionDataTask?
 
-    init(_ query: Queryable) {
+    init(_ query: Query) {
         self.query = query
     }
 }

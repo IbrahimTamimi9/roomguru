@@ -29,7 +29,7 @@ final class NetworkManager: NSObject {
         tokenStore = (enable && auth != nil) ? GIDTokenStore(auth: auth!) : nil
     }
     
-    func request<Queryable: Query>(var request: Request<Queryable>, success: ResponseBlock, failure: ErrorBlock) {
+    func request(var request: Request, success: ResponseBlock, failure: ErrorBlock) {
         
         refreshTokenWithFailure(failure) {
             request.resume(success, failure: failure)
@@ -45,7 +45,7 @@ final class NetworkManager: NSObject {
     :param: success a block invoked if every request was succesful
     :param: failure a block invoked if error occur
     */
-    func chainedRequest<P: Pageable, T: ModelJSONProtocol, U>(requests: [PageableRequest<P, T>], construct: (PageableRequest<P, T>, [T]?) -> [U], success: [U]? -> Void, failure: ErrorBlock) {
+    func chainedRequest<T: ModelJSONProtocol, U>(requests: [PageableRequest<T>], construct: (PageableRequest<T>, [T]?) -> [U], success: [U]? -> Void, failure: ErrorBlock) {
         
         refreshTokenWithFailure(failure) {
             
@@ -81,7 +81,7 @@ final class NetworkManager: NSObject {
 
 private extension NetworkManager {
     
-    func requestList<P: Pageable, T: ModelJSONProtocol>(var request: PageableRequest<P, T>, success: (response: [T]?) -> (), failure: ErrorBlock) {
+    func requestList<T: ModelJSONProtocol>(var request: PageableRequest<T>, success: (response: [T]?) -> (), failure: ErrorBlock) {
         request.resume(success, failure: failure)
     }
     

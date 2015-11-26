@@ -8,8 +8,8 @@
 
 import Foundation
 
-struct EventsQuery: Pageable {
-    
+struct EventsQuery: Query {
+
     /// Query conformance
     let method: Method
     let path: String
@@ -89,6 +89,14 @@ struct EventsQuery: Pageable {
     }
 }
 
+struct EventsPageableQuery: Pageable {
+    
+    var query: Query
+    
+    init(query: Query) {
+        self.query = query
+    }
+}
 
 extension EventsQuery {
     

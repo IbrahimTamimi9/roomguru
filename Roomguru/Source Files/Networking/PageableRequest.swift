@@ -10,13 +10,20 @@ import Foundation
 import Async
 import SwiftyJSON
 
-struct PageableRequest<Queryable: Pageable, T: ModelJSONProtocol> : Requestable {
-    var query: Queryable
+private struct PageableQuery: Pageable {
+    var query: Query
+}
+
+struct PageableRequest<T: ModelJSONProtocol> : Requestable {
+    let query: Query
     var dataTask: NSURLSessionDataTask? = nil
     var result: [T] = []
-
-    init(_ query: Queryable) {
+    
+    private var pageableQuery: PageableQuery
+    
+    init(_ query: Query) {
         self.query = query
+        self.pageableQuery = PageableQuery(query: query)
     }
     
     mutating func resume(success: (response: [T]?) -> Void, failure: ErrorBlock) {
@@ -43,7 +50,7 @@ struct PageableRequest<Queryable: Pageable, T: ModelJSONProtocol> : Requestable 
                     if let serializationError = serializationError {
                         failure(error: serializationError)
                     } else if let pageToken = swiftyJSON?["nextPageToken"].string {
-                        self.query.pageToken = pageToken
+                        self.pageableQuery.pageToken = pageToken
                         self.resume(success, failure: failure)
                     } else {
                         success(response: self.result)
