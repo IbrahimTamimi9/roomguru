@@ -56,6 +56,17 @@
 		5CDBF23E1C04A73600CC8B71 /* QuerySpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7497CF171B04B7100059B4DB /* QuerySpec.swift */; };
 		5CEB27E51C071BA300195360 /* ModelObjectSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2D529F1AF8DD2700EEEF81 /* ModelObjectSpec.swift */; };
 		5CEB27E61C071BB000195360 /* AttendeeSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC4CC971AF9F2A30070007B /* AttendeeSpec.swift */; };
+		5CFA2C691C0722D700170A42 /* JSONExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3A178E1AFA32A2007D95B6 /* JSONExtensions.swift */; };
+		5CFA2C6A1C0722D700170A42 /* FixtureItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2164E7C81B1DA44E00B27A91 /* FixtureItem.swift */; };
+		5CFA2C6B1C0722FA00170A42 /* ListableSharedExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8867661AE932CB009DA028 /* ListableSharedExample.swift */; };
+		5CFA2C6C1C0722FC00170A42 /* ListViewModelSharedExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9F9FE01AF233BC0081B817 /* ListViewModelSharedExample.swift */; };
+		5CFA2C6D1C07235500170A42 /* JSONKeyValueSharedExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC4CC991AFA01450070007B /* JSONKeyValueSharedExample.swift */; };
+		5CFA2C6F1C0723A600170A42 /* EventDetailsViewModelSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EB3A09C1AEA707600DB0585 /* EventDetailsViewModelSpec.swift */; };
+		5CFA2C701C07240600170A42 /* EditEventViewModelSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21875E9C1B186688003E1E59 /* EditEventViewModelSpec.swift */; };
+		5CFA2C711C07246100170A42 /* CalendarPickerViewModelSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA900F61AEE05F500A66FC8 /* CalendarPickerViewModelSpec.swift */; };
+		5CFA2C721C07247B00170A42 /* SettingsViewModelSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF4C7C61AEE3EC30050201A /* SettingsViewModelSpec.swift */; };
+		5CFA2C731C07248500170A42 /* ListViewModelSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFB51391AED87B30065F051 /* ListViewModelSpec.swift */; };
+		5CFA2C751C0724A300170A42 /* ListSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7521151AE92E8500B8BDE8 /* ListSpec.swift */; };
 		5E003E631ACB290700AE55C1 /* NSURLExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E003E621ACB290700AE55C1 /* NSURLExtensions.swift */; };
 		5E04B9EB1AF0729700405BFB /* WeekdaysBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E04B9EA1AF0729700405BFB /* WeekdaysBar.swift */; };
 		5E0720041AB6D8FF009C270E /* SwitchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0720031AB6D8FF009C270E /* SwitchCell.swift */; };
@@ -1589,26 +1600,37 @@
 				5C8831F71C05A6DD00ADDB79 /* UIImageTestExtensions.swift in Sources */,
 				5CDBF23E1C04A73600CC8B71 /* QuerySpec.swift in Sources */,
 				5CAD84021C04840F00BDEF6F /* FreeBusyQuerySpec.swift in Sources */,
+				5CFA2C6B1C0722FA00170A42 /* ListableSharedExample.swift in Sources */,
 				5C5116391C0608EC00159114 /* EventsListCoordinatorSharedExample.swift in Sources */,
 				5C51163B1C060B5F00159114 /* EventsProviderSpec.swift in Sources */,
+				5CFA2C731C07248500170A42 /* ListViewModelSpec.swift in Sources */,
+				5CFA2C721C07247B00170A42 /* SettingsViewModelSpec.swift in Sources */,
+				5CFA2C751C0724A300170A42 /* ListSpec.swift in Sources */,
 				5CC34A1E1C03616B002D41F1 /* EventQuerySpec.swift in Sources */,
+				5CFA2C6D1C07235500170A42 /* JSONKeyValueSharedExample.swift in Sources */,
 				5CA4CBF51C07017300BC2ABB /* ModelObjectSharedExample.swift in Sources */,
+				5CFA2C6C1C0722FC00170A42 /* ListViewModelSharedExample.swift in Sources */,
 				5C51163A1C060B3800159114 /* MyEventsListCoordinatorSpec.swift in Sources */,
 				5CA4CBF61C0702A000BC2ABB /* ObjectKeyValueSharedExample.swift in Sources */,
 				5CC34A141C035E29002D41F1 /* FreeEventsProviderSpec.swift in Sources */,
 				5C8831F81C05B72100ADDB79 /* UserPersistenceStoreSpec.swift in Sources */,
 				5CDBF23D1C04A69A00CC8B71 /* PageableQuerySpec.swift in Sources */,
 				5CC34A0E1C035A2F002D41F1 /* CalendarPersistenceStoreSpec.swift in Sources */,
+				5CFA2C711C07246100170A42 /* CalendarPickerViewModelSpec.swift in Sources */,
+				5CFA2C691C0722D700170A42 /* JSONExtensions.swift in Sources */,
 				5CEB27E51C071BA300195360 /* ModelObjectSpec.swift in Sources */,
 				5CAD84031C0485E400BDEF6F /* BookingQuerySpec.swift in Sources */,
 				5CC34A0D1C03591B002D41F1 /* SettingsStoreSpec.swift in Sources */,
+				5CFA2C701C07240600170A42 /* EditEventViewModelSpec.swift in Sources */,
 				5C51163C1C060C4400159114 /* BookingManagerSpec.swift in Sources */,
 				5CC34A201C036473002D41F1 /* EventsQuerySpec.swift in Sources */,
+				5CFA2C6F1C0723A600170A42 /* EventDetailsViewModelSpec.swift in Sources */,
 				5CC34A1D1C036156002D41F1 /* RevokeQuerySpec.swift in Sources */,
 				5CEB27E61C071BB000195360 /* AttendeeSpec.swift in Sources */,
 				5C5116361C0604F400159114 /* EventSpec.swift in Sources */,
 				5C8831F51C05A45700ADDB79 /* UserDiskManagerSpec.swift in Sources */,
 				5CC34A221C03662F002D41F1 /* CalendarEntrySpec.swift in Sources */,
+				5CFA2C6A1C0722D700170A42 /* FixtureItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

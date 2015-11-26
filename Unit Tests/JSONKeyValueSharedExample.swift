@@ -8,8 +8,9 @@
 
 import Nimble
 import Quick
-
 import SwiftyJSON
+
+@testable import Roomguru
 
 class JSONKeyValueSharedExample: QuickConfiguration {
     override class func configure(configuration: Configuration) {

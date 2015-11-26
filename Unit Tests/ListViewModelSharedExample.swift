@@ -9,6 +9,8 @@
 import Nimble
 import Quick
 
+@testable import Roomguru
+
 class FixtureListItem: GroupItem {
     
     init(title: String) {
@@ -25,15 +27,15 @@ class ListViewModelFactory {
     }
     
     private func viewModelWithItems(items: [FixtureListItem]) -> ListViewModel<FixtureListItem> {
-        return viewModelClass(items)
+        return viewModelClass.init(items)
     }
     
     private func viewModelWithItems(items: [FixtureListItem], sortingKey: String) -> ListViewModel<FixtureListItem> {
-        return viewModelClass(items, sortingKey: sortingKey)
+        return viewModelClass.init(items, sortingKey: sortingKey)
     }
     
     private func viewModelWithSections(sections: [Section<FixtureListItem>]) -> ListViewModel<FixtureListItem> {
-        return viewModelClass(sections)
+        return viewModelClass.init(sections: sections)
     }
 }
 
@@ -145,7 +147,7 @@ class ListViewModelSharedExampleConfiguration : QuickConfiguration {
                 
                 context("add item at indexpath") {
                     
-                    var newFixtureItem = FixtureListItem(title: "Fixture Text")
+                    let newFixtureItem = FixtureListItem(title: "Fixture Text")
                     
                     beforeEach {
                         itemsCount = sut[0].count

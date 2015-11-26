@@ -8,8 +8,9 @@
 
 import Nimble
 import Quick
-
 import Roomguru
+
+@testable import Roomguru
 
 class ListSpec: QuickSpec {
     

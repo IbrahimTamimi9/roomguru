@@ -10,8 +10,9 @@ import Foundation
 
 import Nimble
 import Quick
-
 import Roomguru
+
+@testable import Roomguru
 
 class SectionSpec: QuickSpec {
     
