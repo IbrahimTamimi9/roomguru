@@ -19,7 +19,7 @@ struct EventsProviderNetworkCooperator {
         
         let queries = EventsQuery.queriesForCalendarIdentifiers(calendarIDs, withTimeRange: timeRange)
         let requests = queries.map {
-            PageableRequest<EventsQuery, Event>($0)
+            PageableRequest<Event>($0)
         }
         
         NetworkManager.sharedInstance.chainedRequest(requests, construct: { (request, response: [Event]?) -> [CalendarEntry] in
@@ -37,10 +37,10 @@ struct EventsProviderNetworkCooperator {
 
 private extension EventsProviderNetworkCooperator {
     
-    func constructChainedRequestWithQuery(request: PageableRequest<EventsQuery, Event>, response: [Event]?) -> [CalendarEntry] {
+    func constructChainedRequestWithQuery(request: PageableRequest<Event>, response: [Event]?) -> [CalendarEntry] {
         
-        if let response = response {
-            return CalendarEntry.caledarEntries(request.query.calendarID, events: response)
+        if let eventsQuery = request.query as? EventsQuery, response = response {
+            return CalendarEntry.calendarEntries(eventsQuery.calendarID, events: response)
         }
         return []
     }
