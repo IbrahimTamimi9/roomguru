@@ -18,7 +18,7 @@ enum Method: String {
 protocol Query {
     var method: Method { get }
     var path: String { get }
-    var parameters: Parameters? { get }
+    var parameters: Parameters? { get set }
     var service: SecureNetworkService { get }
 }
 
