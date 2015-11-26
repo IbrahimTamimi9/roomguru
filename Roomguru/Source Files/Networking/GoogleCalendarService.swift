@@ -9,7 +9,7 @@
 import Foundation
 
 struct GoogleCalendarService: SecureNetworkService {
-    let host = Constants.Google.ServerURL
+    let host = Constants.Google.Host
     
     func authorizeRequest(request: NSMutableURLRequest) {
         if let currentUser = GIDSignIn.sharedInstance().currentUser {
