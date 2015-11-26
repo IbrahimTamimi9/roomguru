@@ -16,7 +16,7 @@ class ListViewModelSpec: QuickSpec {
     
     override func spec() {
         
-        var fixtureItems = [
+        let fixtureItems = [
             FixtureListItem(title: "FixtureText"),
             FixtureListItem(title: "FixtureText2"),
             FixtureListItem(title: "FixtureText"),

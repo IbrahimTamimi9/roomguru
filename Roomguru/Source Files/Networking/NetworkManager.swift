@@ -9,7 +9,7 @@
 import UIKit
 import Async
 
-final class NetworkManager: NSObject {
+class NetworkManager: NSObject {
     
     var clientID = ""
     private var key: String { return "?key=" + clientID }

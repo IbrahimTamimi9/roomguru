@@ -27,6 +27,8 @@
 		2164E7F51B1EF5E700B27A91 /* ResultActionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3CAD601AEE3D2200B1F684 /* ResultActionItem.swift */; };
 		2164E7F61B1EF5F200B27A91 /* RoomItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF1B57C1AE7BE6700F9767E /* RoomItem.swift */; };
 		3FBDD1B2DABF053615250478 /* Pods_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E863DC0075B8561A39153AA0 /* Pods_Tests.framework */; };
+		5C157EE31C0759C600BF43BE /* EditEventNetworkCooperatorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0A09111B3B77C3001C0E8A /* EditEventNetworkCooperatorSpec.swift */; };
+		5C157EE41C075ACD00BF43BE /* SectionSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD2A1E81AEA563A00428AAB /* SectionSpec.swift */; };
 		5C5116361C0604F400159114 /* EventSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E5286B21B4E6CFB00A33EBB /* EventSpec.swift */; };
 		5C5116381C0607FA00159114 /* EventsListCoordinatorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E7527DB1B1F40BC007D35A3 /* EventsListCoordinatorSpec.swift */; };
 		5C5116391C0608EC00159114 /* EventsListCoordinatorSharedExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E7527DD1B1F4F6E007D35A3 /* EventsListCoordinatorSharedExample.swift */; };
@@ -1591,6 +1593,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5C157EE31C0759C600BF43BE /* EditEventNetworkCooperatorSpec.swift in Sources */,
 				5C8831F61C05A6C900ADDB79 /* NSDataTestExtensions.swift in Sources */,
 				5CC34A211C036503002D41F1 /* TimeFrameSpec.swift in Sources */,
 				5C5116381C0607FA00159114 /* EventsListCoordinatorSpec.swift in Sources */,
@@ -1606,6 +1609,7 @@
 				5CFA2C731C07248500170A42 /* ListViewModelSpec.swift in Sources */,
 				5CFA2C721C07247B00170A42 /* SettingsViewModelSpec.swift in Sources */,
 				5CFA2C751C0724A300170A42 /* ListSpec.swift in Sources */,
+				5C157EE41C075ACD00BF43BE /* SectionSpec.swift in Sources */,
 				5CC34A1E1C03616B002D41F1 /* EventQuerySpec.swift in Sources */,
 				5CFA2C6D1C07235500170A42 /* JSONKeyValueSharedExample.swift in Sources */,
 				5CA4CBF51C07017300BC2ABB /* ModelObjectSharedExample.swift in Sources */,
