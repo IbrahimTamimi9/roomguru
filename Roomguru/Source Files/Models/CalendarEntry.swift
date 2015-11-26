@@ -19,7 +19,7 @@ class CalendarEntry: NSObject, NSSecureCoding {
         super.init()
     }
     
-    class func caledarEntries(calendarID: String, events: [Event]) -> [CalendarEntry] {
+    class func calendarEntries(calendarID: String, events: [Event]) -> [CalendarEntry] {
         return events.map { CalendarEntry(calendarID: calendarID, event: $0) }
     }
     
