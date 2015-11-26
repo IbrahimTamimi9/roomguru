@@ -48,7 +48,7 @@ extension Requestable {
     mutating func resume(success: ResponseBlock, failure: ErrorBlock) {
         dataTask = session.dataTaskWithRequest(foundationRequest) { (data, response, error) -> Void in
             
-            if let httpResponse = response as? NSHTTPURLResponse, error = self.checkResponseForError(httpResponse) ?? error {
+            if let httpResponse = response as? NSHTTPURLResponse, error = self.checkResponseForError(httpResponse, withError: error) {
                 Async.main {
                     failure(error: error)
                 }
@@ -98,12 +98,12 @@ extension Requestable {
         return NSURLSession.sharedSession()
     }
     
-    func checkResponseForError(response: NSHTTPURLResponse?) -> NSError? {
+    func checkResponseForError(response: NSHTTPURLResponse?, withError error: NSError?) -> NSError? {
         if response?.statusCode == 401 {
             return NSError(message: NSLocalizedString("Authorization expired. Please log in again.", comment: ""))
         } else if response?.statusCode >= 400 {
             return NSError(message: NSLocalizedString("Failed retrieving data", comment: ""))
         }
-        return nil
+        return error
     }
 }
