@@ -63,19 +63,6 @@ class QueryableSharedExample: QuickConfiguration {
                     }
                 }
             }
-            
-            //NGRTodo: This was moved to GoogleRequiredAuthProtocol
-//            context("setting full path") {
-//                
-//                let fixtureBaseURL = "FixtureBaseURL"
-//                let fixtureAuthKey = "FixtureAuthKey"
-//                let mockFullPath = fixtureBaseURL + sut.path + fixtureAuthKey
-//                sut.setFullPath(baseURL: fixtureBaseURL, authKey: fixtureAuthKey)
-//                
-//                it("should have proper full path") {
-//                    expect(sut.fullPath).to(equal(mockFullPath))
-//                }
-//            }
         }
     }
 }
