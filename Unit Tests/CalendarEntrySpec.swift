@@ -87,7 +87,7 @@ class CalendarEntrySpec: QuickSpec {
         describe("When creating calendar entries array") {
             
             let mockCalendarEntries = self.mockedCalendarEntries(fixtureCalendarID, events: mockEvents)
-            let sut = CalendarEntry.caledarEntries(fixtureCalendarID, events: mockEvents)
+            let sut = CalendarEntry.calendarEntries(fixtureCalendarID, events: mockEvents)
             
             it("should have proper number of calendar entries") {
                 expect(sut.count).to(equal(mockCalendarEntries.count))
@@ -112,7 +112,7 @@ class CalendarEntrySpec: QuickSpec {
         
         describe("When sorting calendar entries by date") {
             
-            let unsortedEntries = CalendarEntry.caledarEntries(fixtureCalendarID, events: mockEvents)
+            let unsortedEntries = CalendarEntry.calendarEntries(fixtureCalendarID, events: mockEvents)
             let sortedEntries = unsortedEntries.sort { $0.event.start.compare($1.event.start) == .OrderedAscending }
             let sut = CalendarEntry.sortedByDate(unsortedEntries)
             

@@ -27,6 +27,7 @@
 		2164E7F51B1EF5E700B27A91 /* ResultActionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3CAD601AEE3D2200B1F684 /* ResultActionItem.swift */; };
 		2164E7F61B1EF5F200B27A91 /* RoomItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF1B57C1AE7BE6700F9767E /* RoomItem.swift */; };
 		3FBDD1B2DABF053615250478 /* Pods_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E863DC0075B8561A39153AA0 /* Pods_Tests.framework */; };
+		5C087FC31C088AFA005FCCBF /* CalendarEntrySpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 745127DE1B27B1C20043121C /* CalendarEntrySpec.swift */; };
 		5C157EE41C075ACD00BF43BE /* SectionSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD2A1E81AEA563A00428AAB /* SectionSpec.swift */; };
 		5C5116361C0604F400159114 /* EventSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E5286B21B4E6CFB00A33EBB /* EventSpec.swift */; };
 		5C5116381C0607FA00159114 /* EventsListCoordinatorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E7527DB1B1F40BC007D35A3 /* EventsListCoordinatorSpec.swift */; };
@@ -1588,6 +1589,7 @@
 				5CEB27E61C071BB000195360 /* AttendeeSpec.swift in Sources */,
 				5C5116361C0604F400159114 /* EventSpec.swift in Sources */,
 				5C8831F51C05A45700ADDB79 /* UserDiskManagerSpec.swift in Sources */,
+				5C087FC31C088AFA005FCCBF /* CalendarEntrySpec.swift in Sources */,
 				5CFA2C6A1C0722D700170A42 /* FixtureItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
