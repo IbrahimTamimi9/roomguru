@@ -14,6 +14,8 @@ class MaskingView: UIView {
     var maskingView: UIView!
     var contentView: UIView!
     
+    private var didSetupConstraints = false
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         commonInit()
@@ -37,8 +39,15 @@ class MaskingView: UIView {
         
         addSubview(maskingView)
         addSubview(contentView)
+    }
+    
+    override func updateConstraints() {
+        super.updateConstraints()
         
-        defineConstraints()
+        if !didSetupConstraints {
+            defineConstraints()
+            didSetupConstraints = true
+        }
     }
     
     private func defineConstraints() {

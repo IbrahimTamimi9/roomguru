@@ -108,6 +108,9 @@ class PresentAlertViewAnimationController: AlertViewAnimationController {
         let toView = toViewController.aView.contentView
         let fromView = fromViewController.view
         
+        toView.setNeedsUpdateConstraints()
+        toView.layoutIfNeeded()
+        
         let fromViewCenter = fromView.center
         
         let containerView = transitionContext.containerView()
