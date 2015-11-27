@@ -79,7 +79,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             if authenticated {
                 
-                let didUserSelectCalendars = CalendarPersistenceStore.sharedStore.calendars.isEmpty
+                let didUserSelectCalendars = !CalendarPersistenceStore.sharedStore.calendars.isEmpty
                 if didUserSelectCalendars {
                     tabBarController.refreshFirstTab()
                     fade(.Out, view: launchViewController?.view) {
