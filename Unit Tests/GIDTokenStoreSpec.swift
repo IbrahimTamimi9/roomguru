@@ -86,11 +86,10 @@ class GIDTokenStoreSpec: QuickSpec {
             
             class MockGIDTokenStoreNetworkCoordinator: GIDTokenStoreNetworkCoordinator {
 
-                override func refreshAccessToken(parameters parameters: [String: AnyObject], completion: ((tokenInfo: (accessToken: String, expirationDate: NSDate)?, error: NSError?)-> Void)) {
-
+                override func refreshAccessToken(completion: (didRefresh: Bool, error: NSError?) -> Void) {
                     let expirationDate = NSDate(timeIntervalSince1970: 1000)
                     let tokenInfo = (accessToken: "Fixture New Access Token", expirationDate: expirationDate)
-                    completion(tokenInfo: tokenInfo, error: nil)
+                    completion(didRefresh: false, error: nil)
                 }
             }
             
@@ -138,10 +137,9 @@ class GIDTokenStoreSpec: QuickSpec {
             
             class MockGIDTokenStoreNetworkCoordinator: GIDTokenStoreNetworkCoordinator {
                 
-                override func refreshAccessToken(parameters parameters: [String: AnyObject], completion: ((tokenInfo: (accessToken: String, expirationDate: NSDate)?, error: NSError?)-> Void)) {
-                    
+                override func refreshAccessToken(completion: (didRefresh: Bool, error: NSError?) -> Void) {
                     let error = NSError(message: "Fixture Error Message")
-                    completion(tokenInfo: nil, error: error)
+                    completion(didRefresh: false, error: error)
                 }
             }
             
