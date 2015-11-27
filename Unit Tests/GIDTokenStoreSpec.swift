@@ -145,7 +145,7 @@ class GIDTokenStoreSpec: QuickSpec {
                 }
             }
             
-            var tokenExpirationDate = NSDate().dateByAddingTimeInterval(-1000)
+            let tokenExpirationDate = NSDate().dateByAddingTimeInterval(-1000)
             
             beforeEach {
                 sut = GIDTokenStore(auth: self.mockAuthWithExpirationDate(tokenExpirationDate))
@@ -199,7 +199,6 @@ private extension GIDTokenStoreSpec {
         let auth = GIDAuthentication()
         auth.setValue("Fixture Access Token", forKey: "accessToken")
         auth.setValue(date, forKey: "accessTokenExpirationDate")
-        auth.setValue("Fixture Token Type", forKey: "tokenType")
         auth.setValue("Fixture Refresh Tokenn", forKey: "refreshToken")
 //        auth.accessToken = "Fixture Access Token"
 //        auth.expirationDate = date

@@ -29,13 +29,13 @@
 		3FBDD1B2DABF053615250478 /* Pods_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E863DC0075B8561A39153AA0 /* Pods_Tests.framework */; };
 		5C157EE31C0759C600BF43BE /* EditEventNetworkCooperatorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0A09111B3B77C3001C0E8A /* EditEventNetworkCooperatorSpec.swift */; };
 		5C157EE41C075ACD00BF43BE /* SectionSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD2A1E81AEA563A00428AAB /* SectionSpec.swift */; };
-		5C157EE51C075BF500BF43BE /* GIDTokenStoreSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E71519B1B1F1EDF0032CD3D /* GIDTokenStoreSpec.swift */; };
 		5C5116361C0604F400159114 /* EventSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E5286B21B4E6CFB00A33EBB /* EventSpec.swift */; };
 		5C5116381C0607FA00159114 /* EventsListCoordinatorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E7527DB1B1F40BC007D35A3 /* EventsListCoordinatorSpec.swift */; };
 		5C5116391C0608EC00159114 /* EventsListCoordinatorSharedExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E7527DD1B1F4F6E007D35A3 /* EventsListCoordinatorSharedExample.swift */; };
 		5C51163A1C060B3800159114 /* MyEventsListCoordinatorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF988DA1B1F67A9002C10D0 /* MyEventsListCoordinatorSpec.swift */; };
 		5C51163B1C060B5F00159114 /* EventsProviderSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED652311B287FB80086B94A /* EventsProviderSpec.swift */; };
 		5C51163C1C060C4400159114 /* BookingManagerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0A090D1B3957EF001C0E8A /* BookingManagerSpec.swift */; };
+		5C7D12501C08767F0051F8F3 /* GIDTokenStoreSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E71519B1B1F1EDF0032CD3D /* GIDTokenStoreSpec.swift */; };
 		5C8831F51C05A45700ADDB79 /* UserDiskManagerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E67FE741AE91F8C003AB827 /* UserDiskManagerSpec.swift */; };
 		5C8831F61C05A6C900ADDB79 /* NSDataTestExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF5D1671AF8E84600C40B76 /* NSDataTestExtensions.swift */; };
 		5C8831F71C05A6DD00ADDB79 /* UIImageTestExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF5D1691AF8E84600C40B76 /* UIImageTestExtensions.swift */; };
@@ -1595,7 +1595,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5C157EE31C0759C600BF43BE /* EditEventNetworkCooperatorSpec.swift in Sources */,
-				5C157EE51C075BF500BF43BE /* GIDTokenStoreSpec.swift in Sources */,
+				5C7D12501C08767F0051F8F3 /* GIDTokenStoreSpec.swift in Sources */,
 				5C8831F61C05A6C900ADDB79 /* NSDataTestExtensions.swift in Sources */,
 				5CC34A211C036503002D41F1 /* TimeFrameSpec.swift in Sources */,
 				5C5116381C0607FA00159114 /* EventsListCoordinatorSpec.swift in Sources */,
