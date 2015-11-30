@@ -394,7 +394,6 @@
 		74433FB51AFB56DC00B7ED50 /* RevokeQuerySpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RevokeQuerySpec.swift; sourceTree = "<group>"; };
 		744C9E781B0200A2000D9E5C /* FreeBusyQuerySpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FreeBusyQuerySpec.swift; sourceTree = "<group>"; };
 		745127DE1B27B1C20043121C /* CalendarEntrySpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarEntrySpec.swift; sourceTree = "<group>"; };
-		746B1ED21B049C60009FB084 /* PageableQuerySpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageableQuerySpec.swift; sourceTree = "<group>"; };
 		746F8B0B1B0340F7005E746A /* BookingQuerySpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookingQuerySpec.swift; sourceTree = "<group>"; };
 		74EE92FB1B148FE100200957 /* TabBarTransitionAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TabBarTransitionAnimator.swift; path = "Roomguru/Source Files/Helpers/TabBarTransitionAnimator.swift"; sourceTree = SOURCE_ROOT; };
 		74F309C21B01F15100EB5D5D /* EventQuerySpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventQuerySpec.swift; sourceTree = "<group>"; };
@@ -1004,7 +1003,6 @@
 				74F309C21B01F15100EB5D5D /* EventQuerySpec.swift */,
 				744C9E781B0200A2000D9E5C /* FreeBusyQuerySpec.swift */,
 				746F8B0B1B0340F7005E746A /* BookingQuerySpec.swift */,
-				746B1ED21B049C60009FB084 /* PageableQuerySpec.swift */,
 			);
 			name = "Queries Tests";
 			sourceTree = "<group>";
