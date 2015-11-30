@@ -16,6 +16,10 @@ class UserPersistenceStoreSpec: QuickSpec {
         
         var sut: UserPersistenceStore? = UserPersistenceStore.sharedStore
         
+        beforeSuite {
+            let _ = UserPersistenceStore.sharedStore.clear()
+        }
+        
         beforeEach {
             sut = UserPersistenceStore.sharedStore
         }
