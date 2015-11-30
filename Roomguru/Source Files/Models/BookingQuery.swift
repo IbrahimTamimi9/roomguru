@@ -65,7 +65,7 @@ struct BookingQuery: Query {
     }
     
     var allDay: Bool {
-        mutating get { return isAllDay() }
+        get { return isAllDay() }
         set {
             if newValue {
                 setAllDay(startDate ?? NSDate())
@@ -204,7 +204,7 @@ struct BookingQuery: Query {
         ])
     }
     
-    private mutating func isAllDay() -> Bool {
+    private func isAllDay() -> Bool {
         var result = false
         
         if var startDict = parameters?[StartKey] as? [String: AnyObject] {
