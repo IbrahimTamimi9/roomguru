@@ -152,7 +152,7 @@ private extension String {
     
     func date() -> NSDate {
         let formatter = NSDateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.ZZZ"
+        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZZZ"
         return formatter.dateFromString(self)!
     }
 }

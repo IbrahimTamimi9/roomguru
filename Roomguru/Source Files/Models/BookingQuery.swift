@@ -22,7 +22,7 @@ struct BookingQuery: Query {
     var parameters: Parameters? = Parameters(encoding: Parameters.Encoding.JSON)
     let service: SecureNetworkService = GoogleCalendarService()
     
-    private static var URLExtension = "/calendars/primary/events"
+    private static var URLExtension = "/calendar/v3/calendars/primary/events"
     
     private let formatter = NSDateFormatter.googleDateFormatter()
     private var attendees: [[String: String]] = []
