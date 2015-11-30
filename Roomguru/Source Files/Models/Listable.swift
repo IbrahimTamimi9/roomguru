@@ -59,11 +59,15 @@ class List<T> : Listable {
 
 // MARK: Section
 
-class Section<T> : List<T> {
+class Section<T: Equatable> : List<T>, Equatable {
     
     var title: String?
     
     required init(_ items: [T]) {
         super.init(items)
     } 
+}
+
+func ==<T: Equatable>(lhs: Section<T>, rhs: Section<T>) -> Bool {
+    return lhs.title == rhs.title && lhs.items == rhs.items
 }
