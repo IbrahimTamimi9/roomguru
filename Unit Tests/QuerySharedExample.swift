@@ -39,8 +39,10 @@ class QueryableSharedExample: QuickConfiguration {
             
             let queryBox = configDict["sut"] as! QueryBox
             let sut = queryBox.query
-            let mockQuery = configDict["mockQuery"] as! MockQuery
-            let mockQueryParameters = configDict["mockQueryParameters"] as? Parameters
+            
+            let mockQueryBox = configDict["mockQuery"] as! QueryBox
+            let mockQuery = mockQueryBox.query
+            
             
             it("should have proper method") {
                 expect(sut.method.rawValue).to(equal(mockQuery.method.rawValue))
@@ -52,7 +54,7 @@ class QueryableSharedExample: QuickConfiguration {
             
             context("testing parameters") {
             
-                if let mockParameters = mockQueryParameters {
+                if let mockParameters = mockQuery.parameters {
                     
                     it("should have proper query items") {
                         expect(sut.parameters?.queryItems).to(equal(mockParameters.queryItems))

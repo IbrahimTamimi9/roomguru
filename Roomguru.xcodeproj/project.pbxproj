@@ -36,6 +36,7 @@
 		5C5116391C0608EC00159114 /* EventsListCoordinatorSharedExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E7527DD1B1F4F6E007D35A3 /* EventsListCoordinatorSharedExample.swift */; };
 		5C51163A1C060B3800159114 /* MyEventsListCoordinatorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF988DA1B1F67A9002C10D0 /* MyEventsListCoordinatorSpec.swift */; };
 		5C51163C1C060C4400159114 /* BookingManagerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0A090D1B3957EF001C0E8A /* BookingManagerSpec.swift */; };
+		5C6299E31C0C9F8E006A34BD /* EventsQuerySpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743821421B00F9E200AEC354 /* EventsQuerySpec.swift */; };
 		5C8831F51C05A45700ADDB79 /* UserDiskManagerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E67FE741AE91F8C003AB827 /* UserDiskManagerSpec.swift */; };
 		5C8831F61C05A6C900ADDB79 /* NSDataTestExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF5D1671AF8E84600C40B76 /* NSDataTestExtensions.swift */; };
 		5C8831F71C05A6DD00ADDB79 /* UIImageTestExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF5D1691AF8E84600C40B76 /* UIImageTestExtensions.swift */; };
@@ -1575,6 +1576,7 @@
 				5CC34A0E1C035A2F002D41F1 /* CalendarPersistenceStoreSpec.swift in Sources */,
 				5CFA2C711C07246100170A42 /* CalendarPickerViewModelSpec.swift in Sources */,
 				5CFA2C691C0722D700170A42 /* JSONExtensions.swift in Sources */,
+				5C6299E31C0C9F8E006A34BD /* EventsQuerySpec.swift in Sources */,
 				5CEB27E51C071BA300195360 /* ModelObjectSpec.swift in Sources */,
 				5CC34A0D1C03591B002D41F1 /* SettingsStoreSpec.swift in Sources */,
 				5CFA2C701C07240600170A42 /* EditEventViewModelSpec.swift in Sources */,
