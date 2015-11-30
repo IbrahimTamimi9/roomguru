@@ -15,7 +15,7 @@ import SwiftyJSON
 class EditEventViewModelSpec: QuickSpec {
     override func spec() {
         
-        var sut: EditEventViewModel<GroupItem>!
+        var sut: EditEventViewModel!
         
         describe("initializing with calendar entry") {
             

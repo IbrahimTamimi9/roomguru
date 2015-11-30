@@ -52,13 +52,11 @@
 		5CFA2C691C0722D700170A42 /* JSONExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3A178E1AFA32A2007D95B6 /* JSONExtensions.swift */; };
 		5CFA2C6A1C0722D700170A42 /* FixtureItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2164E7C81B1DA44E00B27A91 /* FixtureItem.swift */; };
 		5CFA2C6B1C0722FA00170A42 /* ListableSharedExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8867661AE932CB009DA028 /* ListableSharedExample.swift */; };
-		5CFA2C6C1C0722FC00170A42 /* ListViewModelSharedExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9F9FE01AF233BC0081B817 /* ListViewModelSharedExample.swift */; };
 		5CFA2C6D1C07235500170A42 /* JSONKeyValueSharedExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC4CC991AFA01450070007B /* JSONKeyValueSharedExample.swift */; };
 		5CFA2C6F1C0723A600170A42 /* EventDetailsViewModelSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EB3A09C1AEA707600DB0585 /* EventDetailsViewModelSpec.swift */; };
 		5CFA2C701C07240600170A42 /* EditEventViewModelSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21875E9C1B186688003E1E59 /* EditEventViewModelSpec.swift */; };
 		5CFA2C711C07246100170A42 /* CalendarPickerViewModelSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA900F61AEE05F500A66FC8 /* CalendarPickerViewModelSpec.swift */; };
 		5CFA2C721C07247B00170A42 /* SettingsViewModelSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF4C7C61AEE3EC30050201A /* SettingsViewModelSpec.swift */; };
-		5CFA2C731C07248500170A42 /* ListViewModelSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFB51391AED87B30065F051 /* ListViewModelSpec.swift */; };
 		5CFA2C751C0724A300170A42 /* ListSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7521151AE92E8500B8BDE8 /* ListSpec.swift */; };
 		5E003E631ACB290700AE55C1 /* NSURLExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E003E621ACB290700AE55C1 /* NSURLExtensions.swift */; };
 		5E04B9EB1AF0729700405BFB /* WeekdaysBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E04B9EA1AF0729700405BFB /* WeekdaysBar.swift */; };
@@ -1565,13 +1563,11 @@
 				5C8831F71C05A6DD00ADDB79 /* UIImageTestExtensions.swift in Sources */,
 				5CFA2C6B1C0722FA00170A42 /* ListableSharedExample.swift in Sources */,
 				5C5116391C0608EC00159114 /* EventsListCoordinatorSharedExample.swift in Sources */,
-				5CFA2C731C07248500170A42 /* ListViewModelSpec.swift in Sources */,
 				5CFA2C721C07247B00170A42 /* SettingsViewModelSpec.swift in Sources */,
 				5CFA2C751C0724A300170A42 /* ListSpec.swift in Sources */,
 				5C157EE41C075ACD00BF43BE /* SectionSpec.swift in Sources */,
 				5CFA2C6D1C07235500170A42 /* JSONKeyValueSharedExample.swift in Sources */,
 				5CA4CBF51C07017300BC2ABB /* ModelObjectSharedExample.swift in Sources */,
-				5CFA2C6C1C0722FC00170A42 /* ListViewModelSharedExample.swift in Sources */,
 				5C51163A1C060B3800159114 /* MyEventsListCoordinatorSpec.swift in Sources */,
 				5CA4CBF61C0702A000BC2ABB /* ObjectKeyValueSharedExample.swift in Sources */,
 				5CC34A141C035E29002D41F1 /* FreeEventsProviderSpec.swift in Sources */,
