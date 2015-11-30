@@ -19,7 +19,7 @@ protocol Presenter {
     func presentViewController(viewController: UIViewController)
 }
 
-class EditEventViewModel<T: GroupItem>: GroupedListViewModel<GroupItem> {
+class EditEventViewModel: GroupedListViewModel {
     
     private let networkCooperator: EditEventNetworkCooperator
     private var rooms: [RoomItem]

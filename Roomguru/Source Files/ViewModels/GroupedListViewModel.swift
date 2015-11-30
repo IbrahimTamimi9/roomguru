@@ -9,22 +9,18 @@
 import Foundation
 
 protocol ExtendedIndexPathOperatable: IndexPathOperatable {
-    typealias T
     func indexPathsForItems(items: [GroupItem]) -> [NSIndexPath]?
-    func indexPathsForItemOfType<T: GroupItem>(itemType: T.Type) -> [NSIndexPath]?
+    func indexPathsForItemOfType(itemType: GroupItem.Type) -> [NSIndexPath]?
 }
 
-class GroupedListViewModel<T: GroupItem>: ListViewModel<T> {
+class GroupedListViewModel: ListViewModel<GroupItem> {
     
-    // NGRFixme: Use super.init(sections:)
-    init(items: [[T]]) {
-//        let sections = items.map { Section($0) }
-        super.init()
+    init(items: [[GroupItem]]) {
+        super.init(sections: items.map { Section($0) })
     }
 }
 
 extension GroupedListViewModel: ExtendedIndexPathOperatable {
-    typealias T = GroupItem
     
     func indexPathsForItems(items: [GroupItem]) -> [NSIndexPath]? {
         var indexPaths: [NSIndexPath] = []
@@ -38,13 +34,11 @@ extension GroupedListViewModel: ExtendedIndexPathOperatable {
         return indexPaths.isEmpty ? nil : indexPaths
     }
     
-    func indexPathsForItemOfType<T: GroupItem>(itemType: T.Type) -> [NSIndexPath]? {
+    func indexPathsForItemOfType(itemType: GroupItem.Type) -> [NSIndexPath]? {
         var indexPaths: [NSIndexPath] = []
         
         itemize { path, item in
-            if item is T {
-                indexPaths.append(NSIndexPath(forRow: path.row, inSection: path.section))
-            }
+            indexPaths.append(NSIndexPath(forRow: path.row, inSection: path.section))
         }
         return indexPaths.isEmpty ? nil : indexPaths
     }

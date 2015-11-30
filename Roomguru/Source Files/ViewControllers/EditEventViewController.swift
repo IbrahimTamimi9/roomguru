@@ -13,7 +13,7 @@ class EditEventViewController: UIViewController {
     
     private weak var aView: GroupedBaseTableView?
     private var keyboardHandler: KeyboardPresenceHandler!
-    private var viewModel: EditEventViewModel<GroupItem>!
+    private var viewModel: EditEventViewModel!
     private var didSaveBlock: ((event: Event) -> Void)?
     
     init(calendarEntry: CalendarEntry? = nil, didSaveBlock: ((event: Event) -> Void)?) {
