@@ -183,6 +183,7 @@
 		BF2755DB1AC3006100A41786 /* FreeBusyQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2755DA1AC3006100A41786 /* FreeBusyQuery.swift */; };
 		BF2B69401AF0F48B00AC2CC4 /* UILabelExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2B693F1AF0F48B00AC2CC4 /* UILabelExtensions.swift */; };
 		BF3B25A41ADD610700242859 /* EventQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3B25A31ADD610700242859 /* EventQuery.swift */; };
+		BF43E18F1C08C00B00A86A19 /* Authorizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF43E18E1C08C00B00A86A19 /* Authorizable.swift */; };
 		BF49CC591B00E24000ACAEC1 /* AlertViewTransitionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF49CC581B00E24000ACAEC1 /* AlertViewTransitionDelegate.swift */; };
 		BF49CC5B1B00F2F500ACAEC1 /* MaskingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF49CC5A1B00F2F500ACAEC1 /* MaskingViewController.swift */; };
 		BF49CC5D1B00F5F300ACAEC1 /* MaskingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF49CC5C1B00F5F300ACAEC1 /* MaskingView.swift */; };
@@ -420,6 +421,7 @@
 		BF3B25A11ADD467400242859 /* EditEventViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EditEventViewModel.swift; path = "Roomguru/Source Files/ViewModels/EditEventViewModel.swift"; sourceTree = SOURCE_ROOT; };
 		BF3B25A31ADD610700242859 /* EventQuery.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventQuery.swift; path = "Roomguru/Source Files/Models/EventQuery.swift"; sourceTree = SOURCE_ROOT; };
 		BF3CAD601AEE3D2200B1F684 /* ResultActionItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ResultActionItem.swift; path = "Roomguru/Source Files/ViewModels/ResultActionItem.swift"; sourceTree = SOURCE_ROOT; };
+		BF43E18E1C08C00B00A86A19 /* Authorizable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Authorizable.swift; path = "Roomguru/Source Files/Networking/Authorizable.swift"; sourceTree = SOURCE_ROOT; };
 		BF49CC581B00E24000ACAEC1 /* AlertViewTransitionDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AlertViewTransitionDelegate.swift; path = "Roomguru/Source Files/Helpers/AlertViewTransitionDelegate.swift"; sourceTree = SOURCE_ROOT; };
 		BF49CC5A1B00F2F500ACAEC1 /* MaskingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MaskingViewController.swift; path = "Roomguru/Source Files/ViewControllers/MaskingViewController.swift"; sourceTree = SOURCE_ROOT; };
 		BF49CC5C1B00F5F300ACAEC1 /* MaskingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MaskingView.swift; path = "Roomguru/Source Files/Views/MaskingView.swift"; sourceTree = SOURCE_ROOT; };
@@ -1054,6 +1056,7 @@
 				BF6C4CC01C0347E70000AEF6 /* Requestable.swift */,
 				BF7FB4591C00938300309B4B /* SecureNetworkService.swift */,
 				BFD5214A1C036C0C0022FF8F /* GoogleCalendarService.swift */,
+				BF43E18E1C08C00B00A86A19 /* Authorizable.swift */,
 			);
 			name = Networking;
 			sourceTree = "<group>";
@@ -1399,6 +1402,7 @@
 				5E8858401AF0E7AD00EF08F1 /* EventsListViewModel.swift in Sources */,
 				5E1BA3041ACB5E8300827BB6 /* UIApplicationExtensions.swift in Sources */,
 				7B91D6E71AC004440080DD91 /* NSErrorExtensions.swift in Sources */,
+				BF43E18F1C08C00B00A86A19 /* Authorizable.swift in Sources */,
 				2164E7F01B1EF4FC00B27A91 /* NavigationController.swift in Sources */,
 				BFE566101AE15B2400B935BF /* DateCell.swift in Sources */,
 				2164E7EA1B1EF4AB00B27A91 /* PickerItem.swift in Sources */,
