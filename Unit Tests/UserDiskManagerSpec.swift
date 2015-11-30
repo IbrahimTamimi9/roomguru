@@ -9,6 +9,8 @@
 import Nimble
 import Quick
 
+@testable import Roomguru
+
 class UserDiskManagerSpec: QuickSpec {
     override func spec() {
         
@@ -20,7 +22,12 @@ class UserDiskManagerSpec: QuickSpec {
         }
         
         afterEach {
-            NSFileManager.defaultManager().removeItemAtPath(sut!.profileDirectoryPath.stringByAppendingPathComponent(fileID), error: nil)
+            let defaultFileManager: NSFileManager = NSFileManager.defaultManager()
+            let profileDirectoryPath: NSString = sut!.profileDirectoryPath
+            do {
+                try defaultFileManager.removeItemAtPath(profileDirectoryPath.stringByAppendingPathComponent(fileID))
+            } catch{                
+            }
             sut = nil
         }
         
@@ -42,7 +49,7 @@ class UserDiskManagerSpec: QuickSpec {
             }
             
             it("shouldn't file exist in temporary directory") {
-                let path = NSURL(fileURLWithPath: NSTemporaryDirectory() + fileID)!.path!
+                let path = NSURL(fileURLWithPath: NSTemporaryDirectory() + fileID).path!
                 let exist = NSFileManager.defaultManager().fileExistsAtPath(path)
                 expect(exist).to(beFalse())
             }
@@ -70,14 +77,14 @@ class UserDiskManagerSpec: QuickSpec {
 private extension UserDiskManagerSpec {
     
     func createImageOnDiskWithIdentifier(identifier: String) -> NSURL {
-        let filePath = NSURL(fileURLWithPath: NSTemporaryDirectory() + identifier)!.path!
+        let filePath = NSURL(fileURLWithPath: NSTemporaryDirectory() + identifier).path!
         NSData.composeTestImagaDataRepresentation().writeToFile(filePath, atomically: true)
-        return NSURL(fileURLWithPath: filePath)!
+        return NSURL(fileURLWithPath: filePath)
     }
     
     func removeImageFromDiskWithIdentifier(identifier: String) {
-        if let filePath = NSURL(fileURLWithPath: NSTemporaryDirectory() + identifier)!.path {
-            NSFileManager.defaultManager().removeItemAtPath(filePath, error: nil)
+        if let filePath = NSURL(fileURLWithPath: NSTemporaryDirectory() + identifier).path {
+            try! NSFileManager.defaultManager().removeItemAtPath(filePath)
         }
     }
 }

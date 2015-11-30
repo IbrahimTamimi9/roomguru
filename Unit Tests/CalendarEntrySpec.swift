@@ -8,9 +8,9 @@
 
 import Nimble
 import Quick
-
 import SwiftyJSON
 
+@testable import Roomguru
 
 class CalendarEntrySpec: QuickSpec {
     
@@ -18,9 +18,9 @@ class CalendarEntrySpec: QuickSpec {
         
         let fixtureCalendarID = "FixtureCalendarID"
         
-        let mockEventFirst = self.mockedEvent("FirstFixtureID", startDate: "2015-04-24T01:00:00-07:00", endDate: "2015-04-24T01:30:00-07:00")
-        let mockEventSecond = self.mockedEvent("SecondFixtureID", startDate: "2015-08-24T01:00:00-07:00", endDate: "2015-08-24T01:30:00-07:00")
-        let mockEventThird = self.mockedEvent("ThirdFixtureID", startDate: "2015-06-24T01:00:00-07:00", endDate: "2015-06-24T01:30:00-07:00")
+        let mockEventFirst = self.mockedEvent("FirstFixtureID", startDate: "2015-04-24T01:00:00.+0100", endDate: "2015-04-24T01:30:00.+0100")
+        let mockEventSecond = self.mockedEvent("SecondFixtureID", startDate: "2015-08-24T01:00:00.+0100", endDate: "2015-08-24T01:30:00.+0100")
+        let mockEventThird = self.mockedEvent("ThirdFixtureID", startDate: "2015-06-24T01:00:00.+0100", endDate: "2015-06-24T01:30:00.+0100")
         
         let mockEvents = [mockEventFirst, mockEventSecond, mockEventThird]
         
@@ -87,7 +87,7 @@ class CalendarEntrySpec: QuickSpec {
         describe("When creating calendar entries array") {
             
             let mockCalendarEntries = self.mockedCalendarEntries(fixtureCalendarID, events: mockEvents)
-            var sut = CalendarEntry.caledarEntries(fixtureCalendarID, events: mockEvents)
+            let sut = CalendarEntry.calendarEntries(fixtureCalendarID, events: mockEvents)
             
             it("should have proper number of calendar entries") {
                 expect(sut.count).to(equal(mockCalendarEntries.count))
@@ -112,9 +112,9 @@ class CalendarEntrySpec: QuickSpec {
         
         describe("When sorting calendar entries by date") {
             
-            let unsortedEntries = CalendarEntry.caledarEntries(fixtureCalendarID, events: mockEvents)
-            let sortedEntries = unsortedEntries.sorted { $0.event.start.compare($1.event.start).ascending }
-            var sut = CalendarEntry.sortedByDate(unsortedEntries)
+            let unsortedEntries = CalendarEntry.calendarEntries(fixtureCalendarID, events: mockEvents)
+            let sortedEntries = unsortedEntries.sort { $0.event.start.compare($1.event.start) == .OrderedAscending }
+            let sut = CalendarEntry.sortedByDate(unsortedEntries)
             
             it("should be sorted ascendingly") {
                 expect(sut).to(equal(sortedEntries))

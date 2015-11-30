@@ -8,6 +8,9 @@
 
 import Nimble
 import Quick
+import Timepiece
+
+@testable import Roomguru
 
 class TimeFrameSpec: QuickSpec {
     
@@ -15,8 +18,8 @@ class TimeFrameSpec: QuickSpec {
         
         var sut: TimeFrame!
         
-        let fixtureStartDate = NSDate().midnight
-        let fixtureEndDate = NSDate().midnight.days + 1
+        let fixtureStartDate = NSDate().beginningOfDay
+        let fixtureEndDate = NSDate().beginningOfDay + 1.day
         let fixtureDuration = fixtureEndDate.timeIntervalSinceDate(fixtureStartDate)
         
         describe("when initializing with start date, end date and availability") {

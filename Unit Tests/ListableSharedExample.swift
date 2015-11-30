@@ -9,6 +9,8 @@
 import Nimble
 import Quick
 
+@testable import Roomguru
+
 class ListableFactory {
     
     private let listableClass: List<FixtureItem>.Type
@@ -18,7 +20,7 @@ class ListableFactory {
     }
     
     private func listableWithItems(items: [FixtureItem]) -> List<FixtureItem> {
-        return listableClass(items)
+        return listableClass.init(items)
     }
 }
 
@@ -121,7 +123,7 @@ class ListableSharedExampleConfiguration : QuickConfiguration {
                 
                 context("remove item") {
                     
-                    var index = 2
+                    let index = 2
                     let fixtureItem = sut[index]
                     var removedItem = FixtureItem()
                     
@@ -136,7 +138,7 @@ class ListableSharedExampleConfiguration : QuickConfiguration {
                     }
                     
                     it("should not contain certain item at index \(index)") {
-                        let result = contains(sut.fixtureItems(), fixtureItem)
+                        let result = sut.fixtureItems().contains(fixtureItem)
                         expect(result).notTo(beTruthy())
                     }
                     

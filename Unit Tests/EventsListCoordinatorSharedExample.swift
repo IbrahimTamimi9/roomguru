@@ -8,8 +8,9 @@
 
 import Nimble
 import Quick
-
 import SwiftyJSON
+
+@testable import Roomguru
 
 class EventsListCoordinatorSharedExample: QuickConfiguration {
     override class func configure(configuration: Configuration) {
@@ -74,10 +75,10 @@ class EventsListCoordinatorSharedExample: QuickConfiguration {
             }
             
             // test status:
-            let expectedStatus = config["status"] as! String
             
             it("should return correct status") {
                 sut.loadDataWithCompletion() { (status, _, _) in
+                    let expectedStatus = config["status"] as! String
                     expect(status.toString()).to(equal(expectedStatus))
                 }
             }

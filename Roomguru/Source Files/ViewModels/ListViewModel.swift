@@ -22,23 +22,18 @@ protocol IndexPathOperatable {
     func removeItemsAtIndexPaths(indexPaths: [NSIndexPath])
 }
 
-class ListViewModel<T: NSObject> {
+class ListViewModel<T: Equatable> {
     
     typealias Table = List<Section<T>>
     
-    private var sections: Table = Table([Section<T>([])])
-    private var sortingKey: String?
-    
-    // NGRFixme: Remove the stub when not needed
-    init() {}
+    var sections: Table = Table([Section<T>([])])
     
     required init(_ items: [T]) {
         sections = Table([Section<T>(items)])
     }
     
-    required init(_ items: [T], sortingKey: String) {
-        self.sortingKey = sortingKey
-        sections = sectionsFromItems(items, bySortingKey: sortingKey) ?? Table([Section<T>(items)])
+    required init<U: Equatable>(_ items: [T], readValue: T -> U) {
+        sections = sectionsFromItems(items, byReadingValue: readValue) ?? Table([Section<T>(items)])
     }
     
     required init(sections: [Section<T>]) {
@@ -96,25 +91,13 @@ extension ListViewModel: IndexPathOperatable {
 
 private extension ListViewModel {
     
-    func sectionsFromItems(items: [T], bySortingKey sortingKey: String) -> Table? {
+    func sectionsFromItems<U: Equatable>(items: [T], byReadingValue readValue: T -> U) -> Table? {
         
-        let values: [NSObject?] = items.map { (item: NSObject) -> NSObject? in
-            item.valueForKeyPath(sortingKey) as? NSObject
-        }
+        let values = items.map { readValue($0) }
         
-        var uniques: [NSObject] = []
-        
-        for value in values {
-            if let value = value {
-                if !uniques.contains(value) {
-                    uniques.append(value)
-                }
-            }
-        }
-        
-        let sections: [Section<T>] = uniques.map { (item: NSObject) -> Section<T> in
-            let allMatchingItems = items.itemsMatching(item, bySortingKey: sortingKey)
-            let section: Section<T> = Section<T>(allMatchingItems)
+        let sections: [Section<T>] = values.uniques.map { item in
+            
+            let section = Section(items.filter { item == readValue($0) } )
             
             if let item = item as? StringConvertible {
                 section.title = item.string()
@@ -126,16 +109,15 @@ private extension ListViewModel {
     }
 }
 
-private extension Array {
+extension Array where Element: Equatable {
     
-    func itemsMatching(item: NSObject, bySortingKey key: String) -> [Element] {
-        return self.filter { _item in
-            if let object = _item as? NSObject {
-                if let newItem = object.valueForKeyPath(key) as? NSObject {
-                    return newItem == item
-                }
+    var uniques: [Element] {
+        var uniques = [Element]()
+        for element in self {
+            if !uniques.contains(element) {
+                uniques.append(element)
             }
-            return false
         }
+        return uniques
     }
 }

@@ -10,6 +10,8 @@ import Nimble
 import Quick
 import SwiftyJSON
 
+@testable import Roomguru
+
 extension ModelObject {
     var fixtureProperty: String {
         get { return "fixtureValue" }

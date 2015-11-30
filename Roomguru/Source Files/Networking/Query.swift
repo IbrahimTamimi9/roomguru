@@ -21,7 +21,3 @@ protocol Query {
     var parameters: Parameters? { get set }
     var service: SecureNetworkService { get }
 }
-
-protocol GoogleRequiredAuthProtocol {
-    func setFullPath(baseUrl: String, authKey: String)
-}

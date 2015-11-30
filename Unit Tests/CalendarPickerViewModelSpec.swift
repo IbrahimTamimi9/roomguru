@@ -8,8 +8,9 @@
 
 import Nimble
 import Quick
-
 import SwiftyJSON
+
+@testable import Roomguru
 
 class CalendarPickerViewModelSpec: QuickSpec {
     override func spec() {

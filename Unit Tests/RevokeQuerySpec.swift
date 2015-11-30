@@ -15,9 +15,9 @@ class RevokeQuerySpec: QuickSpec {
         
     override func spec(){
         
-        var fixtureEventID = "FixtureIdentifier"
-        var fixtureUserEmail = "FixtureUserEmail"
-        var URLExtension: String = "/calendars/" + fixtureUserEmail + "/events/" + fixtureEventID
+        let fixtureEventID = "FixtureIdentifier"
+        let fixtureUserEmail = "FixtureUserEmail"
+        let URLExtension: String = "/calendars/" + fixtureUserEmail + "/events/" + fixtureEventID
         var sut: RevokeQuery!
         let mockQuery = MockQuery(HTTPMethod: "DELETE", URLExtension: URLExtension, parameterEncoding: "URL")
         

@@ -10,6 +10,8 @@ import Nimble
 import Quick
 import SwiftyJSON
 
+@testable import Roomguru
+
 class EditEventNetworkCooperatorSpec: QuickSpec {
     override func spec() {
         
@@ -197,8 +199,8 @@ private extension EditEventNetworkCooperatorSpec {
             "summary" : "Fixture Summary",
             "status" : EventStatus.Confirmed.rawValue,
             "htmlLink" : "",
-            "start" : ["dateTime" : "2015-04-24T01:00:00-07:00"],
-            "end" : ["dateTime" : "2015-04-24T01:01:00-07:00"],
+            "start" : ["dateTime" : "2015-04-24T01:00:00.-0700"],
+            "end" : ["dateTime" : "2015-04-24T01:01:00.-0700"],
             "attendees" : [[
                 "email" : "Fixture Email Address",
                 "responseStatus" : "accepted",

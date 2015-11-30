@@ -10,6 +10,8 @@ import Nimble
 import Quick
 import SwiftyJSON
 
+@testable import Roomguru
+
 class EventSpec: QuickSpec {
     
     override func spec() {
@@ -55,12 +57,12 @@ class EventSpec: QuickSpec {
             }
             
             it("should have properly set startDate") {
-                let expectedDate = NSDate(timeIntervalSince1970: 0).midnight.hour(10).day(24).month(4).year(2015).date
+                let expectedDate = NSDate.date(year: 2015, month: 4, day: 24, hour: 10, minute: 0, second: 0)
                 expect(sut.start).to(equal(expectedDate))
             }
             
             it("should have properly set endDate") {
-                let expectedDate = NSDate(timeIntervalSince1970: 0).midnight.hour(10).minute(1).day(24).month(4).year(2015).date
+                let expectedDate = NSDate.date(year: 2015, month: 4, day: 24, hour: 10, minute: 1, second: 0)
                 expect(sut.end).to(equal(expectedDate))
             }
 
@@ -143,8 +145,8 @@ private extension EventSpec {
             "summary" : "Fixture Summary",
             "status" : EventStatus.Confirmed.rawValue,
             "htmlLink" : "Fixture HTML Link",
-            "start" : ["dateTime" : "2015-04-24T01:00:00-07:00"],
-            "end" : ["dateTime" : "2015-04-24T01:01:00-07:00"],
+            "start" : ["dateTime" : "2015-04-24T01:00:00.-0700"],
+            "end" : ["dateTime" : "2015-04-24T01:01:00.-0700"],
             "attendees" : [
                 [
                     "email" : "Fixture Email Address",

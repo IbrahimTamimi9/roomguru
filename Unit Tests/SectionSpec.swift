@@ -10,14 +10,15 @@ import Foundation
 
 import Nimble
 import Quick
-
 import Roomguru
+
+@testable import Roomguru
 
 class SectionSpec: QuickSpec {
     
     override func spec() {
         
-        var fixtureItems = [
+        let fixtureItems = [
             FixtureItem(),
             FixtureItem(),
             FixtureItem(),

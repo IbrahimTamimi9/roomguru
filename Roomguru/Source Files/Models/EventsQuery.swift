@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct EventsQuery: Query {
+struct EventsQuery: Query, Authorizable {
 
     /// Query conformance
     let method: Method
@@ -16,12 +16,14 @@ struct EventsQuery: Query {
     var parameters: Parameters?
     let service: SecureNetworkService = GoogleCalendarService()
     
+    let queryAuthorization = (key: "key", value: Constants.Google.Calendars.APIKey)
+    
     private let formatter = NSDateFormatter.googleDateFormatter()
     
     // MARK: Initializers
     init(calendarID: String, timeRange: TimeRange) {
         method = .GET
-        path = "/calendars/" + calendarID + "/events"
+        path = Constants.Google.Calendars.APIVersion + "/calendars/" + calendarID + "/events"
         parameters = Parameters(encoding: Parameters.Encoding.JSON)
         
         self.calendarID = calendarID

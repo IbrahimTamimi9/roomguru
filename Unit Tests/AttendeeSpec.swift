@@ -8,8 +8,9 @@
 
 import Nimble
 import Quick
-
 import SwiftyJSON
+
+@testable import Roomguru
 
 extension Attendee {
         
@@ -22,11 +23,10 @@ class AttendeeSpec: QuickSpec {
     
     override func spec() {
         
-        var factory = ModelObjectFactory(modelObjectClass: Attendee.self)
+        let factory = ModelObjectFactory(modelObjectClass: Attendee.self)
         factory.map = { return Attendee.map($0) as [Attendee]? }
         
-        var json: JSON!
-        var map = [
+        let map = [
             "displayName": "name",
             "email": "email",
             "responseStatus": "rawStatus"
@@ -35,7 +35,7 @@ class AttendeeSpec: QuickSpec {
         context("correct json") {
             
             itBehavesLike("model object") {
-                var localJSON = JSON([
+                let localJSON = JSON([
                     "displayName": "fixtureName",
                     "email": "fixtureEmail",
                     "responseStatus": "accepted"

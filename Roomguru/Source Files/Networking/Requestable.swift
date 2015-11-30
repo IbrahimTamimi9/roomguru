@@ -25,11 +25,18 @@ extension Requestable {
     
     var foundationRequest: NSURLRequest {
         
+        var queryItems = query.parameters?.queryItems
+        
+        if let authorizable = query as? Authorizable {
+            let queryAuth = authorizable.queryAuthorization
+            queryItems?.append(NSURLQueryItem(name: queryAuth.key, value: queryAuth.value))
+        }
+        
         let components = NSURLComponents()
         components.scheme = query.service.scheme
         components.host = query.service.host
         components.path = query.path
-        components.queryItems = query.parameters?.queryItems
+        components.queryItems = queryItems
         
         // Intentionally force unwrapping optional to get crash when problem occur
         let mutableRequest = NSMutableURLRequest(URL: components.URL!)
