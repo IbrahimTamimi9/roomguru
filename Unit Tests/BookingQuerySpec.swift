@@ -42,33 +42,17 @@ class BookingQuerySpec: QuickSpec {
         describe("when initializing with calendar entry") {
             
             let mockCalendarEntry = CalendarEntry(calendarID: self.fixtureCalendarID, event: self.mockedEvent())
-            let URLExtension = "/calendars/primary/events/" + self.fixtureEventID
-            let mockQuery = MockQuery(HTTPMethod: "PUT", URLExtension: URLExtension, parameterEncoding: "JSON")
-
-            let mockQueryParameters =
-            [
-                "attendees":[
-                    ["email" : self.fixtureCalendarID, "responseStatus" : "accepted"],
-                    ["email" : self.fixtureEmailFirst],
-                    ["email" : self.fixtureEmailSecond],
-                    ["email" : self.fixtureEmailThird]
-                ],
-                "end" : ["dateTime":self.fixtureEndDateAsString, "timeZone" : "Europe/Warsaw"],
-                "start" : ["dateTime":self.fixtureStartDateAsString, "timeZone" : "Europe/Warsaw"],
-                "summary" : self.fixtureSummary
-            ]
+            let expectedPath = "/calendars/primary/events/" + self.fixtureEventID
+            let expectedParameters = Parameters(encoding: Parameters.Encoding.JSON)
+            let mockQuery = MockQuery(method: Roomguru.Method.PUT, path: expectedPath, parameters: expectedParameters, service: GoogleCalendarService())
             
             let sut = BookingQuery(calendarEntry: mockCalendarEntry)
             
-            //NGRTodo: Fix this spec
-            pending("date format is invalid") {
-                itBehavesLike("queryable") {
-                    [
-                        "sut": sut,
-                        "mockQuery": mockQuery,
-                        "mockQueryParameters": mockQueryParameters
-                    ]
-                }
+            itBehavesLike("query") {
+                [
+                    "sut": QueryBox(query: sut),
+                    "mockQuery": QueryBox(query: mockQuery),
+                ]
             }
         }
         
@@ -78,33 +62,17 @@ class BookingQuerySpec: QuickSpec {
             freeEvent.setCustomSummary(self.fixtureSummary)
             let fixtureFreeCalendarEntry = CalendarEntry(calendarID: self.fixtureCalendarID, event: freeEvent)
             
-            let mockQuery = MockQuery(HTTPMethod: "POST", URLExtension: "/calendars/primary/events", parameterEncoding: "JSON")
-            var mockQueryParameters = [:]
-            mockQueryParameters =
-            [
-                "attendees" : [[
-                    "email" : self.fixtureCalendarID,
-                    "responseStatus" : "accepted" ]],
-                "end" : [
-                    "dateTime" : self.fixtureEndDateAsString,
-                    "timeZone":"Europe/Warsaw"],
-                "start" : [
-                    "dateTime" : self.fixtureStartDateAsString,
-                    "timeZone":"Europe/Warsaw"],
-                "summary" : self.fixtureSummary
-            ]
+            let expectedPath = "/calendars/primary/events"
+            let expectedParameters = Parameters(encoding: Parameters.Encoding.JSON)
+            let mockQuery = MockQuery(method: Roomguru.Method.POST, path: expectedPath, parameters: expectedParameters, service: GoogleCalendarService())
             
             let sut = BookingQuery(quickCalendarEntry: fixtureFreeCalendarEntry)
             
-            //NGRTodo: Fix this spec
-            pending("date format is invalid") {
-                itBehavesLike("queryable") {
-                    [
-                        "sut": sut,
-                        "mockQuery": mockQuery,
-                        "mockQueryParameters": mockQueryParameters
-                    ]
-                }
+            itBehavesLike("query") {
+                [
+                    "sut": QueryBox(query: sut),
+                    "mockQuery": QueryBox(query: mockQuery)
+                ]
             }
         }
     }

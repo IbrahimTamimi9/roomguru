@@ -22,12 +22,6 @@ class FreeBusyQuerySpec: QuickSpec {
         let mockQuery = MockQuery(method: Roomguru.Method.POST, path: "/freeBusy", parameters: expectedParameters, service: GoogleCalendarService())
         let fixtureSearchTimeRange: TimeRange = (min: NSDate().beginningOfDay, max: NSDate().beginningOfDay + 2.days)
         
-        let fixtureTimeMin = queryDateFormatter().stringFromDate(fixtureSearchTimeRange.min)
-        let fixtureTimeMax = queryDateFormatter().stringFromDate(fixtureSearchTimeRange.max)
-        let fixtureTimeZone = "Europe/Warsaw"
-        let fixtureItems = fixtureCalendarIDs.map { ["id": $0] }
-
-        let mockQueryParameters = ["timeMax":fixtureTimeMax, "timeMin" : fixtureTimeMin, "timeZone" : fixtureTimeZone, "items" : fixtureItems]
         
         describe("when initializing") {
             sut = FreeBusyQuery(calendarsIDs: fixtureCalendarIDs, searchTimeRange: fixtureSearchTimeRange)

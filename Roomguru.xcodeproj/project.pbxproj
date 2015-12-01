@@ -34,6 +34,7 @@
 		5C1CD8771C0DBF48003F5854 /* CalendarsQuerySpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74433FB41AFB56DC00B7ED50 /* CalendarsQuerySpec.swift */; };
 		5C1CD8781C0DC342003F5854 /* RevokeQuerySpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74433FB51AFB56DC00B7ED50 /* RevokeQuerySpec.swift */; };
 		5C1CD87A1C0DE379003F5854 /* FreeBusyQuerySpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 744C9E781B0200A2000D9E5C /* FreeBusyQuerySpec.swift */; };
+		5C1CD87B1C0DE53A003F5854 /* BookingQuerySpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746F8B0B1B0340F7005E746A /* BookingQuerySpec.swift */; };
 		5C5116361C0604F400159114 /* EventSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E5286B21B4E6CFB00A33EBB /* EventSpec.swift */; };
 		5C5116381C0607FA00159114 /* EventsListCoordinatorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E7527DB1B1F40BC007D35A3 /* EventsListCoordinatorSpec.swift */; };
 		5C5116391C0608EC00159114 /* EventsListCoordinatorSharedExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E7527DD1B1F4F6E007D35A3 /* EventsListCoordinatorSharedExample.swift */; };
@@ -1577,6 +1578,7 @@
 				5C8831F81C05B72100ADDB79 /* UserPersistenceStoreSpec.swift in Sources */,
 				5CC34A0E1C035A2F002D41F1 /* CalendarPersistenceStoreSpec.swift in Sources */,
 				5C1CD8781C0DC342003F5854 /* RevokeQuerySpec.swift in Sources */,
+				5C1CD87B1C0DE53A003F5854 /* BookingQuerySpec.swift in Sources */,
 				5CFA2C711C07246100170A42 /* CalendarPickerViewModelSpec.swift in Sources */,
 				5CFA2C691C0722D700170A42 /* JSONExtensions.swift in Sources */,
 				5C1CD8771C0DBF48003F5854 /* CalendarsQuerySpec.swift in Sources */,
