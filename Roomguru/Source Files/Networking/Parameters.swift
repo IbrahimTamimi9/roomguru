@@ -106,6 +106,10 @@ extension String: URLQueryItemStringConvertible {
     var stringValue: String { return self }
 }
 
+extension NSString: URLQueryItemStringConvertible {
+    var stringValue: String { return self as String }
+}
+
 extension UInt: URLQueryItemStringConvertible {}
 extension UInt8: URLQueryItemStringConvertible {}
 extension UInt16: URLQueryItemStringConvertible {}
