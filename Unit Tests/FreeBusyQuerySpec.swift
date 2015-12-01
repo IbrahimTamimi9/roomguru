@@ -18,7 +18,8 @@ class FreeBusyQuerySpec: QuickSpec {
         
         let fixtureCalendarIDs = ["FixtureCalendarID.1", "FixtureCalendarID.2", "FixtureCalendarID.3"]
         var sut: FreeBusyQuery!
-        let mockQuery = MockQuery(HTTPMethod: "POST", URLExtension: "/freeBusy", parameterEncoding: "JSON")
+        let expectedParameters = Parameters(encoding: Parameters.Encoding.JSON)
+        let mockQuery = MockQuery(method: Roomguru.Method.POST, path: "/freeBusy", parameters: expectedParameters, service: GoogleCalendarService())
         let fixtureSearchTimeRange: TimeRange = (min: NSDate().beginningOfDay, max: NSDate().beginningOfDay + 2.days)
         
         let fixtureTimeMin = queryDateFormatter().stringFromDate(fixtureSearchTimeRange.min)
@@ -31,15 +32,11 @@ class FreeBusyQuerySpec: QuickSpec {
         describe("when initializing") {
             sut = FreeBusyQuery(calendarsIDs: fixtureCalendarIDs, searchTimeRange: fixtureSearchTimeRange)
             
-            //NGRTodo: Fix this spec
-            pending("date format is invalid") {
-                itBehavesLike("queryable") {
-                    [
-                        "sut": sut,
-                        "mockQuery": mockQuery,
-                        "mockQueryParameters": mockQueryParameters
-                    ]
-                }
+            itBehavesLike("query") {
+                [
+                    "sut": QueryBox(query: sut),
+                    "mockQuery": QueryBox(query: mockQuery),
+                ]
             }
         }
     }
