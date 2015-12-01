@@ -19,28 +19,32 @@ class EventsQuerySpec: QuickSpec {
         let timeRange: TimeRange = (NSDate(timeIntervalSince1970: 0), NSDate(timeIntervalSince1970: 240))
         var mockQueries: [MockQuery] = []
         for calendarID in fixtureCalendarIDs {
-            let URLExtension = "/calendars/" + calendarID + "/events"
-            let mockQuery = MockQuery(HTTPMethod: "GET", URLExtension: URLExtension, parameterEncoding: "URL")
+            let expectedPath = Constants.Google.Calendars.APIVersion + "/calendars/" + calendarID + "/events"
+            let expectedParameters = Parameters(encoding: Parameters.Encoding.JSON)
+            let mockQuery = MockQuery(method: Roomguru.Method.GET, path: expectedPath, parameters: expectedParameters, service: GoogleCalendarService())
             mockQueries.append(mockQuery)
         }
-        
-        let fixtureTimeMin = queryDateFormatter().stringFromDate(timeRange.min)
-        let fixtureTimeMax = queryDateFormatter().stringFromDate(timeRange.max)
-
-        let mockQueryParameters = ["maxResults": 100, "orderBy" : "startTime", "singleEvents" : "true", "timeMax" : fixtureTimeMax, "timeMin" : fixtureTimeMin]
 
         describe ("when initializing single query with single calendar identifier") {
             let sut = EventsQuery(calendarID: fixtureCalendarIDs.first!, timeRange: timeRange)
             
-            //NGRTodo: Fix this spec
-            pending("date format is invalid") {
-                itBehavesLike("queryable") {
-                    [
-                        "sut": sut,
-                        "mockQuery": mockQueries.first!,
-                        "mockQueryParameters": mockQueryParameters
-                    ]
-                }
+            itBehavesLike("query") {
+                [
+                    "sut": QueryBox(query: sut),
+                    "mockQuery": QueryBox(query: mockQueries.first!)
+                ]
+            }
+            
+            it("should have proper order by key") {
+                expect(sut.orderBy).to(equal("startTime"))
+            }
+            
+            it("should have single events enabled") {
+                expect(sut.singleEvents).to(beTruthy())
+            }
+            
+            it("should have proper max results") {
+                expect(sut.maxResults).to(equal(100))
             }
             
             it("should have proper time max") {

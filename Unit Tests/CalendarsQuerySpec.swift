@@ -16,15 +16,17 @@ class CalendarsQuerySpec: QuickSpec {
     override func spec() {
         
         var sut: CalendarsQuery!
-        let mockQuery = MockQuery(HTTPMethod: "GET", URLExtension: "/users/me/calendarList", parameterEncoding: "URL")
+        let expectedPath = Constants.Google.Calendars.APIVersion + "/users/me/calendarList"
+        let expectedParameters = Parameters(encoding: .URL)
+        let mockQuery = MockQuery(method: Roomguru.Method.GET, path: expectedPath, parameters: expectedParameters, service: GoogleCalendarService())
         
         describe("when initializing") {
             sut = CalendarsQuery()
             
-            itBehavesLike("queryable") {
+            itBehavesLike("query") {
                 [
                     "sut": QueryBox(query: sut),
-                    "mockQuery": mockQuery,
+                    "mockQuery": QueryBox(query: mockQuery)
                 ]
             }
         }

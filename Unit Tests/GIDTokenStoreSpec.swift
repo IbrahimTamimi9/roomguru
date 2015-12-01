@@ -210,11 +210,6 @@ private extension GIDTokenStoreSpec {
         auth.setValue("Fixture Access Token", forKey: "accessToken")
         auth.setValue(date, forKey: "accessTokenExpirationDate")
         auth.setValue("Fixture Refresh Tokenn", forKey: "refreshToken")
-//        auth.accessToken = "Fixture Access Token"
-//        auth.expirationDate = date
-//        auth.tokenType = "Fixture Token Type"
-//        auth.refreshToken = "Fixture Refresh Token"
-        
         return auth
     }
 }
