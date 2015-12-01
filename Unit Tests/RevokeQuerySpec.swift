@@ -17,17 +17,18 @@ class RevokeQuerySpec: QuickSpec {
         
         let fixtureEventID = "FixtureIdentifier"
         let fixtureUserEmail = "FixtureUserEmail"
-        let URLExtension: String = "/calendars/" + fixtureUserEmail + "/events/" + fixtureEventID
+        let expectedPath: String = "/calendars/" + fixtureUserEmail + "/events/" + fixtureEventID
+        let expectedParameters = Parameters(encoding: Parameters.Encoding.URL)
+        let mockQuery = MockQuery(method: Roomguru.Method.DELETE, path: expectedPath, parameters: expectedParameters, service: GoogleCalendarService())
         var sut: RevokeQuery!
-        let mockQuery = MockQuery(HTTPMethod: "DELETE", URLExtension: URLExtension, parameterEncoding: "URL")
         
         describe("when initializing") {
             sut = RevokeQuery(eventID: fixtureEventID, userEmail: fixtureUserEmail)
             
-            itBehavesLike("queryable") {
+            itBehavesLike("query") {
                 [
-                    "sut": sut,
-                    "mockQuery": mockQuery,
+                    "sut": QueryBox(query: sut),
+                    "mockQuery": QueryBox(query: mockQuery)
                 ]
             }
         }
