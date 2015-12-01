@@ -110,11 +110,8 @@ extension NSString: URLQueryItemStringConvertible {
     var stringValue: String { return self as String }
 }
 
-<<<<<<< HEAD
 extension NSNumber: URLQueryItemStringConvertible {}
 
-=======
->>>>>>> 069cdb622bc79a040f9668e21bf5d605bf57e508
 extension UInt: URLQueryItemStringConvertible {}
 extension UInt8: URLQueryItemStringConvertible {}
 extension UInt16: URLQueryItemStringConvertible {}
