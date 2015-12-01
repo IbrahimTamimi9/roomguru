@@ -70,12 +70,12 @@ extension Parameters {
                     if NSJSONSerialization.isValidJSONObject(value) {
                         if let data = try? NSJSONSerialization.dataWithJSONObject(value, options: .PrettyPrinted),
                             stringValue = NSString(data: data, encoding: NSUTF8StringEncoding) as? String {
-                            return stringValue
+                                return stringValue
                         }
                     }
                     return value.stringValue
-                }())
-            }
+                    }())
+        }
     }
 }
 
@@ -98,13 +98,19 @@ extension URLQueryItemStringConvertible {
 }
 
 /**
-*  URLParameterStringConvertible basic types conformance
-*/
-
-/// Simplifies conversion from Parameters to NSURLQueryItem
+ *  URLParameterStringConvertible basic types conformance
+ */
+ 
+ /// Simplifies conversion from Parameters to NSURLQueryItem
 extension String: URLQueryItemStringConvertible {
     var stringValue: String { return self }
 }
+
+extension NSString: URLQueryItemStringConvertible {
+    var stringValue: String { return self as String }
+}
+
+extension NSNumber: URLQueryItemStringConvertible {}
 
 extension UInt: URLQueryItemStringConvertible {}
 extension UInt8: URLQueryItemStringConvertible {}
