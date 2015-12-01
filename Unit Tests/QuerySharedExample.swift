@@ -11,6 +11,11 @@ import Quick
 
 @testable import Roomguru
 
+class QueryBox {
+    let query: Query
+    init(query: Query) { self.query = query }
+}
+
 class MockQuery : Query {
     var method: Roomguru.Method
     var path: String
@@ -30,9 +35,10 @@ class QueryableSharedExample: QuickConfiguration {
     override class func configure(configuration: Configuration) {
         sharedExamples("query") { (sharedExampleContext: SharedExampleContext) in
             
-            var configDict: [String: AnyObject] = sharedExampleContext() as! [String: AnyObject]
+            let configDict: [String: AnyObject] = sharedExampleContext() as! [String: AnyObject]
             
-            let sut = configDict["sut"] as! Query
+            let queryBox = configDict["sut"] as! QueryBox
+            let sut = queryBox.query
             let mockQuery = configDict["mockQuery"] as! MockQuery
             let mockQueryParameters = configDict["mockQueryParameters"] as? Parameters
             

@@ -13,7 +13,7 @@ import Quick
 
 class CalendarsQuerySpec: QuickSpec {
     
-    override func spec(){
+    override func spec() {
         
         var sut: CalendarsQuery!
         let mockQuery = MockQuery(HTTPMethod: "GET", URLExtension: "/users/me/calendarList", parameterEncoding: "URL")
@@ -23,7 +23,7 @@ class CalendarsQuerySpec: QuickSpec {
             
             itBehavesLike("queryable") {
                 [
-                    "sut": sut,
+                    "sut": QueryBox(query: sut),
                     "mockQuery": mockQuery,
                 ]
             }

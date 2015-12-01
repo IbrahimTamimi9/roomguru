@@ -19,6 +19,8 @@ class GIDTokenStoreNetworkCoordinator {
                     completion(didRefresh: false, error: error)
                 } else if let _ = auth.accessToken, _ = auth.accessTokenExpirationDate {
                     completion(didRefresh: true, error: nil)
+                } else {
+                    completion(didRefresh: false, error: NSError(message: NSLocalizedString("Google authorization failed for some reason.", comment: "")))
                 }
             }
         } else {
