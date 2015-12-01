@@ -27,21 +27,35 @@ extension Requestable {
         
         var queryItems = query.parameters?.queryItems
         
+        var addHTTPBody = true
+        
+        if let _ = query as? EventQuery {
+            if queryItems?.count>0 {
+                addHTTPBody = false
+            }
+        }
+    
         if let authorizable = query as? Authorizable {
             let queryAuth = authorizable.queryAuthorization
             queryItems?.append(NSURLQueryItem(name: queryAuth.key, value: queryAuth.value))
         }
-        
+    
         let components = NSURLComponents()
         components.scheme = query.service.scheme
         components.host = query.service.host
         components.path = query.path
         components.queryItems = queryItems
         
+        //replacing needed because of passing dates with timezone
+        let urlString = components.string!.stringByReplacingOccurrencesOfString("+", withString: "%2B")
+        let destinationURL = NSURL(string: urlString)
+        
         // Intentionally force unwrapping optional to get crash when problem occur
-        let mutableRequest = NSMutableURLRequest(URL: components.URL!)
+        let mutableRequest = NSMutableURLRequest(URL: destinationURL!)
         mutableRequest.HTTPMethod = query.method.rawValue
-        mutableRequest.HTTPBody = query.parameters?.body
+        if addHTTPBody == true {
+            mutableRequest.HTTPBody = query.parameters?.body
+        }
         
         if mutableRequest.HTTPBody != nil {
             mutableRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")

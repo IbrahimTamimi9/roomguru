@@ -24,7 +24,7 @@ struct EventsQuery: Query, Authorizable {
     init(calendarID: String, timeRange: TimeRange) {
         method = .GET
         path = Constants.Google.Calendars.APIVersion + "/calendars/" + calendarID + "/events"
-        parameters = Parameters(encoding: Parameters.Encoding.JSON)
+        parameters = Parameters(encoding: Parameters.Encoding.URL)
         
         self.calendarID = calendarID
         
