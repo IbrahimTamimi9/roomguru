@@ -142,6 +142,8 @@ private extension EventsViewController {
         pickerView.delegate = self
         pickerView.dataSource = self
         
+        setupPickerView(pickerView)
+        
         if numberOfItemsInPickerView(pickerView) > 0 {
             pickerView.selectItem(0, animated: false)
         }
