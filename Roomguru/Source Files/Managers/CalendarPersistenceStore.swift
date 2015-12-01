@@ -19,11 +19,9 @@ class CalendarPersistenceStore {
         return Static.instance
     }
     
-    private(set) var calendars: [Calendar] = []
+    private(set) lazy var calendars: [Calendar] = self.fetch() ?? []
     
-    init() {
-        calendars = fetch() ?? []
-    }
+    init() {}
     
     func rooms() -> [(name: String, id: String)] {
         return calendars.filter{ $0.summary != nil && $0.identifier != nil }.map{ (name: $0.name ?? $0.summary!, id: $0.identifier!) }
