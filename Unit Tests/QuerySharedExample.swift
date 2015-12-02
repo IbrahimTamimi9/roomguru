@@ -78,7 +78,7 @@ class QueryableSharedExample: QuickConfiguration {
 
 func queryDateFormatter() -> NSDateFormatter {
     let formatter: NSDateFormatter = NSDateFormatter()
-    formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.ZZZ"
+    formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZZZ"
     formatter.timeZone = NSTimeZone.localTimeZone()
     return formatter
 }

@@ -18,9 +18,9 @@ class CalendarEntrySpec: QuickSpec {
         
         let fixtureCalendarID = "FixtureCalendarID"
         
-        let mockEventFirst = self.mockedEvent("FirstFixtureID", startDate: "2015-04-24T01:00:00.+0100", endDate: "2015-04-24T01:30:00.+0100")
-        let mockEventSecond = self.mockedEvent("SecondFixtureID", startDate: "2015-08-24T01:00:00.+0100", endDate: "2015-08-24T01:30:00.+0100")
-        let mockEventThird = self.mockedEvent("ThirdFixtureID", startDate: "2015-06-24T01:00:00.+0100", endDate: "2015-06-24T01:30:00.+0100")
+        let mockEventFirst = self.mockedEvent("FirstFixtureID", startDate: "2015-04-24T01:00:00+0100", endDate: "2015-04-24T01:30:00+0100")
+        let mockEventSecond = self.mockedEvent("SecondFixtureID", startDate: "2015-08-24T01:00:00+0100", endDate: "2015-08-24T01:30:00+0100")
+        let mockEventThird = self.mockedEvent("ThirdFixtureID", startDate: "2015-06-24T01:00:00+0100", endDate: "2015-06-24T01:30:00+0100")
         
         let mockEvents = [mockEventFirst, mockEventSecond, mockEventThird]
         

@@ -73,7 +73,7 @@ class ModelObjectSharedExampleConfiguration: QuickConfiguration {
                     var localTimeZone: NSTimeZone!
                     
                     beforeEach {
-                        expectedDateFormat = "yyyy-MM-dd'T'HH:mm:ss.ZZZZZ"
+                        expectedDateFormat = "yyyy-MM-dd'T'HH:mm:ssZZZ"
                         localTimeZone = NSTimeZone.localTimeZone()
                     }
                     

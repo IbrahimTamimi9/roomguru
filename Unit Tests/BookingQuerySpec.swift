@@ -42,7 +42,7 @@ class BookingQuerySpec: QuickSpec {
         describe("when initializing with calendar entry") {
             
             let mockCalendarEntry = CalendarEntry(calendarID: self.fixtureCalendarID, event: self.mockedEvent())
-            let expectedPath = "/calendars/primary/events/" + self.fixtureEventID
+            let expectedPath = "/calendar/v3/calendars/primary/events/" + self.fixtureEventID
             let expectedParameters = Parameters(encoding: Parameters.Encoding.JSON)
             let mockQuery = MockQuery(method: Roomguru.Method.PUT, path: expectedPath, parameters: expectedParameters, service: GoogleCalendarService())
             
@@ -62,7 +62,7 @@ class BookingQuerySpec: QuickSpec {
             freeEvent.setCustomSummary(self.fixtureSummary)
             let fixtureFreeCalendarEntry = CalendarEntry(calendarID: self.fixtureCalendarID, event: freeEvent)
             
-            let expectedPath = "/calendars/primary/events"
+            let expectedPath = "/calendar/v3/calendars/primary/events"
             let expectedParameters = Parameters(encoding: Parameters.Encoding.JSON)
             let mockQuery = MockQuery(method: Roomguru.Method.POST, path: expectedPath, parameters: expectedParameters, service: GoogleCalendarService())
             

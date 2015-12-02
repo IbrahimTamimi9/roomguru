@@ -145,8 +145,8 @@ private extension EventSpec {
             "summary" : "Fixture Summary",
             "status" : EventStatus.Confirmed.rawValue,
             "htmlLink" : "Fixture HTML Link",
-            "start" : ["dateTime" : "2015-04-24T01:00:00.-0700"],
-            "end" : ["dateTime" : "2015-04-24T01:01:00.-0700"],
+            "start" : ["dateTime" : "2015-04-24T01:00:00-0700"],
+            "end" : ["dateTime" : "2015-04-24T01:01:00-0700"],
             "attendees" : [
                 [
                     "email" : "Fixture Email Address",

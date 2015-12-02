@@ -188,8 +188,8 @@ private extension EditEventViewModelSpec {
             "summary" : "Fixture summary",
             "status" : "confirmed",
             "htmlLink" : "",
-            "start" : ["dateTime" : "2015-04-24T01:00:00.-0700"],
-            "end" : ["dateTime" : "2015-04-24T01:30:00.-0700"],
+            "start" : ["dateTime" : "2015-04-24T01:00:00-0700"],
+            "end" : ["dateTime" : "2015-04-24T01:30:00-0700"],
             "attendees" : [
                 mockedAttendeeJSONWithName("FixtureName.1", email: "FixtureEmail.1", status: .Awaiting),
                 mockedAttendeeJSONWithName("FixtureName.2", email: "FixtureEmail.2", status: .Going),
