@@ -91,7 +91,6 @@ class GIDTokenStoreSpec: QuickSpec {
 
                 override func refreshAccessToken(completion: (didRefresh: Bool, error: NSError?) -> Void) {
                     let expirationDate = NSDate(timeIntervalSince1970: 1000)
-                    let tokenInfo = (accessToken: "Fixture New Access Token", expirationDate: expirationDate)
                     completion(didRefresh: false, error: nil)
                 }
             }
