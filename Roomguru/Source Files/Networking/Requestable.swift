@@ -76,7 +76,7 @@ extension Requestable {
                 return
             }
             
-            if let responseData = data {
+            if let responseData = data where data?.length>0 {
                 var swiftyJSON: JSON? = nil
                 var serializationError: NSError?
                 

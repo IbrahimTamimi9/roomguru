@@ -16,6 +16,6 @@ struct RevokeQuery: Query {
     let service: SecureNetworkService = GoogleCalendarService()
     
     init(eventID: String, userEmail: String) {
-        path = "/calendars/" + userEmail + "/events/" + eventID
+        path = Constants.Google.Calendars.APIVersion + "/calendars/" + userEmail + "/events/" + eventID
     }
 }
