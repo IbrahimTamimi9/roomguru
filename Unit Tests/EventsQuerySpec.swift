@@ -20,8 +20,12 @@ class EventsQuerySpec: QuickSpec {
         var mockQueries: [MockQuery] = []
         for calendarID in fixtureCalendarIDs {
             let expectedPath = Constants.Google.Calendars.APIVersion + "/calendars/" + calendarID + "/events"
-            var expectedParameters = Parameters(encoding: Parameters.Encoding.JSON)
+            var expectedParameters = Parameters(encoding: Parameters.Encoding.URL)
+            expectedParameters["timeMax"] = "1970-01-01T01:04:00+0100"
+            expectedParameters["singleEvents"] = "true"
             expectedParameters["maxResults"] = 100
+            expectedParameters["orderBy"] = "startTime"
+            expectedParameters["timeMin"] = "1970-01-01T01:00:00+0100"
             let mockQuery = MockQuery(method: Roomguru.Method.GET, path: expectedPath, parameters: expectedParameters, service: GoogleCalendarService())
             mockQueries.append(mockQuery)
         }
