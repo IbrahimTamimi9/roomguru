@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import AFNetworking
 import PKHUD
 
 class EventDetailsViewController: UIViewController {
@@ -105,7 +104,10 @@ extension EventDetailsViewController: UITableViewDataSource {
             cell.statusLabel.hidden = (indexPath.section == 2 || indexPath.section == 1)
             
             if let url = NSURL.gravatarURLWithEmail(info.email) {
-                cell.avatarView.imageView.setImageWithURL(url)
+                let gravatarImageProvider = GravatarImageProvider()
+                gravatarImageProvider.getImageFromUrl(url) { (image) -> Void in
+                    cell.avatarView.imageView.image = image
+                }
             }
             
             return cell
