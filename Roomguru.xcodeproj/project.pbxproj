@@ -83,7 +83,6 @@
 		5E569DCD1AEFA0E6009F8EC0 /* WeekCarouselFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E569DCC1AEFA0E6009F8EC0 /* WeekCarouselFlowLayout.swift */; };
 		5E569DCF1AEFA375009F8EC0 /* DayCarouselCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E569DCE1AEFA375009F8EC0 /* DayCarouselCell.swift */; };
 		5E569DD21AF01C42009F8EC0 /* EventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E569DD11AF01C42009F8EC0 /* EventsViewController.swift */; };
-		5E63A1E31B25DA160059D569 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E63A1E21B25DA160059D569 /* Constants.swift */; };
 		5E6759CD1AC5BDEF008AFF61 /* FontAwesome.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5E6759CC1AC5BDEF008AFF61 /* FontAwesome.otf */; };
 		5E67FE631AE904B5003AB827 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EAFD72F1AAF261E00B75582 /* AddressBook.framework */; };
 		5E67FE641AE904B8003AB827 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EAFD7311AAF262400B75582 /* AssetsLibrary.framework */; };
@@ -232,6 +231,8 @@
 		BFE566081AE133F800B935BF /* GroupItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE566071AE133F800B935BF /* GroupItem.swift */; };
 		BFE566101AE15B2400B935BF /* DateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE5660F1AE15B2400B935BF /* DateCell.swift */; };
 		BFECD1111AC0AF5100F60086 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFECD1101AC0AF5100F60086 /* Request.swift */; };
+		F09B2C081C15804D007E3009 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F09B2C071C15804D007E3009 /* Constants.swift */; };
+		F09B2C0A1C1580EE007E3009 /* GravatarImageProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F09B2C091C1580EE007E3009 /* GravatarImageProvider.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -299,7 +300,6 @@
 		5E569DCC1AEFA0E6009F8EC0 /* WeekCarouselFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WeekCarouselFlowLayout.swift; path = "Roomguru/Source Files/Layouts/WeekCarouselFlowLayout.swift"; sourceTree = SOURCE_ROOT; };
 		5E569DCE1AEFA375009F8EC0 /* DayCarouselCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DayCarouselCell.swift; path = "Roomguru/Source Files/Views/CollectionCells/DayCarouselCell.swift"; sourceTree = SOURCE_ROOT; };
 		5E569DD11AF01C42009F8EC0 /* EventsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventsViewController.swift; path = "Roomguru/Source Files/ViewControllers/EventsViewController.swift"; sourceTree = SOURCE_ROOT; };
-		5E63A1E21B25DA160059D569 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = "Roomguru/Source Files/Constants.swift"; sourceTree = SOURCE_ROOT; };
 		5E6759CC1AC5BDEF008AFF61 /* FontAwesome.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = FontAwesome.otf; path = Roomguru/Resources/FontAwesome.otf; sourceTree = SOURCE_ROOT; };
 		5E67FE721AE91220003AB827 /* UICollectionViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UICollectionViewExtensions.swift; path = "Roomguru/Source Files/Extensions/UICollectionViewExtensions.swift"; sourceTree = SOURCE_ROOT; };
 		5E67FE741AE91F8C003AB827 /* UserDiskManagerSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDiskManagerSpec.swift; sourceTree = "<group>"; };
@@ -485,6 +485,8 @@
 		BFF5D1691AF8E84600C40B76 /* UIImageTestExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageTestExtensions.swift; sourceTree = "<group>"; };
 		BFFB51391AED87B30065F051 /* ListViewModelSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewModelSpec.swift; sourceTree = "<group>"; };
 		E863DC0075B8561A39153AA0 /* Pods_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F09B2C071C15804D007E3009 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = "Roomguru/Source Files/Constants.swift"; sourceTree = SOURCE_ROOT; };
+		F09B2C091C1580EE007E3009 /* GravatarImageProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GravatarImageProvider.swift; path = "Roomguru/Source Files/Managers/GravatarImageProvider.swift"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -825,7 +827,7 @@
 			isa = PBXGroup;
 			children = (
 				5E8A7EEA1AA9CB610018F432 /* AppDelegate.swift */,
-				5E63A1E21B25DA160059D569 /* Constants.swift */,
+				F09B2C071C15804D007E3009 /* Constants.swift */,
 				5ED4C76F1ACC3DC80084E52F /* Defines.swift */,
 				5E8F93B11B21BDD000C4A4B5 /* TimelineConfiguration.swift */,
 				BFF755201AE52C4B00F68DB9 /* Protocols */,
@@ -943,6 +945,7 @@
 		5E769F071ACEDC200061289D /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				F09B2C091C1580EE007E3009 /* GravatarImageProvider.swift */,
 				BF7FB4511BFF38D400309B4B /* GIDProfileProvider.swift */,
 				BF7FB4521BFF38D400309B4B /* GIDTokenStore.swift */,
 				BF7FB4531BFF38D400309B4B /* GIDTokenStoreNetworkCoordinator.swift */,
@@ -1433,6 +1436,7 @@
 				5E8A31021AC5B13500E31DD3 /* EventDetailsViewModel.swift in Sources */,
 				5EFE00F51ADE79210083FB8E /* UIViewExtensions.swift in Sources */,
 				BF527C1F1AB1D53700A43D35 /* Calendar.swift in Sources */,
+				F09B2C0A1C1580EE007E3009 /* GravatarImageProvider.swift in Sources */,
 				5E6B40AE1AC947B1006C47EE /* NSAttributedStringExtensions.swift in Sources */,
 				BF7FB45A1C00938300309B4B /* SecureNetworkService.swift in Sources */,
 				5EBCB76B1ACAA67F001F6D18 /* HeaderLabel.swift in Sources */,
@@ -1468,7 +1472,6 @@
 				BF4F2DF81ADC0A0500834B60 /* GroupedListViewModel.swift in Sources */,
 				5EF4C7C11AEE33C50050201A /* SettingsStore.swift in Sources */,
 				BF8077361AC93F7500B75096 /* BookingConfirmationViewController.swift in Sources */,
-				5E63A1E31B25DA160059D569 /* Constants.swift in Sources */,
 				2164E7E91B1EF49200B27A91 /* EditEventNetworkCooperator.swift in Sources */,
 				7B91D6EB1AC01E0E0080DD91 /* BookingManager.swift in Sources */,
 				BF49CC5B1B00F2F500ACAEC1 /* MaskingViewController.swift in Sources */,
@@ -1519,6 +1522,7 @@
 				BF527C1B1AB1CFAE00A43D35 /* TabBarController.swift in Sources */,
 				BF4F2DF41ADBEE3600834B60 /* EditEventViewController.swift in Sources */,
 				5E3871941AB065B800C7FEE8 /* SettingsViewController.swift in Sources */,
+				F09B2C081C15804D007E3009 /* Constants.swift in Sources */,
 				5E75F3831AF3F8AB00D1F23B /* ButtonCell.swift in Sources */,
 				5EDEACF11ADFD22100C4351B /* StickyExpandableFlowLayout.swift in Sources */,
 				5E15F13F1ADBE28A00E1F8BC /* GIDAuthenticator.swift in Sources */,

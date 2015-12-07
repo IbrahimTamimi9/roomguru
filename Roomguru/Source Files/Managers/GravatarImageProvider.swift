@@ -9,17 +9,13 @@
 import Foundation
 import Async
 
-class GravatarImageProvider {
+final class GravatarImageProvider {
     
-    private let gravatarImagesDirectory = "/GravatarImages/"
-    
-    private let fileExtension = ".jpg"
-    
-    func getImageFromUrl(url: NSURL, completion: (image: UIImage?) -> Void){
+    class func imageForURL(url: NSURL, completion: (image: UIImage?) -> Void){
         
         let imageName = parseURLToImageFileName(url)
         
-        if let imageFromDisk = getImageFromDisk(imageName) {
+        if let imageFromDisk = FileCache.cachedImage(imageName) {
             completion(image: imageFromDisk)
         }
         
@@ -29,34 +25,43 @@ class GravatarImageProvider {
                 let image = UIImage(data: downloadedData)
                 
                 Async.background {
-                    self.saveImageToDisk(downloadedData, imageName: imageName)
-                    }.main {
-                        completion(image: image)
+                    FileCache.cacheImage(downloadedData, imageName: imageName)
+                }.main {
+                    completion(image: image)
                 }
+            }
+            else {
+                completion(image: nil)
             }
         }.resume()
     }
     
-    // MARK: Disk operations
-    
-    func getImageFromDisk(imageName: String) -> UIImage? {
-        let filePath = NSHomeDirectory().stringByAppendingString(gravatarImagesDirectory+imageName+fileExtension)
-        
-        if let imageData = NSData(contentsOfFile: filePath) {
-            return UIImage(data: imageData)
-        }
-        
-        return nil
-    }
-    
-    func saveImageToDisk (imageData: NSData, imageName: String) {
-        let filePath = NSHomeDirectory().stringByAppendingString(gravatarImagesDirectory+imageName+fileExtension)
-        imageData.writeToFile(filePath, atomically: true)
-    }
-    
     // MARK: Image name creating
     
-    private func parseURLToImageFileName(url: NSURL) -> String {
+    private class func parseURLToImageFileName(url: NSURL) -> String {
         return url.absoluteString.md5()
+    }
+    
+    // MARK:
+    
+    private class FileCache {
+        
+        private static let GravatarImagesDirectory = "/GravatarImages/"
+        private static let FileExtension = ".jpg"
+        
+        private class func cachedImage(imageName: String) -> UIImage? {
+            let filePath = NSHomeDirectory().stringByAppendingString(GravatarImagesDirectory+imageName+FileExtension)
+            
+            if let imageData = NSData(contentsOfFile: filePath) {
+                return UIImage(data: imageData)
+            }
+            
+            return nil
+        }
+        
+        private class func cacheImage(imageData: NSData, imageName: String) {
+            let filePath = NSHomeDirectory().stringByAppendingString(GravatarImagesDirectory+imageName+FileExtension)
+            imageData.writeToFile(filePath, atomically: true)
+        }
     }
 }
