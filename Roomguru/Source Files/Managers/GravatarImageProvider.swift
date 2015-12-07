@@ -42,7 +42,7 @@ final class GravatarImageProvider {
         return url.absoluteString.md5()
     }
     
-    // MARK:
+    // MARK: Image cache
     
     private class FileCache {
         
