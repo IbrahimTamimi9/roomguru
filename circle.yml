@@ -30,10 +30,6 @@ dependencies:
     - carthage bootstrap
     - carthage update
 
-checkout:
-  pre:
-    - curl -L https://raw.githubusercontent.com/netguru/review/master/check.rb | ruby
-
 test:
   override:
     - bundle exec rake test-unit
